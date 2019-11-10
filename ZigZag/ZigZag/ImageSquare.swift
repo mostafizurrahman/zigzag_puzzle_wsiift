@@ -86,6 +86,9 @@ class ImageSquare: NSObject {
         return self.bottomLine
     }
     
+    func createSurface(){
+        
+    }
     
     func toString(){
         print("top \(self.topLine.rawValue) left \(self.leftLine.rawValue) bottom \(self.bottomLine.rawValue) right \(self.rightLine.rawValue)")

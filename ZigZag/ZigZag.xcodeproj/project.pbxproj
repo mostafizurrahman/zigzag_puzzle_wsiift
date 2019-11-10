@@ -18,6 +18,7 @@
 		BE6A5ACB237744880097FAF8 /* ImageSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6A5AC9237744880097FAF8 /* ImageSquare.swift */; };
 		BE6A5ACC237744880097FAF8 /* ImageSquareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6A5AC8237744880097FAF8 /* ImageSquareHandler.swift */; };
 		BE6A5ACD237744880097FAF8 /* SquareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6A5ACA237744880097FAF8 /* SquareType.swift */; };
+		BE6A5ACF237748130097FAF8 /* ViewSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6A5ACE237748130097FAF8 /* ViewSquare.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		BE6A5AC8237744880097FAF8 /* ImageSquareHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSquareHandler.swift; sourceTree = "<group>"; };
 		BE6A5AC9237744880097FAF8 /* ImageSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSquare.swift; sourceTree = "<group>"; };
 		BE6A5ACA237744880097FAF8 /* SquareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareType.swift; sourceTree = "<group>"; };
+		BE6A5ACE237748130097FAF8 /* ViewSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSquare.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,14 +109,15 @@
 			children = (
 				BE6A5A9823773D5D0097FAF8 /* AppDelegate.swift */,
 				BE6A5A9A23773D5D0097FAF8 /* SceneDelegate.swift */,
-				BE6A5AC9237744880097FAF8 /* ImageSquare.swift */,
-				BE6A5AC8237744880097FAF8 /* ImageSquareHandler.swift */,
 				BE6A5ACA237744880097FAF8 /* SquareType.swift */,
 				BE6A5A9C23773D5D0097FAF8 /* ViewController.swift */,
 				BE6A5A9E23773D5D0097FAF8 /* Main.storyboard */,
 				BE6A5AA123773D5E0097FAF8 /* Assets.xcassets */,
 				BE6A5AA323773D5E0097FAF8 /* LaunchScreen.storyboard */,
 				BE6A5AA623773D5E0097FAF8 /* Info.plist */,
+				BE6A5AC9237744880097FAF8 /* ImageSquare.swift */,
+				BE6A5ACE237748130097FAF8 /* ViewSquare.swift */,
+				BE6A5AC8237744880097FAF8 /* ImageSquareHandler.swift */,
 			);
 			path = ZigZag;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				BE6A5ACB237744880097FAF8 /* ImageSquare.swift in Sources */,
 				BE6A5A9D23773D5D0097FAF8 /* ViewController.swift in Sources */,
+				BE6A5ACF237748130097FAF8 /* ViewSquare.swift in Sources */,
 				BE6A5ACC237744880097FAF8 /* ImageSquareHandler.swift in Sources */,
 				BE6A5A9923773D5D0097FAF8 /* AppDelegate.swift in Sources */,
 				BE6A5ACD237744880097FAF8 /* SquareType.swift in Sources */,
