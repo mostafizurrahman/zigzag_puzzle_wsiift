@@ -8,15 +8,18 @@
 
 import UIKit
 
-class PuzzleImageHandler: NSObject {
+class ImageHandler: NSObject {
 
     fileprivate var dimension:Int = -1
     fileprivate var contentImage:UIImage!
     fileprivate var drawingContext:CGContext?
     fileprivate var slicingContext:CGContext?
-    fileprivate var slicingPointer:UnsafeMutablePointer<UInt32>?
-    fileprivate var drawingPointer:UnsafeMutablePointer<UInt32>?
-    
+    fileprivate var slicingPointer:UnsafeMutablePointer<UInt8>?
+    fileprivate var drawingPointer:UnsafeMutablePointer<UInt8>?
+    fileprivate var scaleFactor:CGFloat = 0.0
+    fileprivate var sourceWidth:Int = 0
+    fileprivate var sliceWidth:Int = 0
+    fileprivate var sliceRect:CGRect = .zero
     init(WithDimension dimension:Int, imagePath:String){
         super.init()
         if imagePath.contains("/") && FileManager.default.fileExists(atPath: imagePath){
@@ -33,15 +36,19 @@ class PuzzleImageHandler: NSObject {
     }
     
     func setupContext(ForRow row:Int, Column column:Int, Scale scale:CGFloat){
-        
-        let _width = Int(CGFloat(column * self.dimension) * scale * 1.5)
-        let _height = Int(CGFloat(row * self.dimension) * scale * 1.5)
+        self.scaleFactor = scale * 1.5
+        let _width = Int(CGFloat(column * self.dimension) * self.scaleFactor)
+        self.sourceWidth = _width
+        let len = CGFloat(dimension) * 0.1
+        let _height = Int(CGFloat(row * self.dimension) * self.scaleFactor)
         let bitmapInfo = CGBitmapInfo(rawValue:
                 CGImageAlphaInfo.noneSkipFirst.rawValue |
                 CGBitmapInfo.byteOrder32Little.rawValue)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let sliceWidth = _width / column
-        let sliceHeight = _height / row
+        let sliceWidth = Int(self.scaleFactor * CGFloat( self.dimension + Int(2.0 * len)))
+        let sliceHeight = sliceWidth
+        self.sliceWidth = sliceWidth
+        self.sliceRect = CGRect(x: 0, y: 0, width: self.sliceWidth, height: self.sliceWidth)
         if let context = CGContext.init(data: nil,
                                         width: sliceWidth,
                                         height: sliceHeight,
@@ -50,7 +57,9 @@ class PuzzleImageHandler: NSObject {
                                         space: colorSpace,
                                         bitmapInfo: UInt32(bitmapInfo.rawValue)) {
             self.slicingContext = context
-            self.slicingPointer = self.slicingContext?.data?.assumingMemoryBound(to: UInt32.self)
+            self.slicingPointer = self.slicingContext?.data?.assumingMemoryBound(to: UInt8.self)
+        } else {
+            assertionFailure("Slice Context is empty/not created")
         }
         
         if let context =
@@ -82,32 +91,50 @@ class PuzzleImageHandler: NSObject {
                 self.drawingContext?.draw(image, in: CGRect(x: 0, y: 0,
                                                             width: drawWidth,
                                                             height: drawHeight))
+                if let _image = self.drawingContext?.makeImage() {
+                    print("___how to___")
+                }
             }
-            self.drawingPointer = self.drawingContext?.data?.assumingMemoryBound(to: UInt32.self)
+            self.drawingPointer = self.drawingContext?.data?.assumingMemoryBound(to: UInt8.self)
         } else {
-            assertionFailure("Context is empty/not created")
+            assertionFailure("Source Context is empty/not created")
         }
     }
     
     func getImage(ForRow row:Int, Column column:Int,
                   ExtendedWidth extWidth:Int,
                   ExtendedHeight extHeight:Int)->UIImage? {
+        guard  let destinationBuffer = self.slicingPointer else {
+            return nil
+        }
+        guard let sourceBuffer = self.drawingPointer else {
+            return nil
+        }
+        assert(self.sourceWidth != 0, "Width not set yer")
         let len = Int(CGFloat(dimension) * 0.1)
-        let originX = column == 0 ? 0 : column * dimension - len
-        let originY = row == 0 ? 0 : row * dimension - len
-        for i in originX...originX+extWidth - 1{
-            for j in originY...originY+extHeight - 1{
+        let extendedWidth = Int(CGFloat(extWidth) * self.scaleFactor)
+        let extendedHeight = Int(CGFloat(extHeight) * self.scaleFactor)
+        let originX = Int( CGFloat(column == 0 ? 0 : column * dimension - len) * self.scaleFactor)
+        let originY = Int(CGFloat(row == 0 ? 0 : row * dimension - len) * self.scaleFactor)
+        self.slicingContext?.clear(self.sliceRect)
+        
+        for i in originX...originX+extendedWidth - 1{
+            for j in originY...originY+extendedHeight - 1{
                 let _startX = i - originX
                 let _startY = j - originY
-                let sliceIndex = _startX * extWidth + _startY
-                let sourceIndex = i * extWidth + extHeight
-                self.slicingPointer?.advanced(by: sliceIndex).pointee =
-                    self.drawingPointer?.advanced(by: sourceIndex).pointee ?? 0
+                let sliceIndex = (_startX * self.sliceWidth + _startY) * 4
+                let sourceIndex = (i * self.sourceWidth + j) * 4
+                for index in 0...3 {
+                    destinationBuffer.advanced(by: sliceIndex+index).pointee = sourceBuffer.advanced(by: sourceIndex+index).pointee
+                }
             }
         }
         guard let image = self.slicingContext?.makeImage() else {
             assertionFailure("Image can not be created")
             return nil
+        }
+        if row == 3 && column == 3 {
+            print("got you")
         }
         let outImage = UIImage.init(cgImage: image)
         return outImage

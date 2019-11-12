@@ -13,24 +13,27 @@ class ImageSquareHandler: NSObject {
     fileprivate let rowCount:Int
     fileprivate let columnCount:Int
     fileprivate let screenHeight:Int
-    fileprivate let drawImage:UIImage
+    fileprivate let sourceImageName:String
     fileprivate let emptySquare = ImageSquare(WithDimension: -1, Row: -1, Column: -1)
     var squareArray:[ImageSquare] = []
-    
+    var imageHandler:ImageHandler!
     init(WithRow row:Int, Column column:Int,
-         ScreenHeight height:Int, Image source:UIImage) {
+         ScreenHeight height:Int, Image source:String) {
         rowCount = row
         columnCount = column
-        drawImage = source
+        sourceImageName = source
         screenHeight = height
         super.init()
         self.configureSaqure()
     }
     
     fileprivate func configureSaqure(){
+        let dimension = self.screenHeight / self.rowCount
+        self.imageHandler = ImageHandler(WithDimension: dimension, imagePath: sourceImageName)
+        self.imageHandler.setupContext(ForRow: self.rowCount, Column: self.columnCount, Scale: UIScreen.main.scale)
         for row in 0...self.rowCount-1{
             for column in 0...self.columnCount-1{
-                let square = ImageSquare(WithDimension: self.screenHeight / self.rowCount,
+                let square = ImageSquare(WithDimension: dimension,
                                          Row: row,
                                          Column: column)
                 self.squareArray.append(square)
@@ -78,7 +81,18 @@ class ImageSquareHandler: NSObject {
                     square.setTopLine()
                 }
                 square.createSurface()
-                square.setSlice(Image: <#T##UIImage#>)
+                let extendedWidth = dimension
+                    + Int(column != self.columnCount-1 ? CGFloat(dimension) * 0.1 : 0.0)
+                    + Int(column != 0 ? CGFloat(dimension) * 0.1 : 0.0)
+                let extendedHeight = dimension
+                    + Int(row != self.rowCount-1 ? CGFloat(dimension) * 0.1 : 0.0)
+                    + Int(row != 0 ? CGFloat(dimension) * 0.1 : 0.0)
+                guard let image = imageHandler.getImage(ForRow: row, Column: column,
+                                                        ExtendedWidth: extendedWidth,
+                                                        ExtendedHeight: extendedHeight) else {
+                                                            continue
+                }
+                square.setSlice(Image: image)
                 square.toString()
             }
         }
