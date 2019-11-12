@@ -9,12 +9,20 @@
 import UIKit
 
 class ViewSquare: UIView {
+    
     fileprivate let topLine:SquareType
     fileprivate let leftLine:SquareType
     fileprivate let rightLine:SquareType
     fileprivate let bottomLine:SquareType
     fileprivate let dimension:Int
     fileprivate let drawingPath:UIBezierPath
+    var sliceImage:UIImage? {
+        didSet{
+            self.setNeedsDisplay()
+        }
+    }
+    
+    
     init(Types types:[SquareType], width:Int, frame:CGRect){
         topLine = types[0]
         leftLine = types[1]
@@ -27,6 +35,7 @@ class ViewSquare: UIView {
         self.drawRight(Path: drawingPath)
         self.drawBottom(Path: drawingPath)
         self.drawLeft(Path: drawingPath)
+        self.createMask()
     }
     
     required init?(coder: NSCoder) {
@@ -41,7 +50,16 @@ class ViewSquare: UIView {
 //        CGPoint(x:,y:)
         
         //top line
-        
+        let length = CGFloat(self.dimension) * 0.1
+        let extendedDimension = CGFloat(self.dimension) * 1.2
+        let originX = self.leftLine == .leftOut ? 0 : -length
+        let originY = self.topLine == .topOut ? 0 : -length
+        let drawRect = CGRect(x: originX, y: originY,
+                              width: extendedDimension,
+                              height: extendedDimension)
+        if let image = self.sliceImage {
+            image.draw(in: drawRect)
+        }
     }
     
     fileprivate func drawTop(Path path:UIBezierPath){
@@ -160,6 +178,14 @@ class ViewSquare: UIView {
         } else {
             path.addLine(to: CGPoint(x:0,y:originY))
         }
+    }
+    
+    fileprivate func createMask(){
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = self.drawingPath.cgPath
+        shapeLayer.masksToBounds = true
+        self.layer.mask = shapeLayer
+        self.layer.masksToBounds = true
     }
 }
 

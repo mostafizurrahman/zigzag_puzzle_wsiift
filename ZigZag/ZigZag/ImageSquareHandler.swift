@@ -77,7 +77,8 @@ class ImageSquareHandler: NSObject {
                 } else {
                     square.setTopLine()
                 }
-                
+                square.createSurface()
+                square.setSlice(Image: <#T##UIImage#>)
                 square.toString()
             }
         }

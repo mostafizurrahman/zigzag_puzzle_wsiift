@@ -17,7 +17,8 @@ class ImageSquare: NSObject {
     fileprivate var leftLine:SquareType = .stUnkown
     fileprivate var rightLine:SquareType = .stUnkown
     fileprivate var bottomLine:SquareType = .stUnkown
-    
+    fileprivate var boundingRect:CGRect = .zero
+    fileprivate var imageSquareView:ViewSquare?
     init(WithDimension dimension:Int, Row row:Int, Column column:Int){
         indexRow = row
         indexColumn = column
@@ -88,6 +89,22 @@ class ImageSquare: NSObject {
     
     func createSurface(){
         
+        let length = Int(CGFloat(self.viewDimension) * 0.1)
+        let originX = self.indexColumn * self.viewDimension - (self.leftLine == .leftOut ? length : 0)
+        let originY = self.indexRow * self.viewDimension - (self.topLine == .topOut ? length : 0)
+        let _width = self.viewDimension + (self.rightLine == .rightOut ? length : 0) + (self.leftLine == .leftOut ? length : 0)
+        let _height = self.viewDimension + (self.bottomLine == .bottomOut ? length : 0) + (self.topLine == .topOut ? length : 0)
+        self.boundingRect = CGRect(x: originX, y: originY, width: _width, height: _height)
+        self.imageSquareView = ViewSquare(Types: [self.topLine, self.leftLine, self.rightLine, self.bottomLine],
+                                     width: self.viewDimension, frame: self.boundingRect)
+    }
+    
+    func setSlice(Image image:UIImage) {
+        self.imageSquareView?.sliceImage = image
+    }
+    
+    func getSurceView()->ViewSquare?{
+        return self.imageSquareView
     }
     
     func toString(){
