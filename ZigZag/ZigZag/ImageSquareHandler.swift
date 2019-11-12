@@ -31,6 +31,7 @@ class ImageSquareHandler: NSObject {
         let dimension = self.screenHeight / self.rowCount
         self.imageHandler = ImageHandler(WithDimension: dimension, imagePath: sourceImageName)
         self.imageHandler.setupContext(ForRow: self.rowCount, Column: self.columnCount, Scale: UIScreen.main.scale)
+        let len = Int(CGFloat(dimension) * 0.1)
         for row in 0...self.rowCount-1{
             for column in 0...self.columnCount-1{
                 let square = ImageSquare(WithDimension: dimension,
@@ -81,15 +82,13 @@ class ImageSquareHandler: NSObject {
                     square.setTopLine()
                 }
                 square.createSurface()
-                let extendedWidth = dimension
-                    + Int(column != self.columnCount-1 ? CGFloat(dimension) * 0.1 : 0.0)
-                    + Int(column != 0 ? CGFloat(dimension) * 0.1 : 0.0)
-                let extendedHeight = dimension
-                    + Int(row != self.rowCount-1 ? CGFloat(dimension) * 0.1 : 0.0)
-                    + Int(row != 0 ? CGFloat(dimension) * 0.1 : 0.0)
+                let scale = self.imageHandler.getScaling()
+                let xLen = (column == 0 ? 0 : (column == self.columnCount-1 ? len * 2 : len))
+                let yLen = (row == 0 ? 0 : (row == self.rowCount-1 ? len * 2 : len))
+                let originX = Int(CGFloat(column * dimension - xLen) * scale)
+                let originY = Int(CGFloat(row * dimension - yLen) * scale)
                 guard let image = imageHandler.getImage(ForRow: row, Column: column,
-                                                        ExtendedWidth: extendedWidth,
-                                                        ExtendedHeight: extendedHeight) else {
+                                                        OriginX: originY, OriginY:originX ) else {
                                                             continue
                 }
                 square.setSlice(Image: image)

@@ -99,6 +99,7 @@ class ImageSquare: NSObject {
                                      width: self.viewDimension, frame: self.boundingRect)
     }
     
+    
     func setSlice(Image image:UIImage) {
         self.imageSquareView?.sliceImage = image
     }

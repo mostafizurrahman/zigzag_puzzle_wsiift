@@ -46,12 +46,11 @@ class ImageHandler: NSObject {
                 CGBitmapInfo.byteOrder32Little.rawValue)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let sliceWidth = Int(self.scaleFactor * CGFloat( self.dimension + Int(2.0 * len)))
-        let sliceHeight = sliceWidth
         self.sliceWidth = sliceWidth
         self.sliceRect = CGRect(x: 0, y: 0, width: self.sliceWidth, height: self.sliceWidth)
         if let context = CGContext.init(data: nil,
                                         width: sliceWidth,
-                                        height: sliceHeight,
+                                        height: sliceWidth,
                                         bitsPerComponent: 8,
                                         bytesPerRow: 4 * sliceWidth,
                                         space: colorSpace,
@@ -101,9 +100,12 @@ class ImageHandler: NSObject {
         }
     }
     
-    func getImage(ForRow row:Int, Column column:Int,
-                  ExtendedWidth extWidth:Int,
-                  ExtendedHeight extHeight:Int)->UIImage? {
+    func getScaling()->CGFloat{
+        return self.scaleFactor
+    }
+    
+    
+    func getImage(ForRow row:Int, Column column:Int, OriginX originX:Int, OriginY originY:Int)->UIImage? {
         guard  let destinationBuffer = self.slicingPointer else {
             return nil
         }
@@ -111,15 +113,8 @@ class ImageHandler: NSObject {
             return nil
         }
         assert(self.sourceWidth != 0, "Width not set yer")
-        let len = Int(CGFloat(dimension) * 0.1)
-        let extendedWidth = Int(CGFloat(extWidth) * self.scaleFactor)
-        let extendedHeight = Int(CGFloat(extHeight) * self.scaleFactor)
-        let originX = Int( CGFloat(column == 0 ? 0 : column * dimension - len) * self.scaleFactor)
-        let originY = Int(CGFloat(row == 0 ? 0 : row * dimension - len) * self.scaleFactor)
-        self.slicingContext?.clear(self.sliceRect)
-        
-        for i in originX...originX+extendedWidth - 1{
-            for j in originY...originY+extendedHeight - 1{
+        for i in originX...originX+self.sliceWidth - 1{
+            for j in originY...originY+self.sliceWidth - 1{
                 let _startX = i - originX
                 let _startY = j - originY
                 let sliceIndex = (_startX * self.sliceWidth + _startY) * 4
@@ -132,9 +127,6 @@ class ImageHandler: NSObject {
         guard let image = self.slicingContext?.makeImage() else {
             assertionFailure("Image can not be created")
             return nil
-        }
-        if row == 3 && column == 3 {
-            print("got you")
         }
         let outImage = UIImage.init(cgImage: image)
         return outImage
