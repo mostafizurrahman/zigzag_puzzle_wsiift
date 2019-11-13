@@ -18,20 +18,21 @@ class ImageSquareHandler: NSObject {
     var squareArray:[ImageSquare] = []
     var imageHandler:ImageHandler!
     init(WithRow row:Int, Column column:Int,
-         ScreenHeight height:Int, Image source:String) {
+         ScreenHeight height:Int, Image source:String, inView _view:UIView) {
         rowCount = row
         columnCount = column
         sourceImageName = source
         screenHeight = height
         super.init()
-        self.configureSaqure()
+        self.configureSaqure(ToView: _view)
     }
     
-    fileprivate func configureSaqure(){
+    fileprivate func configureSaqure(ToView _view:UIView){
         let dimension = self.screenHeight / self.rowCount
         self.imageHandler = ImageHandler(WithDimension: dimension, imagePath: sourceImageName)
         self.imageHandler.setupContext(ForRow: self.rowCount, Column: self.columnCount, Scale: UIScreen.main.scale)
         let len = Int(CGFloat(dimension) * 0.1)
+        let screenWidth = self.screenHeight * self.columnCount / self.rowCount
         for row in 0...self.rowCount-1{
             for column in 0...self.columnCount-1{
                 let square = ImageSquare(WithDimension: dimension,
@@ -81,7 +82,7 @@ class ImageSquareHandler: NSObject {
                 } else {
                     square.setTopLine()
                 }
-                square.createSurface()
+                square.createSurface(ToView:_view, parentWidth: screenWidth, parentHeight: self.screenHeight)
                 let scale = self.imageHandler.getScaling()
                 let xLen = (column == 0 ? 0 : (column == self.columnCount-1 ? len * 2 : len))
                 let yLen = (row == 0 ? 0 : (row == self.rowCount-1 ? len * 2 : len))

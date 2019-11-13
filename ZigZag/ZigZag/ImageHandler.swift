@@ -90,9 +90,6 @@ class ImageHandler: NSObject {
                 self.drawingContext?.draw(image, in: CGRect(x: 0, y: 0,
                                                             width: drawWidth,
                                                             height: drawHeight))
-                if let _image = self.drawingContext?.makeImage() {
-                    print("___how to___")
-                }
             }
             self.drawingPointer = self.drawingContext?.data?.assumingMemoryBound(to: UInt8.self)
         } else {

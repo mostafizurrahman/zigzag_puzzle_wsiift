@@ -35,7 +35,7 @@ class ViewSquare: UIView {
         self.drawRight(Path: drawingPath)
         self.drawBottom(Path: drawingPath)
         self.drawLeft(Path: drawingPath)
-        self.createMask()
+//        self.createMask()
     }
     
     required init?(coder: NSCoder) {
@@ -50,14 +50,25 @@ class ViewSquare: UIView {
 //        CGPoint(x:,y:)
         
         //top line
-        let length = CGFloat(self.dimension) * 0.1
-        let extendedDimension = CGFloat(self.dimension) * 1.2
-        let originX = self.leftLine == .leftOut ? 0 : -length
-        let originY = self.topLine == .topOut ? 0 : -length
-        let drawRect = CGRect(x: originX, y: originY,
-                              width: extendedDimension,
-                              height: extendedDimension)
+//        let length = CGFloat(self.dimension) * 0.1
+//        let extendedDimension = CGFloat(self.dimension) * 1.2
+//        var originX = -length
+//        if self.leftLine == .leftEdge {
+//            originX = 0
+//        } else if self.rightLine == .rightEdge {
+//            originX = rect.width - extendedDimension
+//        }
+//        var originY = -length
+//        if self.topLine == .topEdge {
+//            originY = 0
+//        } else if self.bottomLine == .bottomEdge {
+//            originY = rect.height - extendedDimension
+//        }
+        let drawRect = CGRect(x: 0, y: 0,
+                              width: rect.width,
+                              height: rect.height)
         if let image = self.sliceImage {
+            self.alpha = 0.6
             image.draw(in: drawRect)
         }
     }
