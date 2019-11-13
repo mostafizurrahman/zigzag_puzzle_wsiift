@@ -35,7 +35,8 @@ class ViewSquare: UIView {
         self.drawRight(Path: drawingPath)
         self.drawBottom(Path: drawingPath)
         self.drawLeft(Path: drawingPath)
-//        self.createMask()
+        self.layer.borderColor = UIColor.red.cgColor
+        self.layer.borderWidth = 2
     }
     
     required init?(coder: NSCoder) {
@@ -51,8 +52,9 @@ class ViewSquare: UIView {
                               width: rect.width,
                               height: rect.height)
         if let image = self.sliceImage {
-            self.alpha = 0.6
+//            self.alpha = 0.6
             image.draw(in: drawRect)
+            self.createMask()
         }
     }
     
@@ -176,8 +178,9 @@ class ViewSquare: UIView {
     
     fileprivate func createMask(){
         let shapeLayer = CAShapeLayer()
+        shapeLayer.fillColor = UIColor.white.cgColor
         shapeLayer.path = self.drawingPath.cgPath
-        shapeLayer.masksToBounds = true
+        
         self.layer.mask = shapeLayer
         self.layer.masksToBounds = true
     }
