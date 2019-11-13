@@ -46,24 +46,7 @@ class ViewSquare: UIView {
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
-        // Drawing code
-//        CGPoint(x:,y:)
-        
-        //top line
-//        let length = CGFloat(self.dimension) * 0.1
-//        let extendedDimension = CGFloat(self.dimension) * 1.2
-//        var originX = -length
-//        if self.leftLine == .leftEdge {
-//            originX = 0
-//        } else if self.rightLine == .rightEdge {
-//            originX = rect.width - extendedDimension
-//        }
-//        var originY = -length
-//        if self.topLine == .topEdge {
-//            originY = 0
-//        } else if self.bottomLine == .bottomEdge {
-//            originY = rect.height - extendedDimension
-//        }
+
         let drawRect = CGRect(x: 0, y: 0,
                               width: rect.width,
                               height: rect.height)

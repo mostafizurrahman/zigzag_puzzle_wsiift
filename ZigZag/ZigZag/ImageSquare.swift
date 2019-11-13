@@ -90,14 +90,6 @@ class ImageSquare: NSObject {
     func createSurface(ToView _view:UIView, parentWidth _width:Int, parentHeight _height:Int){
         let _dimension = Int(CGFloat(self.viewDimension) * 1.2)
         let _length =  Int(CGFloat(self.viewDimension) * 0.1)
-//        let _width = self.viewDimension +  (self.rightLine == .rightOut  ? length : 0) + (self.leftLine == .leftOut ? length : 0)
-//        let _height = self.viewDimension + (self.bottomLine == .bottomOut ? length : 0) + (self.topLine == .topOut ? length : 0)
-
-        
-//        let _width = self.viewDimension +  (self.rightLine == .rightEdge  ? 0 : length) + (self.leftLine == .leftEdge ? 0 : length)
-//        let _height = self.viewDimension + (self.bottomLine == .bottomEdge ? 0 : length) + (self.topLine == .topEdge ? 0 : length)
-
-        
         let originX = self.leftLine == .leftEdge ? 0 :
             (self.rightLine == .rightEdge ? _width - _dimension
             : self.indexColumn * self.viewDimension - _length)

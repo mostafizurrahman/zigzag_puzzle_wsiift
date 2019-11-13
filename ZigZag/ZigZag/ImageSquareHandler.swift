@@ -101,7 +101,7 @@ class ImageSquareHandler: NSObject {
     
     func getNeighbouringSquare(Row row:Int, Column column:Int)->ImageSquare?{
         if row < 0 || column < 0 ||
-            row > self.rowCount || column > self.columnCount {
+            row >= self.rowCount || column >= self.columnCount {
             return nil
         }
         let index = row * self.columnCount + column
