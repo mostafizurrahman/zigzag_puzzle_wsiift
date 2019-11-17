@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B62381972E0075E20E /* AppDelegate.swift */; };
+		BE0182B92381972E0075E20E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B82381972E0075E20E /* ViewController.swift */; };
+		BE0182BC2381972E0075E20E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0182BA2381972E0075E20E /* Main.storyboard */; };
+		BE0182BE238197310075E20E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE0182BD238197310075E20E /* Assets.xcassets */; };
+		BE0182C1238197310075E20E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0182BF238197310075E20E /* LaunchScreen.storyboard */; };
+		BE0182CC238197310075E20E /* ZigazagPuzzleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182CB238197310075E20E /* ZigazagPuzzleTests.swift */; };
+		BE0182D7238197310075E20E /* ZigazagPuzzleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182D6238197310075E20E /* ZigazagPuzzleUITests.swift */; };
+		BE0182E9238197600075E20E /* ViewSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182E4238197600075E20E /* ViewSquare.swift */; };
+		BE0182EA238197600075E20E /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0182E5238197600075E20E /* sample.jpg */; };
+		BE0182EB238197600075E20E /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182E6238197600075E20E /* ImageHandler.swift */; };
+		BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182E7238197600075E20E /* ImageSquareHandler.swift */; };
+		BE0182ED238197600075E20E /* ImageSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182E8238197600075E20E /* ImageSquare.swift */; };
+		BE0182EF238198460075E20E /* SquareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182EE238198450075E20E /* SquareType.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE0182C8238197310075E20E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE0182AB2381972D0075E20E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE0182B22381972E0075E20E;
+			remoteInfo = ZigazagPuzzle;
+		};
+		BE0182D3238197310075E20E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE0182AB2381972D0075E20E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE0182B22381972E0075E20E;
+			remoteInfo = ZigazagPuzzle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE0182B32381972E0075E20E /* ZigazagPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigazagPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0182B62381972E0075E20E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE0182B82381972E0075E20E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE0182BB2381972E0075E20E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE0182BD238197310075E20E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE0182C0238197310075E20E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE0182C2238197310075E20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0182C7238197310075E20E /* ZigazagPuzzleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZigazagPuzzleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0182CB238197310075E20E /* ZigazagPuzzleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigazagPuzzleTests.swift; sourceTree = "<group>"; };
+		BE0182CD238197310075E20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0182D2238197310075E20E /* ZigazagPuzzleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZigazagPuzzleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0182D6238197310075E20E /* ZigazagPuzzleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigazagPuzzleUITests.swift; sourceTree = "<group>"; };
+		BE0182D8238197310075E20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0182E4238197600075E20E /* ViewSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewSquare.swift; path = ../../ZigZag/ZigZag/ViewSquare.swift; sourceTree = "<group>"; };
+		BE0182E5238197600075E20E /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample.jpg; path = ../../ZigZag/ZigZag/sample.jpg; sourceTree = "<group>"; };
+		BE0182E6238197600075E20E /* ImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageHandler.swift; path = ../../ZigZag/ZigZag/ImageHandler.swift; sourceTree = "<group>"; };
+		BE0182E7238197600075E20E /* ImageSquareHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSquareHandler.swift; path = ../../ZigZag/ZigZag/ImageSquareHandler.swift; sourceTree = "<group>"; };
+		BE0182E8238197600075E20E /* ImageSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSquare.swift; path = ../../ZigZag/ZigZag/ImageSquare.swift; sourceTree = "<group>"; };
+		BE0182EE238198450075E20E /* SquareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SquareType.swift; path = ../../ZigZag/ZigZag/SquareType.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE0182B02381972E0075E20E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0182C4238197310075E20E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0182CF238197310075E20E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE0182AA2381972D0075E20E = {
+			isa = PBXGroup;
+			children = (
+				BE0182B52381972E0075E20E /* ZigazagPuzzle */,
+				BE0182CA238197310075E20E /* ZigazagPuzzleTests */,
+				BE0182D5238197310075E20E /* ZigazagPuzzleUITests */,
+				BE0182B42381972E0075E20E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE0182B42381972E0075E20E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE0182B32381972E0075E20E /* ZigazagPuzzle.app */,
+				BE0182C7238197310075E20E /* ZigazagPuzzleTests.xctest */,
+				BE0182D2238197310075E20E /* ZigazagPuzzleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE0182B52381972E0075E20E /* ZigazagPuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				BE0182B62381972E0075E20E /* AppDelegate.swift */,
+				BE0182EE238198450075E20E /* SquareType.swift */,
+				BE0182B82381972E0075E20E /* ViewController.swift */,
+				BE0182BA2381972E0075E20E /* Main.storyboard */,
+				BE0182BD238197310075E20E /* Assets.xcassets */,
+				BE0182BF238197310075E20E /* LaunchScreen.storyboard */,
+				BE0182C2238197310075E20E /* Info.plist */,
+				BE0182E6238197600075E20E /* ImageHandler.swift */,
+				BE0182E8238197600075E20E /* ImageSquare.swift */,
+				BE0182E7238197600075E20E /* ImageSquareHandler.swift */,
+				BE0182E5238197600075E20E /* sample.jpg */,
+				BE0182E4238197600075E20E /* ViewSquare.swift */,
+			);
+			path = ZigazagPuzzle;
+			sourceTree = "<group>";
+		};
+		BE0182CA238197310075E20E /* ZigazagPuzzleTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE0182CB238197310075E20E /* ZigazagPuzzleTests.swift */,
+				BE0182CD238197310075E20E /* Info.plist */,
+			);
+			path = ZigazagPuzzleTests;
+			sourceTree = "<group>";
+		};
+		BE0182D5238197310075E20E /* ZigazagPuzzleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE0182D6238197310075E20E /* ZigazagPuzzleUITests.swift */,
+				BE0182D8238197310075E20E /* Info.plist */,
+			);
+			path = ZigazagPuzzleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE0182B22381972E0075E20E /* ZigazagPuzzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE0182DB238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzle" */;
+			buildPhases = (
+				BE0182AF2381972E0075E20E /* Sources */,
+				BE0182B02381972E0075E20E /* Frameworks */,
+				BE0182B12381972E0075E20E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZigazagPuzzle;
+			productName = ZigazagPuzzle;
+			productReference = BE0182B32381972E0075E20E /* ZigazagPuzzle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE0182C6238197310075E20E /* ZigazagPuzzleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE0182DE238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzleTests" */;
+			buildPhases = (
+				BE0182C3238197310075E20E /* Sources */,
+				BE0182C4238197310075E20E /* Frameworks */,
+				BE0182C5238197310075E20E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE0182C9238197310075E20E /* PBXTargetDependency */,
+			);
+			name = ZigazagPuzzleTests;
+			productName = ZigazagPuzzleTests;
+			productReference = BE0182C7238197310075E20E /* ZigazagPuzzleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE0182D1238197310075E20E /* ZigazagPuzzleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE0182E1238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzleUITests" */;
+			buildPhases = (
+				BE0182CE238197310075E20E /* Sources */,
+				BE0182CF238197310075E20E /* Frameworks */,
+				BE0182D0238197310075E20E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE0182D4238197310075E20E /* PBXTargetDependency */,
+			);
+			name = ZigazagPuzzleUITests;
+			productName = ZigazagPuzzleUITests;
+			productReference = BE0182D2238197310075E20E /* ZigazagPuzzleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE0182AB2381972D0075E20E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Mostafizur Rahman";
+				TargetAttributes = {
+					BE0182B22381972E0075E20E = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					BE0182C6238197310075E20E = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = BE0182B22381972E0075E20E;
+					};
+					BE0182D1238197310075E20E = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = BE0182B22381972E0075E20E;
+					};
+				};
+			};
+			buildConfigurationList = BE0182AE2381972D0075E20E /* Build configuration list for PBXProject "ZigazagPuzzle" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE0182AA2381972D0075E20E;
+			productRefGroup = BE0182B42381972E0075E20E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE0182B22381972E0075E20E /* ZigazagPuzzle */,
+				BE0182C6238197310075E20E /* ZigazagPuzzleTests */,
+				BE0182D1238197310075E20E /* ZigazagPuzzleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE0182B12381972E0075E20E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0182C1238197310075E20E /* LaunchScreen.storyboard in Resources */,
+				BE0182BE238197310075E20E /* Assets.xcassets in Resources */,
+				BE0182BC2381972E0075E20E /* Main.storyboard in Resources */,
+				BE0182EA238197600075E20E /* sample.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0182C5238197310075E20E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0182D0238197310075E20E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE0182AF2381972E0075E20E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0182B92381972E0075E20E /* ViewController.swift in Sources */,
+				BE0182E9238197600075E20E /* ViewSquare.swift in Sources */,
+				BE0182ED238197600075E20E /* ImageSquare.swift in Sources */,
+				BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */,
+				BE0182EF238198460075E20E /* SquareType.swift in Sources */,
+				BE0182EB238197600075E20E /* ImageHandler.swift in Sources */,
+				BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0182C3238197310075E20E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0182CC238197310075E20E /* ZigazagPuzzleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0182CE238197310075E20E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0182D7238197310075E20E /* ZigazagPuzzleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE0182C9238197310075E20E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE0182B22381972E0075E20E /* ZigazagPuzzle */;
+			targetProxy = BE0182C8238197310075E20E /* PBXContainerItemProxy */;
+		};
+		BE0182D4238197310075E20E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE0182B22381972E0075E20E /* ZigazagPuzzle */;
+			targetProxy = BE0182D3238197310075E20E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE0182BA2381972E0075E20E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE0182BB2381972E0075E20E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE0182BF238197310075E20E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE0182C0238197310075E20E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE0182D9238197310075E20E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE0182DA238197310075E20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE0182DC238197310075E20E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZ7V842VP;
+				INFOPLIST_FILE = ZigazagPuzzle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = imageapp.ZigazagPuzzle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE0182DD238197310075E20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZ7V842VP;
+				INFOPLIST_FILE = ZigazagPuzzle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = imageapp.ZigazagPuzzle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BE0182DF238197310075E20E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZ7V842VP;
+				INFOPLIST_FILE = ZigazagPuzzleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = imageapp.ZigazagPuzzleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZigazagPuzzle.app/ZigazagPuzzle";
+			};
+			name = Debug;
+		};
+		BE0182E0238197310075E20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZ7V842VP;
+				INFOPLIST_FILE = ZigazagPuzzleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = imageapp.ZigazagPuzzleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZigazagPuzzle.app/ZigazagPuzzle";
+			};
+			name = Release;
+		};
+		BE0182E2238197310075E20E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZ7V842VP;
+				INFOPLIST_FILE = ZigazagPuzzleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = imageapp.ZigazagPuzzleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZigazagPuzzle;
+			};
+			name = Debug;
+		};
+		BE0182E3238197310075E20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZ7V842VP;
+				INFOPLIST_FILE = ZigazagPuzzleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = imageapp.ZigazagPuzzleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZigazagPuzzle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE0182AE2381972D0075E20E /* Build configuration list for PBXProject "ZigazagPuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0182D9238197310075E20E /* Debug */,
+				BE0182DA238197310075E20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE0182DB238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0182DC238197310075E20E /* Debug */,
+				BE0182DD238197310075E20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE0182DE238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0182DF238197310075E20E /* Debug */,
+				BE0182E0238197310075E20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE0182E1238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0182E2238197310075E20E /* Debug */,
+				BE0182E3238197310075E20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE0182AB2381972D0075E20E /* Project object */;
+}
