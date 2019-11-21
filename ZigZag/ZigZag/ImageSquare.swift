@@ -118,3 +118,4 @@ class ImageSquare: NSObject {
         print("row \(self.indexRow) column \(self.indexColumn)")
     }
 }
+   

@@ -30,13 +30,16 @@ class ViewSquare: UIView {
         bottomLine = types[3]
         dimension = width
         drawingPath = UIBezierPath()
+        
         super.init(frame: frame)
-        self.drawTop(Path: drawingPath)
-        self.drawRight(Path: drawingPath)
-        self.drawBottom(Path: drawingPath)
-        self.drawLeft(Path: drawingPath)
+        
+        let length = CGFloat(self.dimension) * 0.1
+        var x = self.drawTop(Path: drawingPath, length: length)
+        let y = self.drawRight(Path: drawingPath, length: length, originX: x)
+        x = self.drawBottom(Path: drawingPath, length: length, originY: y)
+        self.drawLeft(Path: drawingPath, length: length, originX: x)
         self.layer.borderColor = UIColor.red.cgColor
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = 1
     }
     
     required init?(coder: NSCoder) {
@@ -52,46 +55,64 @@ class ViewSquare: UIView {
                               width: rect.width,
                               height: rect.height)
         if let image = self.sliceImage {
-//            self.alpha = 0.6
+            self.alpha = 0.6
             image.draw(in: drawRect)
             self.createMask()
         }
     }
     
-    fileprivate func drawTop(Path path:UIBezierPath){
-        let length = CGFloat(self.dimension) * 0.1
-        let originX = self.leftLine == .leftOut ? length : 0
+//    fileprivate func _drawTop(Path path:UIBezierPath){
+//        let length = CGFloat(self.dimension) * 0.1
+//        let originX = self.leftLine == .leftOut ? length : 0
+//        if topLine == .topOut{
+//
+//        }
+//    }
+    
+    
+    fileprivate func drawTop(Path path:UIBezierPath, length:CGFloat)->CGFloat{
+        let originX = self.leftLine == .leftOut ? (self.rightLine == .rightEdge ? length * 2 : length) : 0
         if topLine == .topOut{
-            path.move(to: CGPoint(x:originX,y:length))
-            path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:length))
+            let originY = self.bottomLine == .bottomEdge ? length : 0
+            path.move(to: CGPoint(x:originX, y:originY))
+            path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:originY))
             path.addCurve(to: CGPoint(x: originX + CGFloat(self.dimension) / 2.0, y: 0),
-                          controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.55,y:length*0.75),
-                          controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.25,y:length*0.25))
-            path.addCurve(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.55,y:length),
-            controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.75,y:length*0.25),
-            controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:length*0.75))
-            path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension), y:length))
+                          controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.55,y:originY + length*0.75),
+                          controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.25,y:originY + length*0.25))
+            path.addCurve(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.55,y:originY + length),
+            controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.75,y:originY + length*0.25),
+            controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:originY + length*0.75))
+            path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension), y:originY + length))
+            print("i don no")
+            
         } else if topLine == .topIn {
-            path.move(to: CGPoint(x:originX,y:0))
-            path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:0))
-            path.addCurve(to: CGPoint(x: originX + CGFloat(self.dimension) / 2.0, y: 0),
-                          controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.55,y:length*0.25),
-                          controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.25,y:length*0.75))
-            path.addCurve(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.55,y:0),
-            controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.75,y:length*0.75),
-            controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:length*0.25))
-            path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension), y:0))
+            let originY = self.bottomLine == .bottomEdge ? length : 0
+            path.move(to: CGPoint(x:originX, y:originY))
+            path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y: originY))
+            path.addCurve(to: CGPoint(x: originX + CGFloat(self.dimension) / 2.0, y: originY),
+                          controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.55,y:originY + length*0.25),
+                          controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.25,y:originY + length*0.75))
+            path.addCurve(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.55,y:originY),
+            controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.75,y:originY+length*0.75),
+            controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:originY + length*0.25))
+            path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension), y:originY))
+            print("i don no")
         } else {
             path.move(to: CGPoint(x:originX,y:0))
             path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension), y:0))
         }
+        return originX + CGFloat(self.dimension)
     }
     
-    fileprivate func drawRight(Path path:UIBezierPath){
+    fileprivate func drawRight(Path path:UIBezierPath, length:CGFloat, originX:CGFloat)->CGFloat{
+//        let originX = (self.leftLine == .leftOut ?
+//            (self.rightLine == .rightEdge ? length * 2 : length) : 0)
+//            + CGFloat(self.dimension)
+        let originY = (self.topLine == .topOut ? length : 0) +
+            (self.bottomLine == .bottomEdge ? length : 0)
         
-        let length = CGFloat(self.dimension) * 0.1
-        let originX = self.leftLine == .leftOut ? length + CGFloat(self.dimension) : CGFloat(self.dimension)
-        let originY = self.topLine == .topOut ? length : 0
+//        let originX = self.leftLine == .leftOut ? length + CGFloat(self.dimension) : CGFloat(self.dimension)
+//        let originY = self.topLine == .topOut ? length : 0
         if self.rightLine == .rightOut {
             path.addLine(to: CGPoint(x:originX, y:originY + CGFloat(self.dimension) * 0.45))
             path.addCurve(to: CGPoint(x: originX + length, y: originY + CGFloat(self.dimension) / 2.0),
@@ -115,17 +136,16 @@ class ViewSquare: UIView {
         } else {
             path.addLine(to: CGPoint(x:originX, y: originY+CGFloat(self.dimension)))
         }
+        return originY
     }
     
-    fileprivate func drawBottom(Path path:UIBezierPath){
+    fileprivate func drawBottom(Path path:UIBezierPath, length:CGFloat, originY:CGFloat)->CGFloat{
         
-        let length = CGFloat(self.dimension) * 0.1
-        let originX = self.leftLine == .leftOut ? length : 0
-        let originY = self.topLine == .topOut ? length : 0
+        let originX = (self.leftLine == .leftOut ? length : 0) + (self.rightLine == .rightEdge ? length : 0)
         if self.bottomLine == .bottomOut {
             
             path.addLine(to: CGPoint(x:originX+CGFloat(self.dimension)*0.55, y: originY+CGFloat(self.dimension)))
-            path.addCurve(to: CGPoint(x:originX + CGFloat(self.dimension) / 2.0, y: originY+CGFloat(self.dimension)),
+            path.addCurve(to: CGPoint(x:originX + CGFloat(self.dimension) / 2.0, y: originY+CGFloat(self.dimension) + length),
                           controlPoint1: CGPoint(x:originX+CGFloat(self.dimension)*0.45, y: originY+CGFloat(self.dimension)+length*0.25),
                           controlPoint2: CGPoint(x:originX+CGFloat(self.dimension)*0.75, y: originY+CGFloat(self.dimension)+length*0.75))
             
@@ -147,32 +167,36 @@ class ViewSquare: UIView {
         } else {
             path.addLine(to: CGPoint(x:originX, y:originY+CGFloat(self.dimension)))
         }
+        return originX
     }
     
-    fileprivate func drawLeft(Path path:UIBezierPath){
+    fileprivate func drawLeft(Path path:UIBezierPath, length:CGFloat, originX:CGFloat){
         
-        let length = CGFloat(self.dimension) * 0.1
-        let originY = self.topLine == .topOut ? length : 0
+        
         if leftLine == .leftOut {
-            path.addLine(to: CGPoint(x:length,y:originY + CGFloat(self.dimension) * 0.55))
-            path.addCurve(to: CGPoint(x: 0, y: originY + CGFloat(self.dimension) / 2.0),
-                          controlPoint1: CGPoint(x:length*0.75, y:originY + CGFloat(self.dimension) * 0.45),
-                          controlPoint2: CGPoint(x:length*0.25, y:originY + CGFloat(self.dimension) * 0.75))
-            path.addCurve(to: CGPoint(x: length, y: originY + CGFloat(self.dimension) * 0.45),
-            controlPoint1: CGPoint(x:length*0.25, y:originY + CGFloat(self.dimension) * 0.25),
-            controlPoint2: CGPoint(x:length*0.75, y:originY + CGFloat(self.dimension) * 0.55))
-            path.addLine(to: CGPoint(x:length,y:originY))
+            let originY = self.bottomLine == .bottomEdge ? length * 2 : self.topLine == .topOut ? length : 0
+            path.addLine(to: CGPoint(x:originX,y:originY + CGFloat(self.dimension) * 0.55))
+            path.addCurve(to: CGPoint(x: originX-length, y: originY + CGFloat(self.dimension) / 2.0),
+                          controlPoint1: CGPoint(x:originX-length*0.25, y:originY + CGFloat(self.dimension) * 0.45),
+                          controlPoint2: CGPoint(x:originX-length*0.75, y:originY + CGFloat(self.dimension) * 0.75))
+            path.addCurve(to: CGPoint(x: originX, y: originY + CGFloat(self.dimension) * 0.45),
+            controlPoint1: CGPoint(x:originX-length*0.75, y:originY + CGFloat(self.dimension) * 0.25),
+            controlPoint2: CGPoint(x:originX-length*0.25, y:originY + CGFloat(self.dimension) * 0.55))
+            path.addLine(to: CGPoint(x:originX,y:originY))
         } else if leftLine == .leftIn {
-            path.addLine(to: CGPoint(x:length,y:originY + CGFloat(self.dimension) * 0.45))
-            path.addCurve(to: CGPoint(x: length, y: originY + CGFloat(self.dimension) / 2.0),
-                          controlPoint1: CGPoint(x:length*0.25, y:originY + CGFloat(self.dimension) * 0.45),
-                          controlPoint2: CGPoint(x:length*0.75, y:originY + CGFloat(self.dimension) * 0.25))
-            path.addCurve(to: CGPoint(x: length, y: originY + CGFloat(self.dimension) * 0.45),
-            controlPoint1: CGPoint(x:length*0.25, y:originY + CGFloat(self.dimension) * 0.25),
-            controlPoint2: CGPoint(x:length*0.75, y:originY + CGFloat(self.dimension) * 0.55))
-            path.addLine(to: CGPoint(x:0,y:originY))
+            let originY = (self.bottomLine == .bottomEdge ? length : 0)
+                + (self.topLine == .topOut ? length : 0)
+            path.addLine(to: CGPoint(x:originX,y:originY + CGFloat(self.dimension) * 0.55))
+            path.addCurve(to: CGPoint(x:originX+length, y: originY + CGFloat(self.dimension) / 2.0),
+                          controlPoint1: CGPoint(x:originX+length*0.25, y:originY + CGFloat(self.dimension) * 0.45),
+                          controlPoint2: CGPoint(x:originX+length*0.75, y:originY + CGFloat(self.dimension) * 0.75))
+            path.addCurve(to: CGPoint(x: originX, y: originY + CGFloat(self.dimension) * 0.45),
+            controlPoint1: CGPoint(x:originX+length*0.75, y:originY + CGFloat(self.dimension) * 0.25),
+            controlPoint2: CGPoint(x:originX+length*0.25, y:originY + CGFloat(self.dimension) * 0.55))
+            path.addLine(to: CGPoint(x:originX,y:originY))
         } else {
-            path.addLine(to: CGPoint(x:0,y:originY))
+            let originY = self.bottomLine == .bottomEdge ? length : 0
+            path.addLine(to: CGPoint(x:originX,y:originY))
         }
     }
     
@@ -180,7 +204,9 @@ class ViewSquare: UIView {
         let shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = UIColor.white.cgColor
         shapeLayer.path = self.drawingPath.cgPath
-        
+        shapeLayer.strokeColor = UIColor.gray.cgColor
+        shapeLayer.strokeEnd = 1
+        shapeLayer.strokeStart = 0
         self.layer.mask = shapeLayer
         self.layer.masksToBounds = true
     }
