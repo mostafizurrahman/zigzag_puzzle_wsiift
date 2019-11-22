@@ -40,6 +40,12 @@ class ViewSquare: UIView {
         self.drawLeft(Path: drawingPath, length: length, originX: x)
         self.layer.borderColor = UIColor.red.cgColor
         self.layer.borderWidth = 1
+        self.isUserInteractionEnabled = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print("\(self.bounds)")
     }
     
     required init?(coder: NSCoder) {
@@ -71,7 +77,7 @@ class ViewSquare: UIView {
     
     
     fileprivate func drawTop(Path path:UIBezierPath, length:CGFloat)->CGFloat{
-        let originX = self.leftLine == .leftOut ? (self.rightLine == .rightEdge ? length * 2 : length) : 0
+        let originX = self.leftLine == .leftOut ? length : 0 + (self.rightLine == .rightEdge ? length : 0)
         if topLine == .topOut{
             let originY = self.bottomLine == .bottomEdge ? 2*length : length
             path.move(to: CGPoint(x:originX, y:originY))
@@ -109,7 +115,7 @@ class ViewSquare: UIView {
 //            (self.rightLine == .rightEdge ? length * 2 : length) : 0)
 //            + CGFloat(self.dimension)
         let originY = (self.topLine == .topOut ? length : 0) +
-            (self.bottomLine == .bottomEdge ? length : 0)
+            (self.bottomLine == .bottomEdge ? 2*length : 0)
         
 //        let originX = self.leftLine == .leftOut ? length + CGFloat(self.dimension) : CGFloat(self.dimension)
 //        let originY = self.topLine == .topOut ? length : 0
