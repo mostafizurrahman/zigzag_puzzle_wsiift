@@ -14,3 +14,11 @@ enum SquareType: Int {
     topOut = 30, topIn = 31, bottomOut = 40 , bottomIn = 41
 }
 
+enum NeighbourType:Int {
+    
+    case none = 1004
+    case top = 1000
+    case right = 1001
+    case bottom = 1002
+    case left = 1003
+}

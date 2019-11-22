@@ -10,6 +10,7 @@ import UIKit
 
 class ViewSquare: UIView {
     
+    //#warning make all these local variables
     fileprivate let topLine:SquareType
     fileprivate let leftLine:SquareType
     fileprivate let rightLine:SquareType
@@ -23,7 +24,10 @@ class ViewSquare: UIView {
     }
     
     
-    init(Types types:[SquareType], width:Int, frame:CGRect){
+    init(Types types:[SquareType], width:Int,
+         frame:CGRect, length:CGFloat,
+         edgeType1 edge1:NeighbourType = .none,
+         edgeType2 edge2:NeighbourType = .none){
         topLine = types[0]
         leftLine = types[1]
         rightLine = types[2]
@@ -33,7 +37,51 @@ class ViewSquare: UIView {
         
         super.init(frame: frame)
         
-        let length = CGFloat(self.dimension) * 0.1
+        var topMargin:CGFloat = 0
+        var bottomMargin:CGFloat = 0
+        var leftMarging:CGFloat = 0
+        var rightMargin:CGFloat = 0
+        let len3x:CGFloat = length * 3.0
+        let len2x:CGFloat = length * 2.0
+        
+        
+        if self.topLine == .topEdge && self.leftLine == .leftEdge{
+            bottomMargin = self.bottomLine == .bottomOut ? len3x : length
+            rightMargin =  self.rightLine == .rightOut ? len3x : length
+        } else if self.topLine == .topEdge && self.rightLine == .rightEdge {
+            bottomMargin = self.bottomLine == .bottomOut ? len3x : length
+            leftMarging = self.leftLine == .leftOut ? len3x : length
+        } else if self.leftLine == .leftEdge && self.bottomLine == .bottomEdge {
+            topMargin = self.topLine == .topOut ? len3x : length
+            rightMargin = self.rightLine == .rightOut ? len3x : length
+        } else if self.rightLine == .rightEdge && self.bottomLine == .bottomEdge {
+            topMargin = self.topLine == .topOut ? len3x : length
+            leftMarging = self.leftLine == .leftOut ? len3x : length
+        } else if self.topLine == .topEdge {
+            leftMarging = self.leftLine == .leftOut ? len2x : 0
+            rightMargin = self.rightLine == .rightOut ? len2x : 0
+            bottomMargin = self.bottomLine == .bottomOut ? len2x : 0
+        } else if self.rightLine == .rightEdge {
+            leftMarging = self.leftLine == .leftOut ? len2x : 0
+            topMargin = self.topLine == .topOut ? len2x : 0
+            bottomMargin = self.bottomLine == .bottomOut ? len2x : 0
+        } else if self.bottomLine == .bottomEdge {
+            leftMarging = self.leftLine == .leftOut ? len2x : 0
+            topMargin = self.topLine == .topOut ? len2x : 0
+            rightMargin = self.rightLine == .rightOut ? len2x : 0
+        } else if self.leftLine == .leftEdge {
+            bottomMargin = self.bottomLine == .bottomOut ? len2x : 0
+            topMargin = self.topLine == .topOut ? len2x : 0
+            rightMargin = self.rightLine == .rightOut ? len2x : 0
+        } else {
+            bottomMargin = self.bottomLine == .bottomOut ? len2x : 0
+            topMargin = self.topLine == .topOut ? len2x : 0
+            rightMargin = self.rightLine == .rightOut ? len2x : 0
+            leftMarging = self.leftLine == .leftOut ? len2x : 0
+        }
+        
+        
+        
         var x = self.drawTop(Path: drawingPath, length: length)
         let y = self.drawRight(Path: drawingPath, length: length, originX: x)
         x = self.drawBottom(Path: drawingPath, length: length, originY: y)
@@ -63,21 +111,15 @@ class ViewSquare: UIView {
         if let image = self.sliceImage {
             self.alpha = 0.6
             image.draw(in: drawRect)
-            self.createMask()
+//            self.createMask()
         }
     }
     
-//    fileprivate func _drawTop(Path path:UIBezierPath){
-//        let length = CGFloat(self.dimension) * 0.1
-//        let originX = self.leftLine == .leftOut ? length : 0
-//        if topLine == .topOut{
-//
-//        }
-//    }
-    
     
     fileprivate func drawTop(Path path:UIBezierPath, length:CGFloat)->CGFloat{
-        let originX = self.leftLine == .leftOut ? length : 0 + (self.rightLine == .rightEdge ? length : 0)
+        let originX = (self.leftLine == .leftOut ? length : 0)
+            + (self.rightLine == .rightEdge ? 2*length : 0)
+       
         if topLine == .topOut{
             let originY = self.bottomLine == .bottomEdge ? 2*length : length
             path.move(to: CGPoint(x:originX, y:originY))
@@ -89,7 +131,7 @@ class ViewSquare: UIView {
             controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.75,y:originY - length*0.75),
             controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:originY - length*0.25))
             path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension), y:originY))
-            print("i don no")
+//            print("i don no")
             
         } else if topLine == .topIn {
             let originY = self.bottomLine == .bottomEdge ? length : 0
@@ -102,7 +144,7 @@ class ViewSquare: UIView {
             controlPoint1: CGPoint(x:originX + CGFloat(self.dimension) * 0.75,y:originY+length*0.75),
             controlPoint2: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:originY + length*0.25))
             path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension), y:originY))
-            print("i don no")
+//            print("i don no")
         } else {
             path.move(to: CGPoint(x:originX,y:0))
             path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension), y:0))
