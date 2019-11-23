@@ -87,21 +87,18 @@ class ImageSquare: NSObject {
         return self.bottomLine
     }
     
-    func createSurface(ToView _view:UIView, parentWidth _width:Int, parentHeight _height:Int){
-        let _dimension = Int(CGFloat(self.viewDimension) * 1.2)
-        let _length =  Int(CGFloat(self.viewDimension) * 0.1)
-        let originX = self.leftLine == .leftEdge ? 0 :
-            (self.rightLine == .rightEdge ? _width - _dimension
-            : self.indexColumn * self.viewDimension - _length)
-        let originY = self.topLine == .topEdge ? 0 :
-            (self.bottomLine == .bottomEdge ? _height - _dimension
-            : self.indexRow * self.viewDimension - _length)
-        self.boundingRect = CGRect(x: originX, y: originY, width: _dimension, height: _dimension)
+    func createSurface(ToView _view:UIView, parentWidth _width:Int, parentHeight _height:Int)->CGPoint?{
+//        let _dimension = Int() * 1.2)
+//        let _length =  Int(CGFloat(self.viewDimension) * 0.1)
+        let originX = self.indexColumn * self.viewDimension
+        let originY = self.indexRow * self.viewDimension
+        self.boundingRect = CGRect(x: originX, y: originY, width: self.viewDimension, height: self.viewDimension)
         self.imageSquareView = ViewSquare(Types: [self.topLine, self.leftLine, self.rightLine, self.bottomLine],
                                      width: self.viewDimension, frame: self.boundingRect)
         if let imageView = self.imageSquareView {
             _view.addSubview(imageView)
         }
+        return self.imageSquareView?.frame.origin
     }
     
     

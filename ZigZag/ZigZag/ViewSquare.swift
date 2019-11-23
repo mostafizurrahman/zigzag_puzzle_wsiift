@@ -16,9 +16,10 @@ class ViewSquare: UIView {
     fileprivate let bottomLine:SquareType
     fileprivate let dimension:Int
     fileprivate let drawingPath:UIBezierPath
+    fileprivate var imageView:UIImageView!
     var sliceImage:UIImage? {
         didSet{
-            self.setNeedsDisplay()
+            self.imageView.image = sliceImage
         }
     }
     
@@ -32,12 +33,15 @@ class ViewSquare: UIView {
         drawingPath = UIBezierPath()
         
         super.init(frame: frame)
+        self.imageView = UIImageView.init(frame: CGRect(origin: .zero, size: frame.size))
+        imageView.contentMode = .scaleAspectFit
+        self.addSubview(self.imageView)
         
-        let length = CGFloat(self.dimension) * 0.1
-        var x = self.drawTop(Path: drawingPath, length: length)
-        let y = self.drawRight(Path: drawingPath, length: length, originX: x)
-        x = self.drawBottom(Path: drawingPath, length: length, originY: y)
-        self.drawLeft(Path: drawingPath, length: length, originX: x)
+//        let length = CGFloat(self.dimension) * 0.1
+//        var x = self.drawTop(Path: drawingPath, length: length)
+//        let y = self.drawRight(Path: drawingPath, length: length, originX: x)
+//        x = self.drawBottom(Path: drawingPath, length: length, originY: y)
+//        self.drawLeft(Path: drawingPath, length: length, originX: x)
         self.layer.borderColor = UIColor.red.cgColor
         self.layer.borderWidth = 1
         self.isUserInteractionEnabled = true
@@ -57,14 +61,14 @@ class ViewSquare: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
 
-        let drawRect = CGRect(x: 0, y: 0,
-                              width: rect.width,
-                              height: rect.height)
-        if let image = self.sliceImage {
-            self.alpha = 0.6
-            image.draw(in: drawRect)
-            self.createMask()
-        }
+//        let drawRect = CGRect(x: 0, y: 0,
+//                              width: rect.width,
+//                              height: rect.height)
+//        if let image = self.sliceImage {
+//            self.alpha = 0.6
+//            image.draw(in: drawRect)
+//            self.createMask()
+//        }
     }
     
 //    fileprivate func _drawTop(Path path:UIBezierPath){
@@ -79,7 +83,7 @@ class ViewSquare: UIView {
     fileprivate func drawTop(Path path:UIBezierPath, length:CGFloat)->CGFloat{
         let originX = self.leftLine == .leftOut ? length : 0 + (self.rightLine == .rightEdge ? length : 0)
         if topLine == .topOut{
-            let originY = self.bottomLine == .bottomEdge ? 2*length : length
+            let originY = self.bottomLine == .bottomEdge ? 3*length : length
             path.move(to: CGPoint(x:originX, y:originY))
             path.addLine(to: CGPoint(x:originX + CGFloat(self.dimension) * 0.45,y:originY))
             path.addCurve(to: CGPoint(x: originX + CGFloat(self.dimension) / 2.0, y: originY-length),
@@ -115,7 +119,7 @@ class ViewSquare: UIView {
 //            (self.rightLine == .rightEdge ? length * 2 : length) : 0)
 //            + CGFloat(self.dimension)
         let originY = (self.topLine == .topOut ? length : 0) +
-            (self.bottomLine == .bottomEdge ? 2*length : 0)
+            (self.bottomLine == .bottomEdge ? 3*length : 0)
         
 //        let originX = self.leftLine == .leftOut ? length + CGFloat(self.dimension) : CGFloat(self.dimension)
 //        let originY = self.topLine == .topOut ? length : 0
@@ -214,7 +218,7 @@ class ViewSquare: UIView {
         shapeLayer.strokeEnd = 1
         shapeLayer.strokeStart = 0
         self.layer.mask = shapeLayer
-        self.layer.masksToBounds = true
+//        self.layer.masksToBounds = true
     }
 }
 

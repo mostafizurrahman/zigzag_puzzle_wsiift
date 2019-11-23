@@ -82,17 +82,14 @@ class ImageSquareHandler: NSObject {
                 } else {
                     square.setTopLine()
                 }
-                square.createSurface(ToView:_view, parentWidth: screenWidth, parentHeight: self.screenHeight)
-                let scale = self.imageHandler.getScaling()
-                let xLen = (column == 0 ? 0 : (column == self.columnCount-1 ? len * 2 : len))
-                let yLen = (row == 0 ? 0 : (row == self.rowCount-1 ? len * 2 : len))
-                let originX = Int(CGFloat(column * dimension - xLen) * scale)
-                let originY = Int(CGFloat(row * dimension - yLen) * scale)
-                guard let image = imageHandler.getImage(ForRow: row, Column: column,
-                                                        OriginX: originY, OriginY:originX ) else {
-                                                            continue
+                if let _ = square.createSurface(ToView:_view, parentWidth: screenWidth, parentHeight: self.screenHeight){
+                    
+                    guard let image = imageHandler.getImage(ForRow: row, Column: column) else {
+                                                                continue
+                    }
+                    square.setSlice(Image: image)
                 }
-                square.setSlice(Image: image)
+                
                 square.toString()
             }
         }
