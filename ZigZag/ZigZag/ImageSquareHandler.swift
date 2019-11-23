@@ -98,6 +98,7 @@ class ImageSquareHandler: NSObject {
                 square.setSlice(Image: image)
 //                square.toString()
             }
+            break
         }
     }
    

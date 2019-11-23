@@ -97,7 +97,7 @@ class ImageSquare: NSObject {
             : self.indexRow * self.viewDimension - length)
         self.boundingRect = CGRect(x: originX, y: originY, width: dimension, height: dimension)
         self.imageSquareView = ViewSquare(Types: [self.topLine, self.leftLine, self.rightLine, self.bottomLine],
-                                     width: self.viewDimension, frame: self.boundingRect)
+                                          width: self.viewDimension, frame: self.boundingRect, length: CGFloat(length))
         if let imageView = self.imageSquareView {
             _view.addSubview(imageView)
         }
