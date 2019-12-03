@@ -120,15 +120,15 @@ class ImageSquareHandler: NSObject {
         return nil
     }
     
-    func verify(ViewSquare square:ViewSquare, forPoint point:CGPoint)->Bool{
+    func verify(ViewSquare square:ViewSquare, forPoint point:CGPoint)->(Bool, CGRect){
         for _square in self.squareArray {
             if _square.getSurceView()?.isEqual(square) ?? false {
                 if let _container = _square.getSurface() {
-                   return _container.frame.contains(point)
+                   return (_container.frame.contains(point), _container.frame)
                 }
             }
         }
-        return false
+        return (false, .zero)
     }
 
 }

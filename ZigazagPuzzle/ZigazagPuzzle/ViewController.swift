@@ -48,8 +48,11 @@ class ViewController: UIViewController {
         super.touchesEnded(touches, with: event)
         if let point = touches.first?.location(in: self.containerView) {
             if let _view = self.draggingView {
-                let value = self.squareHandler.verify(ViewSquare: _view, forPoint: point)
-                print("__validation\n\n\(value)\n\n")
+                let (isValid, rect) = self.squareHandler.verify(ViewSquare: _view, forPoint: point)
+                print("__validation\n\n\(isValid)\n\n")
+                if isValid {
+                    _view.frame = rect
+                }
             }
         }
         
