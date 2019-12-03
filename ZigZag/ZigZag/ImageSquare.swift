@@ -93,8 +93,7 @@ class ImageSquare: NSObject {
     }
     
     func createSurface(ToView _view:UIView, parentWidth _width:Int, parentHeight _height:Int)->CGPoint?{
-//        let _dimension = Int() * 1.2)
-//        let _length =  Int(CGFloat(self.viewDimension) * 0.1)
+
         let originX = self.indexColumn * self.viewDimension
         let originY = self.indexRow * self.viewDimension
         let edges = [self.topLine, self.leftLine, self.rightLine, self.bottomLine]
@@ -105,6 +104,7 @@ class ImageSquare: NSObject {
                                      width: self.viewDimension,
                                      frame: self.boundingRect)
         if let imageView = self.imageSquareView {
+            imageView.isUserInteractionEnabled = true
             _view.addSubview(imageView)
         }
         self.imageSquareContainer = ViewSquare(Types: edges,
@@ -125,8 +125,11 @@ class ImageSquare: NSObject {
         self.imageSquareContainer?.sliceImage = image
     }
     
-    func getSurceView()->ViewSquare?{
-        return self.imageSquareView
+    func getSurceView(forPoint point:CGPoint = .zero)->ViewSquare?{
+        if point == .zero {
+            return self.imageSquareView
+        }
+        return self.imageSquareView?.frame.contains(point) ?? false ? self.imageSquareView : nil
     }
     
     func toString(){

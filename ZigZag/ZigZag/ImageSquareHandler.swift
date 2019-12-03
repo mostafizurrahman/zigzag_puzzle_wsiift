@@ -92,10 +92,10 @@ class ImageSquareHandler: NSObject {
                         square.setBorder(Image: _image)
                     }
                 }
-                
-                square.toString()
             }
         }
+        
+        
     }
    
     
@@ -110,5 +110,17 @@ class ImageSquareHandler: NSObject {
         }
         return self.emptySquare
     }
+    
+    func getView(FromPoint point:CGPoint)->ViewSquare?{
+        for _square in self.squareArray {
+            if let _view = _square.getSurceView(forPoint: point) {
+                return _view
+            }
+        }
+        return nil
+    }
 
 }
+
+
+
