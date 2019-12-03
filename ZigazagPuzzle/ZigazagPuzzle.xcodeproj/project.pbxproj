@@ -20,6 +20,7 @@
 		BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182E7238197600075E20E /* ImageSquareHandler.swift */; };
 		BE0182ED238197600075E20E /* ImageSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182E8238197600075E20E /* ImageSquare.swift */; };
 		BE0182EF238198460075E20E /* SquareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182EE238198450075E20E /* SquareType.swift */; };
+		BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE5ADD23966049000E567F /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		BE0182E7238197600075E20E /* ImageSquareHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSquareHandler.swift; path = ../../ZigZag/ZigZag/ImageSquareHandler.swift; sourceTree = "<group>"; };
 		BE0182E8238197600075E20E /* ImageSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSquare.swift; path = ../../ZigZag/ZigZag/ImageSquare.swift; sourceTree = "<group>"; };
 		BE0182EE238198450075E20E /* SquareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SquareType.swift; path = ../../ZigZag/ZigZag/SquareType.swift; sourceTree = "<group>"; };
+		BEFE5ADD23966049000E567F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				BE0182E7238197600075E20E /* ImageSquareHandler.swift */,
 				BE0182E5238197600075E20E /* sample.jpg */,
 				BE0182E4238197600075E20E /* ViewSquare.swift */,
+				BEFE5ADD23966049000E567F /* AppConstants.swift */,
 			);
 			path = ZigazagPuzzle;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				BE0182B92381972E0075E20E /* ViewController.swift in Sources */,
 				BE0182E9238197600075E20E /* ViewSquare.swift in Sources */,
 				BE0182ED238197600075E20E /* ImageSquare.swift in Sources */,
+				BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */,
 				BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */,
 				BE0182EF238198460075E20E /* SquareType.swift in Sources */,
 				BE0182EB238197600075E20E /* ImageHandler.swift in Sources */,

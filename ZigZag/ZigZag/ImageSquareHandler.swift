@@ -33,7 +33,6 @@ class ImageSquareHandler: NSObject {
         self.imageHandler.setupContext(ForRow: self.rowCount, Column: self.columnCount, Scale: UIScreen.main.scale)
         let len = Int(CGFloat(dimension) * 0.1)
         let screenWidth = self.screenHeight * self.columnCount / self.rowCount
-        let boxWidth = Int(dimension + 2 * len)
         for row in 0...self.rowCount-1{
             for column in 0...self.columnCount-1{
                 let square = ImageSquare(WithDimension: dimension,
@@ -80,25 +79,19 @@ class ImageSquareHandler: NSObject {
                         let topLine = topSquare.getBottomLine()
                         square.setLine(Type: topLine)
                     }
-                } else { 
+                } else {
                     square.setTopLine()
                 }
-                square.createSurface(ToView:_view, parentWidth: screenWidth,
-                                     parentHeight: self.screenHeight,
-                                     dimension:boxWidth, length:len)
-                let scale = self.imageHandler.getScaling()
-                let xLen = (column == 0 ? 0 : (column == self.columnCount-1 ? len * 2 : len))
-                let yLen = (row == 0 ? 0 : (row == self.rowCount-1 ? len * 2 : len))
-                let originX = Int(CGFloat(column * dimension - xLen) * scale)
-                let originY = Int(CGFloat(row * dimension - yLen) * scale)
-                guard let image = imageHandler.getImage(ForRow: row, Column: column,
-                                                        OriginX: originY, OriginY:originX ) else {
-                                                            continue
+                if let _ = square.createSurface(ToView:_view, parentWidth: screenWidth, parentHeight: self.screenHeight){
+                    
+                    guard let image = imageHandler.getImage(ForRow: row, Column: column,borderTypes: square.getBorders()) else {
+                        continue
+                    }
+                    square.setSlice(Image: image)
                 }
-                square.setSlice(Image: image)
-//                square.toString()
+                
+                square.toString()
             }
-            break
         }
     }
    
