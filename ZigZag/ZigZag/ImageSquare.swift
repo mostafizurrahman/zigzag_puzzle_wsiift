@@ -132,6 +132,10 @@ class ImageSquare: NSObject {
         return self.imageSquareView?.frame.contains(point) ?? false ? self.imageSquareView : nil
     }
     
+    func getSurface()->ViewSquare?{
+        return self.imageSquareContainer
+    }
+    
     func toString(){
         print("top \(self.topLine.rawValue) left \(self.leftLine.rawValue) bottom \(self.bottomLine.rawValue) right \(self.rightLine.rawValue)")
         print("row \(self.indexRow) column \(self.indexColumn)")

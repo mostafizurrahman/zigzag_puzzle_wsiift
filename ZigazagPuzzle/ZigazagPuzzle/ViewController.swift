@@ -46,6 +46,13 @@ class ViewController: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
+        if let point = touches.first?.location(in: self.containerView) {
+            if let _view = self.draggingView {
+                let value = self.squareHandler.verify(ViewSquare: _view, forPoint: point)
+                print("__validation\n\n\(value)\n\n")
+            }
+        }
+        
         self.draggingView = nil
     }
 

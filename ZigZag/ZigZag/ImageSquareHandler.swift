@@ -119,6 +119,17 @@ class ImageSquareHandler: NSObject {
         }
         return nil
     }
+    
+    func verify(ViewSquare square:ViewSquare, forPoint point:CGPoint)->Bool{
+        for _square in self.squareArray {
+            if _square.getSurceView()?.isEqual(square) ?? false {
+                if let _container = _square.getSurface() {
+                   return _container.frame.contains(point)
+                }
+            }
+        }
+        return false
+    }
 
 }
 
