@@ -19,6 +19,7 @@ class ImageSquare: NSObject {
     fileprivate var bottomLine:SquareType = .stUnkown
     fileprivate var boundingRect:CGRect = .zero
     fileprivate var imageSquareView:ViewSquare?
+    fileprivate var imageSquareContainer:ViewSquare?
     init(WithDimension dimension:Int, Row row:Int, Column column:Int){
         indexRow = row
         indexColumn = column
@@ -96,10 +97,20 @@ class ImageSquare: NSObject {
 //        let _length =  Int(CGFloat(self.viewDimension) * 0.1)
         let originX = self.indexColumn * self.viewDimension
         let originY = self.indexRow * self.viewDimension
-        self.boundingRect = CGRect(x: originX, y: originY, width: self.viewDimension, height: self.viewDimension)
-        self.imageSquareView = ViewSquare(Types: [self.topLine, self.leftLine, self.rightLine, self.bottomLine],
-                                     width: self.viewDimension, frame: self.boundingRect)
+        let edges = [self.topLine, self.leftLine, self.rightLine, self.bottomLine]
+        self.boundingRect = CGRect(x: originX, y: originY,
+                                   width: self.viewDimension,
+                                   height: self.viewDimension)
+        self.imageSquareView = ViewSquare(Types: edges,
+                                     width: self.viewDimension,
+                                     frame: self.boundingRect)
         if let imageView = self.imageSquareView {
+            _view.addSubview(imageView)
+        }
+        self.imageSquareContainer = ViewSquare(Types: edges,
+                                               width: self.viewDimension,
+                                               frame: self.boundingRect)
+        if let imageView = self.imageSquareContainer {
             _view.addSubview(imageView)
         }
         return self.imageSquareView?.frame.origin
@@ -108,6 +119,10 @@ class ImageSquare: NSObject {
     
     func setSlice(Image image:UIImage) {
         self.imageSquareView?.sliceImage = image
+    }
+    
+    func setBorder(Image image:UIImage)  {
+        self.imageSquareContainer?.sliceImage = image
     }
     
     func getSurceView()->ViewSquare?{

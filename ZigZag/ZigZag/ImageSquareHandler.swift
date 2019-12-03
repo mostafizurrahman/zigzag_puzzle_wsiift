@@ -31,7 +31,7 @@ class ImageSquareHandler: NSObject {
         let dimension = self.screenHeight / self.rowCount
         self.imageHandler = ImageHandler(WithDimension: dimension, imagePath: sourceImageName)
         self.imageHandler.setupContext(ForRow: self.rowCount, Column: self.columnCount, Scale: UIScreen.main.scale)
-        let len = Int(CGFloat(dimension) * 0.1)
+       
         let screenWidth = self.screenHeight * self.columnCount / self.rowCount
         for row in 0...self.rowCount-1{
             for column in 0...self.columnCount-1{
@@ -84,10 +84,13 @@ class ImageSquareHandler: NSObject {
                 }
                 if let _ = square.createSurface(ToView:_view, parentWidth: screenWidth, parentHeight: self.screenHeight){
                     
-                    guard let image = imageHandler.getImage(ForRow: row, Column: column,borderTypes: square.getBorders()) else {
-                        continue
+                     let (image, path, _size) = imageHandler.getImage(ForRow: row, Column: column,borderTypes: square.getBorders())
+                    if let _image = image {
+                        square.setSlice(Image: _image)
                     }
-                    square.setSlice(Image: image)
+                    if let _image = imageHandler.getMaskImage(path, _size) {
+                        square.setBorder(Image: _image)
+                    }
                 }
                 
                 square.toString()

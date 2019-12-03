@@ -13,6 +13,7 @@ class ViewSquare: UIView {
     fileprivate let dimension:Int
     fileprivate let drawingPath:UIBezierPath
     fileprivate var imageView:UIImageView!
+    
     var sliceImage:UIImage? {
         didSet{
             self.imageView.image = sliceImage
@@ -34,10 +35,10 @@ class ViewSquare: UIView {
         var (originY, _height) = topLine == .topOut ? (-extraLen,extraLen+frame.height) : (0, frame.height)
         _width += rightLine == .rightOut ? extraLen : 0
         _height += bottomLine == .bottomOut ? extraLen : 0
+        let _rect = CGRect(origin: CGPoint(x:originX, y:originY),
+                           size: CGSize(width: _width, height: _height))
         
-        
-        self.imageView = UIImageView.init(frame: CGRect(origin: CGPoint(x:originX, y:originY),
-                                                        size: CGSize(width: _width, height: _height)))
+        self.imageView = UIImageView.init(frame: _rect)
 //        self.imageView.backgroundColor = UIColor.red
         self.addSubview(self.imageView)
     }

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.heightLayout.constant = UIScreen.main.bounds.height * 0.9
         self.view.layoutIfNeeded()
-        let _ = ImageSquareHandler(WithRow: 4, Column: 5,
+        let _ = ImageSquareHandler(WithRow: 4, Column: 4,
                                    ScreenHeight: Int(UIScreen.main.bounds.height * 0.9),
                                    Image: "sample", inView:self.containerView)
         // Do any additional setup after loading the view.

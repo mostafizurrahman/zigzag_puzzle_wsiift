@@ -74,7 +74,7 @@ class ImageHandler: NSObject {
     }
     
     
-    func getImage(ForRow row:Int, Column column:Int, borderTypes types:[SquareType]) ->UIImage? {
+    func getImage(ForRow row:Int, Column column:Int, borderTypes types:[SquareType]) ->(UIImage?, UIBezierPath, CGSize) {
         let topLine = types[0]
         let leftLine = types[1]
         let rightLine = types[2]
@@ -200,7 +200,7 @@ class ImageHandler: NSObject {
         origin_y -= CGFloat(row) * boxWidth
         guard let image = self.contentImage.cgImage else {
             assertionFailure("Image can not be created")
-            return nil
+            return (nil, UIBezierPath(), .zero)
         }
         if row == 3 && column == 4 {
             print("fon")
@@ -219,15 +219,26 @@ class ImageHandler: NSObject {
             ctx.strokePath()
             let _image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            return _image
+            return (_image, path, _size)
         }
         UIGraphicsEndImageContext()
         let outImage = UIImage.init(cgImage: image)
-        return outImage
+        return (outImage, path, _size)
     }
-}
-
-extension UIImage {
+    
+    func getMaskImage(_ path:UIBezierPath, _ _size:CGSize)->UIImage?{
+        UIGraphicsBeginImageContext(_size)
+        if let ctx = UIGraphicsGetCurrentContext() {
+            ctx.setStrokeColor(UIColor.lightGray.cgColor)
+            ctx.setLineWidth(4)
+            ctx.addPath(path.cgPath)
+            ctx.strokePath()
+        }
+        let _image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return _image
+        
+    }
     
 }
 
