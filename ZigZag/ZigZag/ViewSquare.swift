@@ -10,10 +10,10 @@ import UIKit
 
 class ViewSquare: UIView {
     
-    fileprivate let topLine:SquareType
-    fileprivate let leftLine:SquareType
-    fileprivate let rightLine:SquareType
-    fileprivate let bottomLine:SquareType
+//    fileprivate let topLine:SquareType
+//    fileprivate let leftLine:SquareType
+//    fileprivate let rightLine:SquareType
+//    fileprivate let bottomLine:SquareType
     fileprivate let dimension:Int
     fileprivate let drawingPath:UIBezierPath
     fileprivate var imageView:UIImageView!
@@ -25,16 +25,24 @@ class ViewSquare: UIView {
     
     
     init(Types types:[SquareType], width:Int, frame:CGRect){
-        topLine = types[0]
-        leftLine = types[1]
-        rightLine = types[2]
-        bottomLine = types[3]
+        let topLine = types[0]
+        let leftLine = types[1]
+        let rightLine = types[2]
+        let bottomLine = types[3]
         dimension = width
         drawingPath = UIBezierPath()
         
         super.init(frame: frame)
-        self.imageView = UIImageView.init(frame: CGRect(origin: .zero, size: frame.size))
-        imageView.contentMode = .scaleAspectFit
+        let extraLen = frame.width * AppConstants.CURVE_RATIO
+        var (originX, _width) = leftLine == .leftOut ? (-extraLen,extraLen+frame.width) : (0, frame.width)
+        var (originY, _height) = topLine == .topOut ? (-extraLen,extraLen+frame.height) : (0, frame.height)
+        _width += rightLine == .rightOut ? extraLen : 0
+        _height += bottomLine == .bottomOut ? extraLen : 0
+        
+        
+        self.imageView = UIImageView.init(frame: CGRect(origin: CGPoint(x:originX, y:originY), size: CGSize(width: _width, height: _height)))
+//        self.imageView.backgroundColor = UIColor.red
+//        imageView.contentMode = .scaleAspectFit
         self.addSubview(self.imageView)
         
 //        let length = CGFloat(self.dimension) * 0.1
@@ -78,7 +86,7 @@ class ViewSquare: UIView {
 //
 //        }
 //    }
-    
+    /*
     
     fileprivate func drawTop(Path path:UIBezierPath, length:CGFloat)->CGFloat{
         let originX = self.leftLine == .leftOut ? length : 0 + (self.rightLine == .rightEdge ? length : 0)
@@ -209,7 +217,7 @@ class ViewSquare: UIView {
             path.addLine(to: CGPoint(x:originX,y:originY))
         }
     }
-    
+    */
     fileprivate func createMask(){
         let shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = UIColor.white.cgColor

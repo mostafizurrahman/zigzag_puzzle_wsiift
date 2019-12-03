@@ -47,12 +47,13 @@ class ImageHandler: NSObject {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let sliceWidth = Int(_width / column)
         self.sliceWidth = sliceWidth
-        self.sliceRect = CGRect(x: 0, y: 0, width: self.sliceWidth, height: self.sliceWidth)
+        let length = Int(CGFloat(self.sliceWidth) * 0.225)
+        self.sliceRect = CGRect(x: 0, y: 0, width: self.sliceWidth+length, height: self.sliceWidth+length)
         if let context = CGContext.init(data: nil,
-                                        width: sliceWidth,
-                                        height: sliceWidth,
+                                        width: sliceWidth+length,
+                                        height: sliceWidth+length,
                                         bitsPerComponent: 8,
-                                        bytesPerRow: 4 * sliceWidth,
+                                        bytesPerRow: 4 * (sliceWidth+length),
                                         space: colorSpace,
                                         bitmapInfo: UInt32(bitmapInfo.rawValue)) {
             self.slicingContext = context
@@ -90,10 +91,10 @@ class ImageHandler: NSObject {
                 self.drawingContext?.draw(image, in: CGRect(x: 0, y: 0,
                                                             width: drawWidth,
                                                             height: drawHeight))
-                if let image = self.drawingContext?.makeImage() {
-                    let o_img = UIImage.init(cgImage: image)
-                    print("Ddd")
-                }
+//                if let image = self.drawingContext?.makeImage() {
+//                    let o_img = UIImage.init(cgImage: image)
+//                    print("Ddd")
+//                }
             }
             self.drawingPointer = self.drawingContext?.data?.assumingMemoryBound(to: UInt8.self)
         } else {
@@ -106,31 +107,171 @@ class ImageHandler: NSObject {
     }
     
     
-    func getImage(ForRow row:Int, Column column:Int)->UIImage? {
-        guard  let destinationBuffer = self.slicingPointer else {
-            return nil
-        }
-        guard let sourceBuffer = self.drawingPointer else {
-            return nil
-        }
+    func getImage(ForRow row:Int, Column column:Int, borderTypes types:[SquareType])->UIImage? {
+        let topLine = types[0]
+        let leftLine = types[1]
+        let rightLine = types[2]
+        let bottomLine = types[3]
+        let extraLen = CGFloat(self.sliceWidth) * AppConstants.CURVE_RATIO
+        let length = Int(extraLen)
+        let extraX = leftLine == .leftOut ? length : 0
+        var extraWidth = extraX == 0 ? 0 : length
+        let extraY = topLine == .topOut ? length : 0
+        var extraHeight = extraY == 0 ? 0 : length
+        extraHeight += bottomLine == .bottomOut ? length : 0
+        extraWidth += rightLine == .rightOut ? length : 0
+
+        
         assert(self.sourceWidth != 0, "Width not set yer")
-        let originX:Int = row  * (self.sliceWidth)
-        let originY:Int = column * self.sliceWidth
-        for i in originX...originX+self.sliceWidth - 1{
-            for j in originY...originY+self.sliceWidth - 1{
-                let _startX = i - originX
-                let _startY = j - originY
-                let sliceIndex = (_startX * self.sliceWidth + _startY) * 4
-                let sourceIndex = (i * self.sourceWidth + j) * 4
-                for index in 0...3 {
-                    destinationBuffer.advanced(by: sliceIndex+index).pointee = sourceBuffer.advanced(by: sourceIndex+index).pointee
-                }
-            }
+        let origin_X:Int = row  * (self.sliceWidth) - extraY
+        let origin_Y:Int = column * self.sliceWidth - extraX
+        
+        let path = UIBezierPath()
+        let boxWidth = CGFloat(self.sliceWidth)
+        let floatLen = CGFloat(length)
+        let originX = leftLine == .leftOut ? length : 0
+        let originY = topLine == .topOut ? length : 0
+        if topLine == .topOut {
+            path.move(to: CGPoint(x: originX, y: length))
+            path.addLine(to: CGPoint(x:originX + Int(boxWidth * 0.45), y: length))
+            path.addCurve(to: CGPoint(x: originX + Int(boxWidth/2.0), y: 0),
+                          controlPoint1: CGPoint(x:originX + Int(boxWidth * 0.55), y : Int(floatLen * 0.75)),
+                          controlPoint2: CGPoint(x:originX + Int(boxWidth * 0.25),y: Int(floatLen * 0.25)))
+            
+            path.addCurve(to: CGPoint(x:originX + Int(boxWidth * 0.55), y:length),
+                          controlPoint1: CGPoint(x:originX + Int(boxWidth * 0.75), y: Int(floatLen * 0.25)),
+                          controlPoint2: CGPoint(x:originX + Int(boxWidth * 0.45), y: Int(floatLen * 0.75)))
+            path.addLine(to: CGPoint(x:originX + self.sliceWidth, y:length))
+        } else if topLine == .topIn {
+            path.move(to: CGPoint(x: originX, y: 0))
+            path.addLine(to: CGPoint(x:originX + Int(boxWidth * 0.45), y: 0))
+            path.addCurve(to: CGPoint(x: originX + Int(boxWidth/2.0), y: length),
+                          controlPoint1: CGPoint(x:originX + Int(boxWidth * 0.55), y : Int(floatLen * 0.25)),
+                          controlPoint2: CGPoint(x:originX + Int(boxWidth * 0.25),y: Int(floatLen * 0.75)))
+            path.addCurve(to: CGPoint(x:originX + Int(boxWidth * 0.55), y:0),
+                          controlPoint1: CGPoint(x:originX + Int(boxWidth * 0.75), y: Int(floatLen * 0.75)),
+                          controlPoint2: CGPoint(x:originX + Int(boxWidth * 0.45), y: Int(floatLen * 0.25)))
+            path.addLine(to: CGPoint(x:originX + self.sliceWidth, y:0))
+        } else {
+            path.move(to: CGPoint(x: originX, y: 0))
+            path.addLine(to: CGPoint(x:originX + self.sliceWidth, y:0))
         }
-        guard let image = self.slicingContext?.makeImage() else {
+        let rightX = originX + self.sliceWidth
+        
+        let bottomY = originY + self.sliceWidth
+        if rightLine == .rightOut {
+            
+            
+            path.addLine(to: CGPoint(x:rightX, y:originY + Int(CGFloat(self.sliceWidth) * 0.45)))
+            path.addCurve(to: CGPoint(x: rightX + length, y: originY + Int(CGFloat(self.sliceWidth) / 2.0)),
+                          controlPoint1: CGPoint(x:rightX + Int(floatLen * 0.25), y:originY + Int(CGFloat(self.sliceWidth) * 0.55)),
+                          controlPoint2: CGPoint(x:rightX + Int(floatLen * 0.75), y:originY + Int(CGFloat(self.sliceWidth) * 0.25)))
+            path.addCurve(to: CGPoint(x: rightX , y: originY + Int(CGFloat(self.sliceWidth) * 0.55)),
+                          controlPoint1: CGPoint(x: rightX + Int(floatLen * 0.75), y:originY + Int(CGFloat(self.sliceWidth) * 0.75)),
+                          controlPoint2: CGPoint(x: rightX + Int(floatLen * 0.25), y:originY + Int(CGFloat(self.sliceWidth) * 0.45)))
+            path.addLine(to: CGPoint(x: rightX, y:originY + Int(CGFloat(self.sliceWidth))))
+        } else if rightLine == .rightIn {
+            
+            path.addLine(to: CGPoint(x:rightX, y:originY + Int(CGFloat(self.sliceWidth) * 0.45)))
+            path.addCurve(to: CGPoint(x: rightX - length, y: originY + Int(CGFloat(self.sliceWidth) / 2.0)),
+                          controlPoint1: CGPoint(x:rightX - Int(floatLen * 0.25), y:originY + Int(CGFloat(self.sliceWidth) * 0.55)),
+                          controlPoint2: CGPoint(x:rightX - Int(floatLen * 0.75), y:originY + Int(CGFloat(self.sliceWidth) * 0.25)))
+            path.addCurve(to: CGPoint(x: rightX , y: originY + Int(CGFloat(self.sliceWidth) * 0.55)),
+                          controlPoint1: CGPoint(x: rightX - Int(floatLen * 0.75), y:originY + Int(CGFloat(self.sliceWidth) * 0.75)),
+                          controlPoint2: CGPoint(x: rightX - Int(floatLen * 0.25), y:originY + Int(CGFloat(self.sliceWidth) * 0.45)))
+            path.addLine(to: CGPoint(x: rightX, y:originY + Int(CGFloat(self.sliceWidth))))
+        } else {
+            path.addLine(to: CGPoint(x:rightX, y:bottomY))
+        }
+        
+        if bottomLine == .bottomOut {
+            
+            path.addLine(to: CGPoint(x:originX + Int(CGFloat(self.sliceWidth) * 0.55), y: bottomY))
+            path.addCurve(to: CGPoint(x:originX + self.sliceWidth / 2, y: bottomY + length),
+                          controlPoint1: CGPoint(x:originX + Int(boxWidth * 0.45), y: bottomY + Int(floatLen * 0.25)),
+                          controlPoint2: CGPoint(x:originX + Int(boxWidth*0.75), y: bottomY+Int(floatLen*0.75)))
+            
+            path.addCurve(to: CGPoint(x:originX+Int(boxWidth*0.45), y: bottomY),
+                          controlPoint1: CGPoint(x:originX+Int(boxWidth*0.25), y: bottomY + Int(floatLen * 0.75)),
+                          controlPoint2: CGPoint(x:originX+Int(boxWidth*0.55), y: bottomY + Int(floatLen * 0.25)))
+            path.addLine(to: CGPoint(x: originX, y: bottomY))
+        } else if bottomLine == .bottomIn {
+            
+            path.addLine(to: CGPoint(x:originX + Int(CGFloat(self.sliceWidth) * 0.55), y: bottomY))
+            path.addCurve(to: CGPoint(x:originX + self.sliceWidth / 2, y: bottomY - length),
+                          controlPoint1: CGPoint(x:originX + Int(boxWidth * 0.45), y: bottomY - Int(floatLen * 0.25)),
+                          controlPoint2: CGPoint(x:originX + Int(boxWidth*0.75), y: bottomY-Int(floatLen*0.75)))
+            
+            path.addCurve(to: CGPoint(x:originX+Int(boxWidth*0.45), y: bottomY),
+                          controlPoint1: CGPoint(x:originX+Int(boxWidth*0.25), y: bottomY - Int(floatLen * 0.75)),
+                          controlPoint2: CGPoint(x:originX+Int(boxWidth*0.55), y: bottomY - Int(floatLen * 0.25)))
+            path.addLine(to: CGPoint(x: originX, y: bottomY))
+        } else {
+            path.addLine(to: CGPoint(x: originX, y: bottomY))
+        }
+        
+        if leftLine == .leftOut {
+            path.addLine(to: CGPoint(x:originX,y: originY + Int(boxWidth * 0.55)))
+            path.addCurve(to: CGPoint(x: 0, y: originY + self.sliceWidth / 2),
+                          controlPoint1: CGPoint(x:originX-Int(floatLen*0.25), y:originY + Int(boxWidth * 0.45)),
+                          controlPoint2: CGPoint(x:originX-Int(floatLen*0.75), y:originY + Int(boxWidth * 0.75)))
+            path.addCurve(to: CGPoint(x: originX, y: originY + Int(boxWidth * 0.45)),
+                          controlPoint1: CGPoint(x:originX-Int(floatLen*0.75), y:originY + Int(boxWidth * 0.25)),
+                          controlPoint2: CGPoint(x:originX-Int(floatLen*0.25), y:originY + Int(boxWidth * 0.55)))
+            path.addLine(to: CGPoint(x:originX,y:originY))
+        } else if leftLine == .leftIn {
+            
+            path.addLine(to: CGPoint(x:originX,y: originY + Int(boxWidth * 0.55)))
+            path.addCurve(to: CGPoint(x: length, y: originY + self.sliceWidth / 2),
+                          controlPoint1: CGPoint(x:originX+Int(floatLen*0.25), y:originY + Int(boxWidth * 0.45)),
+                          controlPoint2: CGPoint(x:originX+Int(floatLen*0.75), y:originY + Int(boxWidth * 0.75)))
+            path.addCurve(to: CGPoint(x: originX, y: originY + Int(boxWidth * 0.45)),
+                          controlPoint1: CGPoint(x:originX+Int(floatLen*0.75), y:originY + Int(boxWidth * 0.25)),
+                          controlPoint2: CGPoint(x:originX+Int(floatLen*0.25), y:originY + Int(boxWidth * 0.55)))
+            path.addLine(to: CGPoint(x:originX,y:originY))
+        } else {
+            path.addLine(to: CGPoint(x:originX,y:originY))
+        }
+        path.close()
+//        guard  let destinationBuffer = self.slicingPointer else {
+//            return nil
+//        }
+//        guard let sourceBuffer = self.drawingPointer else {
+//            return nil
+//        }
+        var (origin_x, _width) = leftLine == .leftOut ? (extraLen,extraLen+CGFloat(self.sliceWidth)) : (0, CGFloat(self.sliceWidth))
+        var (origin_y, _height) = topLine == .topOut ? (extraLen,extraLen+CGFloat(self.sliceWidth)) : (0, CGFloat(self.sliceWidth))
+        _width += rightLine == .rightOut ? extraLen : 0
+        _height += bottomLine == .bottomOut ? extraLen : 0
+        
+//        for i in origin_X...origin_X+self.sliceWidth - 1 + extraHeight {
+//            for j in origin_Y...origin_Y+self.sliceWidth - 1 + extraWidth {
+//                let _start_X = i - origin_X
+//                let _start_Y = j - origin_Y
+//                let sliceIndex = (_start_X * (self.sliceWidth+length) + _start_Y) * 4
+//                let sourceIndex = (i * self.sourceWidth + j) * 4
+//                for index in 0...3 {
+//                    destinationBuffer.advanced(by: sliceIndex+index).pointee = sourceBuffer.advanced(by: sourceIndex+index).pointee
+//                }
+//            }
+//        }
+        origin_x -= CGFloat(column) * boxWidth
+        origin_y -= CGFloat(row) * boxWidth
+        guard let image = self.contentImage.cgImage else {
             assertionFailure("Image can not be created")
             return nil
         }
+        let _size = CGSize(width: _width, height: _height)
+        UIGraphicsBeginImageContext(_size)
+        if let ctx = UIGraphicsGetCurrentContext() {
+            ctx.addPath(path.cgPath)
+            ctx.clip()
+            ctx.draw(image, in: CGRect(origin: CGPoint(x: origin_x, y: origin_y), size: self.contentImage.size))
+            let _image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return _image
+        }
+        UIGraphicsEndImageContext()
         let outImage = UIImage.init(cgImage: image)
         return outImage
     }

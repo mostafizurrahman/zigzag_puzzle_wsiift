@@ -84,8 +84,8 @@ class ImageSquareHandler: NSObject {
                 }
                 if let _ = square.createSurface(ToView:_view, parentWidth: screenWidth, parentHeight: self.screenHeight){
                     
-                    guard let image = imageHandler.getImage(ForRow: row, Column: column) else {
-                                                                continue
+                    guard let image = imageHandler.getImage(ForRow: row, Column: column,borderTypes: square.getBorders()) else {
+                        continue
                     }
                     square.setSlice(Image: image)
                 }

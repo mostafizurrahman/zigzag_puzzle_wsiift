@@ -87,6 +87,10 @@ class ImageSquare: NSObject {
         return self.bottomLine
     }
     
+    func getBorders()->[SquareType]{
+        return [self.topLine, self.leftLine, self.rightLine, self.bottomLine]
+    }
+    
     func createSurface(ToView _view:UIView, parentWidth _width:Int, parentHeight _height:Int)->CGPoint?{
 //        let _dimension = Int() * 1.2)
 //        let _length =  Int(CGFloat(self.viewDimension) * 0.1)
