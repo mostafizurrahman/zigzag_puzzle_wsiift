@@ -28,9 +28,9 @@ class ImageSquare: NSObject {
     
     func getNeighbouringIndices()->[[Int]]{
         return [[self.indexRow-1,indexColumn],
-        [self.indexRow+1,indexColumn],
+        [self.indexRow + 1,indexColumn],
         [self.indexRow,indexColumn-1],
-        [self.indexRow,indexColumn+1]]
+        [self.indexRow,indexColumn + 1]]
     }
     
     func setLine(Type lineType:SquareType){//only top and left
@@ -47,12 +47,12 @@ class ImageSquare: NSObject {
     
     func setRightRandomLine(){
         let number = Int.random(in: 0 ... 1)
-        self.rightLine = SquareType.init(rawValue: 20 + number) ?? .stUnkown
+        self.rightLine = SquareType.init(rawValue: 20  +  number) ?? .stUnkown
     }
     
     func setBottomRandomLine(){
         let number = Int.random(in: 0 ... 1)
-        self.bottomLine = SquareType.init(rawValue: 40 + number) ?? .stUnkown
+        self.bottomLine = SquareType.init(rawValue: 40  +  number) ?? .stUnkown
     }
     
     func setRightLine(){

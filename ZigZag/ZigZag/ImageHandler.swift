@@ -9,15 +9,14 @@
 import UIKit
 
 class ImageHandler: NSObject {
-
+    
     fileprivate var dimension:Int = -1
     fileprivate var contentImage:UIImage!
-    fileprivate var drawingContext:CGContext?
-    fileprivate var drawingPointer:UnsafeMutablePointer<UInt8>?
+    
     fileprivate var scaleFactor:CGFloat = 0.0
     
     fileprivate var sliceWidth:Int = 0
-//    fileprivate var sliceRect:CGRect = .zero
+    //    fileprivate var sliceRect:CGRect = .zero
     init(WithDimension dimension:Int, imagePath:String){
         super.init()
         if imagePath.contains("/") && FileManager.default.fileExists(atPath: imagePath){
@@ -36,28 +35,13 @@ class ImageHandler: NSObject {
     func setupContext(ForRow row:Int, Column column:Int, Scale scale:CGFloat){
         self.scaleFactor = scale * 1.5
         let _width = Int(CGFloat(column * self.dimension) * self.scaleFactor)
-        
-        
         let _height = Int(CGFloat(row * self.dimension) * self.scaleFactor)
-        let bitmapInfo = CGBitmapInfo(rawValue:
-                CGImageAlphaInfo.noneSkipFirst.rawValue |
-                CGBitmapInfo.byteOrder32Little.rawValue)
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
+    
         let sliceWidth = Int(_width / column)
         self.sliceWidth = sliceWidth
         
-        
-     
-        
-        if let context =
-            CGContext.init(data: nil,
-                           width: _width,
-                           height: _height,
-                           bitsPerComponent: 8,
-                           bytesPerRow: 4 * _width,
-                           space: colorSpace,
-                           bitmapInfo: UInt32(bitmapInfo.rawValue)) {
-            self.drawingContext = context
+        UIGraphicsBeginImageContext(CGSize(width: _width, height: _height))
+        if let ctx = UIGraphicsGetCurrentContext() {
             if let image = self.contentImage.cgImage {
                 let ratio = self.contentImage.size.height / self.contentImage.size.width
                 
@@ -75,22 +59,22 @@ class ImageHandler: NSObject {
                     drawHeight = CGFloat(_height)
                     drawWidth = CGFloat(_height) / ratio
                 }
-                self.drawingContext?.draw(image, in: CGRect(x: 0, y: 0,
-                                                            width: drawWidth,
-                                                            height: drawHeight))
+                ctx.draw(image, in: CGRect(x: 0, y: 0,
+                                           width: drawWidth,
+                                           height: drawHeight))
             }
-            self.drawingPointer = self.drawingContext?.data?.assumingMemoryBound(to: UInt8.self)
-        } else {
-            assertionFailure("Source Context is empty/not created")
         }
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        self.contentImage = image
+        UIGraphicsEndImageContext()
     }
     
-    func getScaling()->CGFloat{
+    func getScaling() ->CGFloat{
         return self.scaleFactor
     }
     
     
-    func getImage(ForRow row:Int, Column column:Int, borderTypes types:[SquareType])->UIImage? {
+    func getImage(ForRow row:Int, Column column:Int, borderTypes types:[SquareType]) ->UIImage? {
         let topLine = types[0]
         let leftLine = types[1]
         let rightLine = types[2]
@@ -98,11 +82,6 @@ class ImageHandler: NSObject {
         let boxWidth = CGFloat(self.sliceWidth)
         let extraLen = boxWidth * AppConstants.CURVE_RATIO
         let length = Int(extraLen)
-        
-
-        
-        
-        
         let path = UIBezierPath()
         let floatLen = CGFloat(length)
         let originX = leftLine == .leftOut ? length : 0
@@ -117,105 +96,104 @@ class ImageHandler: NSObject {
         let intBox75 = Int(boxWidth * 0.75)
         if topLine == .topOut {
             path.move(to: CGPoint(x: originX, y: length))
-            path.addLine(to: CGPoint(x:originX + intBox45, y: length))
+            path.addLine(to: CGPoint(x: originX + intBox45, y: length))
             path.addCurve(to: CGPoint(x: originX + Int(boxWidth/2.0), y: 0),
-                          controlPoint1: CGPoint(x:originX + intBox55, y : intLen75),
-                          controlPoint2: CGPoint(x:originX + intBox25,y: intLen25))
+                          controlPoint1: CGPoint(x: originX + intBox55, y : intLen75),
+                          controlPoint2: CGPoint(x: originX + intBox25,y: intLen25))
             
-            path.addCurve(to: CGPoint(x:originX + intBox55, y:length),
-                          controlPoint1: CGPoint(x:originX + intBox75, y: intLen25),
-                          controlPoint2: CGPoint(x:originX + intBox45, y: intLen75))
-            path.addLine(to: CGPoint(x:originX + self.sliceWidth, y:length))
+            path.addCurve(to: CGPoint(x: originX + intBox55, y:length),
+                          controlPoint1: CGPoint(x: originX + intBox75, y: intLen25),
+                          controlPoint2: CGPoint(x: originX + intBox45, y: intLen75))
+            path.addLine(to: CGPoint(x: originX + self.sliceWidth, y:length))
         } else if topLine == .topIn {
             path.move(to: CGPoint(x: originX, y: 0))
-            path.addLine(to: CGPoint(x:originX + intBox45, y: 0))
+            path.addLine(to: CGPoint(x: originX + intBox45, y: 0))
             path.addCurve(to: CGPoint(x: originX + Int(boxWidth/2.0), y: length),
-                          controlPoint1: CGPoint(x:originX + intBox55, y : intLen25),
-                          controlPoint2: CGPoint(x:originX + intBox25,y: intLen75))
-            path.addCurve(to: CGPoint(x:originX + intBox55, y:0),
-                          controlPoint1: CGPoint(x:originX + intBox75, y: intLen75),
-                          controlPoint2: CGPoint(x:originX + intBox45, y: intLen25))
-            path.addLine(to: CGPoint(x:rightX, y:0))
+                          controlPoint1: CGPoint(x: originX + intBox55, y : intLen25),
+                          controlPoint2: CGPoint(x: originX + intBox25,y: intLen75))
+            path.addCurve(to: CGPoint(x: originX + intBox55, y:0),
+                          controlPoint1: CGPoint(x: originX + intBox75, y: intLen75),
+                          controlPoint2: CGPoint(x: originX + intBox45, y: intLen25))
+            path.addLine(to: CGPoint(x: rightX, y:0))
         } else {
             path.move(to: CGPoint(x: originX, y: 0))
-            path.addLine(to: CGPoint(x:rightX, y:0))
+            path.addLine(to: CGPoint(x: rightX, y:0))
         }
         if rightLine == .rightOut {
             
-            
-            path.addLine(to: CGPoint(x:rightX, y:originY + intBox45))
+            path.addLine(to: CGPoint(x: rightX, y:originY + intBox45))
             path.addCurve(to: CGPoint(x: rightX + length, y: originY + Int(boxWidth / 2.0)),
-                          controlPoint1: CGPoint(x:rightX + intLen25, y:originY + intBox55),
-                          controlPoint2: CGPoint(x:rightX + intLen75, y:originY + intBox25))
+                          controlPoint1: CGPoint(x: rightX + intLen25, y:originY + intBox55),
+                          controlPoint2: CGPoint(x: rightX + intLen75, y:originY + intBox25))
             path.addCurve(to: CGPoint(x: rightX , y: originY + intBox55),
                           controlPoint1: CGPoint(x: rightX + intLen75, y:originY + intBox75),
                           controlPoint2: CGPoint(x: rightX + intLen25, y:originY + intBox45))
             path.addLine(to: CGPoint(x: rightX, y:originY + Int(boxWidth)))
         } else if rightLine == .rightIn {
             
-            path.addLine(to: CGPoint(x:rightX, y:originY + intBox45))
-            path.addCurve(to: CGPoint(x: rightX - length, y: originY + Int(boxWidth / 2.0)),
-                          controlPoint1: CGPoint(x:rightX - intLen25, y:originY + intBox55),
-                          controlPoint2: CGPoint(x:rightX - intLen75, y:originY + intBox25))
+            path.addLine(to: CGPoint(x: rightX, y:originY + intBox45))
+            path.addCurve(to: CGPoint(x: rightX  -  length, y: originY + Int(boxWidth / 2.0)),
+                          controlPoint1: CGPoint(x: rightX  -  intLen25, y:originY + intBox55),
+                          controlPoint2: CGPoint(x: rightX  -  intLen75, y:originY + intBox25))
             path.addCurve(to: CGPoint(x: rightX , y: originY + intBox55),
-                          controlPoint1: CGPoint(x: rightX - intLen75, y:originY + intBox75),
-                          controlPoint2: CGPoint(x: rightX - intLen25, y:originY + intBox45))
+                          controlPoint1: CGPoint(x: rightX  -  intLen75, y:originY + intBox75),
+                          controlPoint2: CGPoint(x: rightX  -  intLen25, y:originY + intBox45))
             path.addLine(to: CGPoint(x: rightX, y:originY + Int(boxWidth)))
         } else {
-            path.addLine(to: CGPoint(x:rightX, y:bottomY))
+            path.addLine(to: CGPoint(x: rightX, y:bottomY))
         }
         
         if bottomLine == .bottomOut {
             
-            path.addLine(to: CGPoint(x:originX + intBox55, y: bottomY))
-            path.addCurve(to: CGPoint(x:originX + self.sliceWidth / 2, y: bottomY + length),
-                          controlPoint1: CGPoint(x:originX + intBox45, y: bottomY + intLen25),
-                          controlPoint2: CGPoint(x:originX + Int(boxWidth*0.75), y: bottomY+intLen75))
+            path.addLine(to: CGPoint(x: originX + intBox55, y: bottomY))
+            path.addCurve(to: CGPoint(x: originX + self.sliceWidth / 2, y: bottomY + length),
+                          controlPoint1: CGPoint(x: originX + intBox45, y: bottomY + intLen25),
+                          controlPoint2: CGPoint(x: originX + Int(boxWidth * 0.75), y: bottomY + intLen75))
             
-            path.addCurve(to: CGPoint(x:originX+Int(boxWidth*0.45), y: bottomY),
-                          controlPoint1: CGPoint(x:originX+Int(boxWidth*0.25), y: bottomY + intLen75),
-                          controlPoint2: CGPoint(x:originX+Int(boxWidth*0.55), y: bottomY + intLen25))
+            path.addCurve(to: CGPoint(x: originX + Int(boxWidth * 0.45), y: bottomY),
+                          controlPoint1: CGPoint(x: originX + Int(boxWidth * 0.25), y: bottomY + intLen75),
+                          controlPoint2: CGPoint(x: originX + Int(boxWidth * 0.55), y: bottomY + intLen25))
             path.addLine(to: CGPoint(x: originX, y: bottomY))
         } else if bottomLine == .bottomIn {
             
-            path.addLine(to: CGPoint(x:originX + intBox55, y: bottomY))
-            path.addCurve(to: CGPoint(x:originX + self.sliceWidth / 2, y: bottomY - length),
-                          controlPoint1: CGPoint(x:originX + intBox45, y: bottomY - intLen25),
-                          controlPoint2: CGPoint(x:originX + Int(boxWidth*0.75), y: bottomY-intLen75))
+            path.addLine(to: CGPoint(x: originX + intBox55, y: bottomY))
+            path.addCurve(to: CGPoint(x: originX + self.sliceWidth / 2, y: bottomY  -  length),
+                          controlPoint1: CGPoint(x: originX + intBox45, y: bottomY  -  intLen25),
+                          controlPoint2: CGPoint(x: originX + Int(boxWidth * 0.75), y: bottomY - intLen75))
             
-            path.addCurve(to: CGPoint(x:originX+Int(boxWidth*0.45), y: bottomY),
-                          controlPoint1: CGPoint(x:originX+Int(boxWidth*0.25), y: bottomY - intLen75),
-                          controlPoint2: CGPoint(x:originX+Int(boxWidth*0.55), y: bottomY - intLen25))
+            path.addCurve(to: CGPoint(x: originX + Int(boxWidth * 0.45), y: bottomY),
+                          controlPoint1: CGPoint(x: originX + Int(boxWidth * 0.25), y: bottomY  -  intLen75),
+                          controlPoint2: CGPoint(x: originX + Int(boxWidth * 0.55), y: bottomY  -  intLen25))
             path.addLine(to: CGPoint(x: originX, y: bottomY))
         } else {
             path.addLine(to: CGPoint(x: originX, y: bottomY))
         }
         
         if leftLine == .leftOut {
-            path.addLine(to: CGPoint(x:originX,y: originY + intBox55))
+            path.addLine(to: CGPoint(x: originX,y: originY + intBox55))
             path.addCurve(to: CGPoint(x: 0, y: originY + self.sliceWidth / 2),
-                          controlPoint1: CGPoint(x:originX-intLen25, y:originY + intBox45),
-                          controlPoint2: CGPoint(x:originX-intLen75, y:originY + intBox75))
+                          controlPoint1: CGPoint(x: originX - intLen25, y:originY + intBox45),
+                          controlPoint2: CGPoint(x: originX - intLen75, y:originY + intBox75))
             path.addCurve(to: CGPoint(x: originX, y: originY + intBox45),
-                          controlPoint1: CGPoint(x:originX-intLen75, y:originY + intBox25),
-                          controlPoint2: CGPoint(x:originX-intLen25, y:originY + intBox55))
-            path.addLine(to: CGPoint(x:originX,y:originY))
+                          controlPoint1: CGPoint(x: originX - intLen75, y:originY + intBox25),
+                          controlPoint2: CGPoint(x: originX - intLen25, y:originY + intBox55))
+            path.addLine(to: CGPoint(x: originX,y:originY))
         } else if leftLine == .leftIn {
             
-            path.addLine(to: CGPoint(x:originX,y: originY + intBox55))
+            path.addLine(to: CGPoint(x: originX,y: originY + intBox55))
             path.addCurve(to: CGPoint(x: length, y: originY + self.sliceWidth / 2),
-                          controlPoint1: CGPoint(x:originX+intLen25, y:originY + intBox45),
-                          controlPoint2: CGPoint(x:originX+intLen75, y:originY + intBox75))
+                          controlPoint1: CGPoint(x: originX + intLen25, y:originY + intBox45),
+                          controlPoint2: CGPoint(x: originX + intLen75, y:originY + intBox75))
             path.addCurve(to: CGPoint(x: originX, y: originY + intBox45),
-                          controlPoint1: CGPoint(x:originX+intLen75, y:originY + intBox25),
-                          controlPoint2: CGPoint(x:originX+intLen25, y:originY + intBox55))
-            path.addLine(to: CGPoint(x:originX,y:originY))
+                          controlPoint1: CGPoint(x: originX + intLen75, y:originY + intBox25),
+                          controlPoint2: CGPoint(x: originX + intLen25, y:originY + intBox55))
+            path.addLine(to: CGPoint(x: originX,y:originY))
         } else {
-            path.addLine(to: CGPoint(x:originX,y:originY))
+            path.addLine(to: CGPoint(x: originX,y:originY))
         }
         path.close()
-        var (origin_x, _width) = leftLine == .leftOut ? (extraLen,extraLen+boxWidth) : (0, boxWidth)
-        var (origin_y, _height) = topLine == .topOut ? (extraLen,extraLen+boxWidth) : (0, boxWidth)
+        var (origin_x, _width) = leftLine == .leftOut ? (extraLen,extraLen + boxWidth) : (0, boxWidth)
+        var (origin_y, _height) = topLine == .topOut ? (extraLen,extraLen + boxWidth) : (0, boxWidth)
         _width += rightLine == .rightOut ? extraLen : 0
         _height += bottomLine == .bottomOut ? extraLen : 0
         origin_x -= CGFloat(column) * boxWidth
@@ -224,12 +202,21 @@ class ImageHandler: NSObject {
             assertionFailure("Image can not be created")
             return nil
         }
+        if row == 3 && column == 4 {
+            print("fon")
+        }
         let _size = CGSize(width: _width, height: _height)
         UIGraphicsBeginImageContext(_size)
+        
         if let ctx = UIGraphicsGetCurrentContext() {
             ctx.addPath(path.cgPath)
             ctx.clip()
             ctx.draw(image, in: CGRect(origin: CGPoint(x: origin_x, y: origin_y), size: self.contentImage.size))
+            
+            ctx.setStrokeColor(UIColor.lightGray.cgColor)
+            ctx.setLineWidth(4)
+            ctx.addPath(path.cgPath)
+            ctx.strokePath()
             let _image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return _image
@@ -243,5 +230,7 @@ class ImageHandler: NSObject {
 extension UIImage {
     
 }
+
+
 
 
