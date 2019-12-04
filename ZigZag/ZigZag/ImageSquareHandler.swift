@@ -17,6 +17,7 @@ class ImageSquareHandler: NSObject {
     fileprivate let emptySquare = ImageSquare(WithDimension: -1, Row: -1, Column: -1)
     var squareArray:[ImageSquare] = []
     var imageHandler:ImageHandler!
+    
     init(WithRow row:Int, Column column:Int,
          ScreenHeight height:Int, Image source:String, inView _view:UIView) {
         rowCount = row
@@ -32,7 +33,7 @@ class ImageSquareHandler: NSObject {
         self.imageHandler = ImageHandler(WithDimension: dimension, imagePath: sourceImageName)
         self.imageHandler.setupContext(ForRow: self.rowCount, Column: self.columnCount, Scale: UIScreen.main.scale)
        
-        let screenWidth = self.screenHeight * self.columnCount / self.rowCount
+        let screenWidth = dimension * self.columnCount
         for row in 0...self.rowCount-1{
             for column in 0...self.columnCount-1{
                 let square = ImageSquare(WithDimension: dimension,
@@ -82,9 +83,11 @@ class ImageSquareHandler: NSObject {
                 } else {
                     square.setTopLine()
                 }
-                if let _ = square.createSurface(ToView:_view, parentWidth: screenWidth, parentHeight: self.screenHeight){
+                if let _ = square.createSurface(ToView:_view){
                     
-                     let (image, path, _size) = imageHandler.getImage(ForRow: row, Column: column,borderTypes: square.getBorders())
+                     let (image, path, _size) = imageHandler.getImage(ForRow: row,
+                                                                      Column: column,
+                                                                      borderTypes: square.getBorders())
                     if let _image = image {
                         square.setSlice(Image: _image)
                     }
@@ -92,10 +95,11 @@ class ImageSquareHandler: NSObject {
                         square.setBorder(Image: _image)
                     }
                 }
+                square.setRandomPosition(initialX: screenWidth,
+                                         parentWidth: Int(_view.bounds.width),
+                                         parentHeight: Int(_view.bounds.height))
             }
         }
-        
-        
     }
    
     

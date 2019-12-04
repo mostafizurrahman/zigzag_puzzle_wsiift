@@ -11,4 +11,11 @@ import UIKit
 class AppConstants: NSObject {
     static let CURVE_RATIO:CGFloat = 0.225
 
+    static func scrWH()->(CGFloat, CGFloat) {
+        
+        return ( UIScreen.main.bounds.height,
+        UIScreen.main.bounds.width)
+        
+    }
+    
 }

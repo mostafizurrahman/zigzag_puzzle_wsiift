@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var draggingView:ViewSquare?
     var surfaceRect:CGRect?
     var offset:CGPoint = .zero
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.heightLayout.constant = UIScreen.main.bounds.height * 0.9

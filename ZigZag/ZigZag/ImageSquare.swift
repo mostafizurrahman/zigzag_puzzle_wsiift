@@ -92,7 +92,7 @@ class ImageSquare: NSObject {
         return [self.topLine, self.leftLine, self.rightLine, self.bottomLine]
     }
     
-    func createSurface(ToView _view:UIView, parentWidth _width:Int, parentHeight _height:Int)->CGPoint?{
+    func createSurface(ToView _view:UIView)->CGPoint?{
 
         let originX = self.indexColumn * self.viewDimension
         let originY = self.indexRow * self.viewDimension
@@ -101,14 +101,12 @@ class ImageSquare: NSObject {
                                    width: self.viewDimension,
                                    height: self.viewDimension)
         self.imageSquareView = ViewSquare(Types: edges,
-                                     width: self.viewDimension,
                                      frame: self.boundingRect)
         if let imageView = self.imageSquareView {
             imageView.isUserInteractionEnabled = true
             _view.addSubview(imageView)
         }
         self.imageSquareContainer = ViewSquare(Types: edges,
-                                               width: self.viewDimension,
                                                frame: self.boundingRect)
         if let imageView = self.imageSquareContainer {
             _view.addSubview(imageView)
@@ -116,6 +114,14 @@ class ImageSquare: NSObject {
         return self.imageSquareView?.frame.origin
     }
     
+    func setRandomPosition(initialX leftX:Int, parentWidth _width:Int, parentHeight _height:Int){
+        
+        var originX = leftX + Int(arc4random_uniform(UInt32(_width - leftX)))
+        var originY = Int(arc4random_uniform(UInt32(_height)))
+        originY += (originY + 20 > _height ? -20 : (originY < 20 ? 20 : 0))
+        originX += (originX + 80 > _width ? -40 : (originX < leftX + 20 ? 20 : 0))
+        self.imageSquareView?.center = CGPoint(x: originX, y: originY)
+    }
     
     func setSlice(Image image:UIImage) {
         self.imageSquareView?.sliceImage = image
@@ -134,11 +140,6 @@ class ImageSquare: NSObject {
     
     func getSurfaceView()->ViewSquare?{
         return self.imageSquareContainer
-    }
-    
-    func toString(){
-        print("top \(self.topLine.rawValue) left \(self.leftLine.rawValue) bottom \(self.bottomLine.rawValue) right \(self.rightLine.rawValue)")
-        print("row \(self.indexRow) column \(self.indexColumn)")
     }
 }
    

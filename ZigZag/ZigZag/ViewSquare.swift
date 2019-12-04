@@ -10,7 +10,7 @@ import UIKit
 
 class ViewSquare: UIView {
     
-    fileprivate let dimension:Int
+    
     fileprivate let drawingPath:UIBezierPath
     fileprivate var imageView:UIImageView!
     
@@ -21,12 +21,11 @@ class ViewSquare: UIView {
     }
     
     
-    init(Types types:[SquareType], width:Int, frame:CGRect){
+    init(Types types:[SquareType], frame:CGRect){
         let topLine = types[0]
         let leftLine = types[1]
         let rightLine = types[2]
         let bottomLine = types[3]
-        dimension = width
         drawingPath = UIBezierPath()
         
         super.init(frame: frame)
@@ -53,11 +52,7 @@ class ViewSquare: UIView {
     }
     
     
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
 
-    }
     
 
 }
