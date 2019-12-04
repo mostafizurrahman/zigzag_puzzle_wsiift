@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var heightLayout: NSLayoutConstraint!
     var squareHandler:ImageSquareHandler!
     var draggingView:ViewSquare?
+    var surfaceRect:CGRect?
     var offset:CGPoint = .zero
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,9 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         if let point = touches.first?.location(in: self.containerView) {
-            if let _view = self.squareHandler.getView(FromPoint: point) {
+            let (_sourceView, _rect) = self.squareHandler.getView(FromPoint: point)
+            if let _view = _sourceView {
+                self.surfaceRect = _rect
                 self.draggingView = _view
                 self.containerView.bringSubviewToFront(_view)
                 self.offset = point - _view.center
@@ -47,15 +50,12 @@ class ViewController: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         if let point = touches.first?.location(in: self.containerView) {
-            if let _view = self.draggingView {
-                let (isValid, rect) = self.squareHandler.verify(ViewSquare: _view, forPoint: point)
-                print("__validation\n\n\(isValid)\n\n")
-                if isValid {
-                    _view.frame = rect
+            if let _view = self.draggingView, let _rect = surfaceRect {
+                if _rect.contains(point) {
+                    _view.frame = _rect
                 }
             }
         }
-        
         self.draggingView = nil
     }
 

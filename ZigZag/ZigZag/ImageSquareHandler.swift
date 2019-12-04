@@ -111,26 +111,15 @@ class ImageSquareHandler: NSObject {
         return self.emptySquare
     }
     
-    func getView(FromPoint point:CGPoint)->ViewSquare?{
+    func getView(FromPoint point:CGPoint)->(ViewSquare?, CGRect?){
         for _square in self.squareArray {
             if let _view = _square.getSurceView(forPoint: point) {
-                return _view
+                return (_view, _square.getSurfaceView()?.frame)
             }
         }
-        return nil
+        return (nil, nil)
     }
     
-    func verify(ViewSquare square:ViewSquare, forPoint point:CGPoint)->(Bool, CGRect){
-        for _square in self.squareArray {
-            if _square.getSurceView()?.isEqual(square) ?? false {
-                if let _container = _square.getSurface() {
-                   return (_container.frame.contains(point), _container.frame)
-                }
-            }
-        }
-        return (false, .zero)
-    }
-
 }
 
 

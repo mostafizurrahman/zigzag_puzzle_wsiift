@@ -132,7 +132,7 @@ class ImageSquare: NSObject {
         return self.imageSquareView?.frame.contains(point) ?? false ? self.imageSquareView : nil
     }
     
-    func getSurface()->ViewSquare?{
+    func getSurfaceView()->ViewSquare?{
         return self.imageSquareContainer
     }
     
