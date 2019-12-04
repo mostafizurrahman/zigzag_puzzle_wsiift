@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PuzzleViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var heightLayout: NSLayoutConstraint!

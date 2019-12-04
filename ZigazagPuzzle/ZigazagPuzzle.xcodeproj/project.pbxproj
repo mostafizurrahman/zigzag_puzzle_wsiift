@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B62381972E0075E20E /* AppDelegate.swift */; };
-		BE0182B92381972E0075E20E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B82381972E0075E20E /* ViewController.swift */; };
+		BE0182B92381972E0075E20E /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B82381972E0075E20E /* PuzzleViewController.swift */; };
 		BE0182BC2381972E0075E20E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0182BA2381972E0075E20E /* Main.storyboard */; };
 		BE0182BE238197310075E20E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE0182BD238197310075E20E /* Assets.xcassets */; };
 		BE0182C1238197310075E20E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0182BF238197310075E20E /* LaunchScreen.storyboard */; };
@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		BE0182B32381972E0075E20E /* ZigazagPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigazagPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0182B62381972E0075E20E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE0182B82381972E0075E20E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE0182B82381972E0075E20E /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		BE0182BB2381972E0075E20E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE0182BD238197310075E20E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE0182C0238197310075E20E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		BE0182D6238197310075E20E /* ZigazagPuzzleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigazagPuzzleUITests.swift; sourceTree = "<group>"; };
 		BE0182D8238197310075E20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE0182E4238197600075E20E /* ViewSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewSquare.swift; path = ../../ZigZag/ZigZag/ViewSquare.swift; sourceTree = "<group>"; };
-		BE0182E5238197600075E20E /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample.jpg; path = ../../ZigZag/ZigZag/sample.jpg; sourceTree = "<group>"; };
+		BE0182E5238197600075E20E /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		BE0182E6238197600075E20E /* ImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageHandler.swift; path = ../../ZigZag/ZigZag/ImageHandler.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BE0182E7238197600075E20E /* ImageSquareHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSquareHandler.swift; path = ../../ZigZag/ZigZag/ImageSquareHandler.swift; sourceTree = "<group>"; };
 		BE0182E8238197600075E20E /* ImageSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSquare.swift; path = ../../ZigZag/ZigZag/ImageSquare.swift; sourceTree = "<group>"; };
@@ -111,19 +111,14 @@
 		BE0182B52381972E0075E20E /* ZigazagPuzzle */ = {
 			isa = PBXGroup;
 			children = (
-				BE0182B62381972E0075E20E /* AppDelegate.swift */,
-				BE0182EE238198450075E20E /* SquareType.swift */,
-				BE0182B82381972E0075E20E /* ViewController.swift */,
-				BE0182BA2381972E0075E20E /* Main.storyboard */,
-				BE0182BD238197310075E20E /* Assets.xcassets */,
-				BE0182BF238197310075E20E /* LaunchScreen.storyboard */,
 				BE0182C2238197310075E20E /* Info.plist */,
+				BE0A9CA52397AA2800594598 /* AppConfig */,
+				BE0182EE238198450075E20E /* SquareType.swift */,
+				BE0182B82381972E0075E20E /* PuzzleViewController.swift */,
 				BE0182E6238197600075E20E /* ImageHandler.swift */,
 				BE0182E8238197600075E20E /* ImageSquare.swift */,
 				BE0182E7238197600075E20E /* ImageSquareHandler.swift */,
-				BE0182E5238197600075E20E /* sample.jpg */,
 				BE0182E4238197600075E20E /* ViewSquare.swift */,
-				BEFE5ADD23966049000E567F /* AppConstants.swift */,
 			);
 			path = ZigazagPuzzle;
 			sourceTree = "<group>";
@@ -144,6 +139,19 @@
 				BE0182D8238197310075E20E /* Info.plist */,
 			);
 			path = ZigazagPuzzleUITests;
+			sourceTree = "<group>";
+		};
+		BE0A9CA52397AA2800594598 /* AppConfig */ = {
+			isa = PBXGroup;
+			children = (
+				BE0182E5238197600075E20E /* sample.jpg */,
+				BE0182B62381972E0075E20E /* AppDelegate.swift */,
+				BEFE5ADD23966049000E567F /* AppConstants.swift */,
+				BE0182BA2381972E0075E20E /* Main.storyboard */,
+				BE0182BD238197310075E20E /* Assets.xcassets */,
+				BE0182BF238197310075E20E /* LaunchScreen.storyboard */,
+			);
+			path = AppConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE0182B92381972E0075E20E /* ViewController.swift in Sources */,
+				BE0182B92381972E0075E20E /* PuzzleViewController.swift in Sources */,
 				BE0182E9238197600075E20E /* ViewSquare.swift in Sources */,
 				BE0182ED238197600075E20E /* ImageSquare.swift in Sources */,
 				BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */,
