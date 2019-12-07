@@ -20,7 +20,21 @@
 		BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182E7238197600075E20E /* ImageSquareHandler.swift */; };
 		BE0182ED238197600075E20E /* ImageSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182E8238197600075E20E /* ImageSquare.swift */; };
 		BE0182EF238198460075E20E /* SquareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182EE238198450075E20E /* SquareType.swift */; };
+		BE0376C7239C1DAE00F75CC1 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0376C6239C1DAE00F75CC1 /* ImageViewCell.swift */; };
+		BE0376C9239C222B00F75CC1 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0376C8239C222B00F75CC1 /* PhotoViewController.swift */; };
+		BE0376CC239C246C00F75CC1 /* dog_bathtub.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376CB239C246C00F75CC1 /* dog_bathtub.jpg */; };
+		BE0376CE239C25C200F75CC1 /* angry_pumpking.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376CD239C25C200F75CC1 /* angry_pumpking.jpg */; };
+		BE0376D0239C265B00F75CC1 /* super_hero1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376CF239C265A00F75CC1 /* super_hero1.jpg */; };
+		BE0376D2239C27B100F75CC1 /* fish_bubble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D1239C27B100F75CC1 /* fish_bubble.jpg */; };
+		BE0376D4239C27C700F75CC1 /* eating_shark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D3239C27C700F75CC1 /* eating_shark.jpg */; };
+		BE0376D6239C2A0A00F75CC1 /* linux.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D5239C2A0900F75CC1 /* linux.jpg */; };
+		BE0376D8239C2A1300F75CC1 /* moon_landing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D7239C2A1300F75CC1 /* moon_landing.jpg */; };
+		BE0376DA239C2AAA00F75CC1 /* teetch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D9239C2AAA00F75CC1 /* teetch.jpg */; };
+		BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DB239C2B1F00F75CC1 /* bunny.jpg */; };
+		BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */; };
 		BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE5ADD23966049000E567F /* AppConstants.swift */; };
+		BEFE63CF239B85AF004831BB /* GameMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE63CE239B85AF004831BB /* GameMusic.swift */; };
+		BEFE63D1239B8709004831BB /* ting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEFE63D0239B8709004831BB /* ting.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,13 +68,27 @@
 		BE0182D2238197310075E20E /* ZigazagPuzzleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZigazagPuzzleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0182D6238197310075E20E /* ZigazagPuzzleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigazagPuzzleUITests.swift; sourceTree = "<group>"; };
 		BE0182D8238197310075E20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE0182E4238197600075E20E /* ViewSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewSquare.swift; path = ../../ZigZag/ZigZag/ViewSquare.swift; sourceTree = "<group>"; };
+		BE0182E4238197600075E20E /* ViewSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSquare.swift; sourceTree = "<group>"; };
 		BE0182E5238197600075E20E /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
-		BE0182E6238197600075E20E /* ImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageHandler.swift; path = ../../ZigZag/ZigZag/ImageHandler.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BE0182E7238197600075E20E /* ImageSquareHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSquareHandler.swift; path = ../../ZigZag/ZigZag/ImageSquareHandler.swift; sourceTree = "<group>"; };
-		BE0182E8238197600075E20E /* ImageSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSquare.swift; path = ../../ZigZag/ZigZag/ImageSquare.swift; sourceTree = "<group>"; };
-		BE0182EE238198450075E20E /* SquareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SquareType.swift; path = ../../ZigZag/ZigZag/SquareType.swift; sourceTree = "<group>"; };
+		BE0182E6238197600075E20E /* ImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BE0182E7238197600075E20E /* ImageSquareHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSquareHandler.swift; sourceTree = "<group>"; };
+		BE0182E8238197600075E20E /* ImageSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSquare.swift; sourceTree = "<group>"; };
+		BE0182EE238198450075E20E /* SquareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareType.swift; sourceTree = "<group>"; };
+		BE0376C6239C1DAE00F75CC1 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
+		BE0376C8239C222B00F75CC1 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		BE0376CB239C246C00F75CC1 /* dog_bathtub.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog_bathtub.jpg; sourceTree = "<group>"; };
+		BE0376CD239C25C200F75CC1 /* angry_pumpking.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angry_pumpking.jpg; sourceTree = "<group>"; };
+		BE0376CF239C265A00F75CC1 /* super_hero1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = super_hero1.jpg; sourceTree = "<group>"; };
+		BE0376D1239C27B100F75CC1 /* fish_bubble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fish_bubble.jpg; sourceTree = "<group>"; };
+		BE0376D3239C27C700F75CC1 /* eating_shark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eating_shark.jpg; sourceTree = "<group>"; };
+		BE0376D5239C2A0900F75CC1 /* linux.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = linux.jpg; sourceTree = "<group>"; };
+		BE0376D7239C2A1300F75CC1 /* moon_landing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moon_landing.jpg; sourceTree = "<group>"; };
+		BE0376D9239C2AAA00F75CC1 /* teetch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teetch.jpg; sourceTree = "<group>"; };
+		BE0376DB239C2B1F00F75CC1 /* bunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bunny.jpg; sourceTree = "<group>"; };
+		BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = puzzle_images_data.json; sourceTree = "<group>"; };
 		BEFE5ADD23966049000E567F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		BEFE63CE239B85AF004831BB /* GameMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMusic.swift; sourceTree = "<group>"; };
+		BEFE63D0239B8709004831BB /* ting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ting.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,14 +139,14 @@
 		BE0182B52381972E0075E20E /* ZigazagPuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				BE0376CA239C246000F75CC1 /* images */,
+				BE0376C5239C1D6400F75CC1 /* data */,
+				BEFE63CD239B859A004831BB /* sounds */,
 				BE0182C2238197310075E20E /* Info.plist */,
 				BE0A9CA52397AA2800594598 /* AppConfig */,
-				BE0182EE238198450075E20E /* SquareType.swift */,
+				BE0A9CA62397B6B600594598 /* GameClass */,
 				BE0182B82381972E0075E20E /* PuzzleViewController.swift */,
-				BE0182E6238197600075E20E /* ImageHandler.swift */,
-				BE0182E8238197600075E20E /* ImageSquare.swift */,
-				BE0182E7238197600075E20E /* ImageSquareHandler.swift */,
-				BE0182E4238197600075E20E /* ViewSquare.swift */,
+				BE0376C8239C222B00F75CC1 /* PhotoViewController.swift */,
 			);
 			path = ZigazagPuzzle;
 			sourceTree = "<group>";
@@ -141,6 +169,31 @@
 			path = ZigazagPuzzleUITests;
 			sourceTree = "<group>";
 		};
+		BE0376C5239C1D6400F75CC1 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BE0376C6239C1DAE00F75CC1 /* ImageViewCell.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		BE0376CA239C246000F75CC1 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				BE0376DB239C2B1F00F75CC1 /* bunny.jpg */,
+				BE0376D9239C2AAA00F75CC1 /* teetch.jpg */,
+				BE0376D3239C27C700F75CC1 /* eating_shark.jpg */,
+				BE0376D5239C2A0900F75CC1 /* linux.jpg */,
+				BE0376D1239C27B100F75CC1 /* fish_bubble.jpg */,
+				BE0376CF239C265A00F75CC1 /* super_hero1.jpg */,
+				BE0376D7239C2A1300F75CC1 /* moon_landing.jpg */,
+				BE0376CB239C246C00F75CC1 /* dog_bathtub.jpg */,
+				BE0376CD239C25C200F75CC1 /* angry_pumpking.jpg */,
+				BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		BE0A9CA52397AA2800594598 /* AppConfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +205,27 @@
 				BE0182BF238197310075E20E /* LaunchScreen.storyboard */,
 			);
 			path = AppConfig;
+			sourceTree = "<group>";
+		};
+		BE0A9CA62397B6B600594598 /* GameClass */ = {
+			isa = PBXGroup;
+			children = (
+				BE0182E8238197600075E20E /* ImageSquare.swift */,
+				BE0182E6238197600075E20E /* ImageHandler.swift */,
+				BE0182E7238197600075E20E /* ImageSquareHandler.swift */,
+				BE0182EE238198450075E20E /* SquareType.swift */,
+				BE0182E4238197600075E20E /* ViewSquare.swift */,
+			);
+			path = GameClass;
+			sourceTree = "<group>";
+		};
+		BEFE63CD239B859A004831BB /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BEFE63D0239B8709004831BB /* ting.mp3 */,
+				BEFE63CE239B85AF004831BB /* GameMusic.swift */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +333,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0182C1238197310075E20E /* LaunchScreen.storyboard in Resources */,
+				BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */,
+				BE0376CE239C25C200F75CC1 /* angry_pumpking.jpg in Resources */,
+				BEFE63D1239B8709004831BB /* ting.mp3 in Resources */,
+				BE0376D0239C265B00F75CC1 /* super_hero1.jpg in Resources */,
 				BE0182BE238197310075E20E /* Assets.xcassets in Resources */,
+				BE0376CC239C246C00F75CC1 /* dog_bathtub.jpg in Resources */,
+				BE0376D2239C27B100F75CC1 /* fish_bubble.jpg in Resources */,
+				BE0376D6239C2A0A00F75CC1 /* linux.jpg in Resources */,
+				BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */,
+				BE0376D8239C2A1300F75CC1 /* moon_landing.jpg in Resources */,
 				BE0182BC2381972E0075E20E /* Main.storyboard in Resources */,
 				BE0182EA238197600075E20E /* sample.jpg in Resources */,
+				BE0376DA239C2AAA00F75CC1 /* teetch.jpg in Resources */,
+				BE0376D4239C27C700F75CC1 /* eating_shark.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +378,10 @@
 				BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */,
 				BE0182EF238198460075E20E /* SquareType.swift in Sources */,
 				BE0182EB238197600075E20E /* ImageHandler.swift in Sources */,
+				BEFE63CF239B85AF004831BB /* GameMusic.swift in Sources */,
+				BE0376C7239C1DAE00F75CC1 /* ImageViewCell.swift in Sources */,
 				BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */,
+				BE0376C9239C222B00F75CC1 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

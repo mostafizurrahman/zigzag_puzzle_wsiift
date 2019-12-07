@@ -38,7 +38,6 @@ class ViewSquare: UIView {
                            size: CGSize(width: _width, height: _height))
         
         self.imageView = UIImageView.init(frame: _rect)
-//        self.imageView.backgroundColor = UIColor.red
         self.addSubview(self.imageView)
     }
     

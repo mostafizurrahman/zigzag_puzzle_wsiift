@@ -9,60 +9,71 @@
 import UIKit
 
 class PuzzleViewController: UIViewController {
-
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var heightLayout: NSLayoutConstraint!
     var squareHandler:ImageSquareHandler!
     var draggingView:ViewSquare?
     var surfaceRect:CGRect?
     var offset:CGPoint = .zero
-    
+    var gameOver:Bool = false
+    let music = GameMusic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.heightLayout.constant = UIScreen.main.bounds.height * 0.9
         self.view.layoutIfNeeded()
         self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
-                                   ScreenHeight: Int(UIScreen.main.bounds.height * 0.9),
-                                   Image: "sample", inView:self.containerView)
+                                                ScreenHeight: Int(UIScreen.main.bounds.height * 0.9),
+                                                Image: "sample", inView:self.containerView)
         // Do any additional setup after loading the view.
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        if let point = touches.first?.location(in: self.containerView) {
-            let (_sourceView, _rect) = self.squareHandler.getView(FromPoint: point)
-            if let _view = _sourceView {
-                self.surfaceRect = _rect
-                self.draggingView = _view
-                self.containerView.bringSubviewToFront(_view)
-                self.offset = point - _view.center
+        if !self.gameOver {
+            if let point = touches.first?.location(in: self.containerView) {
+                let (_sourceView, _rect) = self.squareHandler.getView(FromPoint: point)
+                if let _view = _sourceView {
+                    self.surfaceRect = _rect
+                    self.draggingView = _view
+                    self.containerView.bringSubviewToFront(_view)
+                    self.offset = point - _view.center
+                }
             }
         }
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
-        if let point = touches.first?.location(in: self.containerView) {
-            self.draggingView?.center = point - self.offset
+        if !self.gameOver {
+            if let point = touches.first?.location(in: self.containerView) {
+                self.draggingView?.center = point - self.offset
+            }
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        if let point = touches.first?.location(in: self.containerView) {
-            if let _view = self.draggingView, let _rect = surfaceRect {
-                if _rect.contains(point) {
-                    _view.frame = _rect
+        if !self.gameOver {
+            if let point = touches.first?.location(in: self.containerView) {
+                if let _view = self.draggingView, let _rect = surfaceRect {
+                    if _rect.contains(point) {
+                        music.play(Sound: "ting")
+                        _view.frame = _rect
+                        self.gameOver = self.squareHandler.isGameOver()
+                        if self.gameOver {
+                            print("++++++++GAME OVER++++++++")
+                        }
+                    }
                 }
             }
+            self.draggingView = nil
         }
-        self.draggingView = nil
     }
-
     
 }
+
 extension CGPoint {
     static func +(left:CGPoint, right:CGPoint)->CGPoint{
         return  CGPoint(x: left.x + right.x, y: left.y + right.y)
@@ -72,3 +83,4 @@ extension CGPoint {
         return  CGPoint(x: left.x - right.x, y: left.y - right.y)
     }
 }
+

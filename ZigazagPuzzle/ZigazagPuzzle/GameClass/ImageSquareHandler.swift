@@ -30,10 +30,10 @@ class ImageSquareHandler: NSObject {
     
     fileprivate func configureSaqure(ToView _view:UIView){
         let dimension = self.screenHeight / self.rowCount
+        let screenWidth = dimension * self.columnCount
         self.imageHandler = ImageHandler(WithDimension: dimension, imagePath: sourceImageName)
         self.imageHandler.setupContext(ForRow: self.rowCount, Column: self.columnCount, Scale: UIScreen.main.scale)
        
-        let screenWidth = dimension * self.columnCount
         for row in 0...self.rowCount-1{
             for column in 0...self.columnCount-1{
                 let square = ImageSquare(WithDimension: dimension,
@@ -122,6 +122,26 @@ class ImageSquareHandler: NSObject {
             }
         }
         return (nil, nil)
+    }
+    
+    func playAgain(parentWidth _width: Int,
+                   parentHeight _height: Int){
+        let dimension = self.screenHeight / self.rowCount
+        let screenWidth = dimension * self.columnCount
+        for _square in self.squareArray {
+            _square.setRandomPosition(initialX: screenWidth, parentWidth: _width, parentHeight: _height)
+        }
+    }
+    
+    func isGameOver()->Bool {
+        for _square in self.squareArray {
+            if let _surface = _square.getSurfaceView(), let _sourceView = _square.getSurceView() {
+                if !_surface.frame.contains(_sourceView.center) {
+                    return false
+                }
+            }
+        }
+        return true
     }
     
 }

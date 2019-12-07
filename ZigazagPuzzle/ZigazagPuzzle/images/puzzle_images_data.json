@@ -1,0 +1,76 @@
+{
+    "images": [
+        {
+            "image_id": "local_0000",
+            "should_download": false,
+            "image_title": "Dog Bath",
+            "image_file": "dog_bathtub.jpg",
+            "image_width": "1920",
+            "image_height": "1920"
+        },
+        {
+            "image_id": "local_0001",
+            "should_download": false,
+            "image_title": "Angry Pumkin",
+            "image_file": "angry_pumpking.jpg",
+            "image_width": "1280",
+            "image_height": "1280"
+        },
+        {
+            "image_id": "local_0002",
+            "should_download": false,
+            "image_title": "Shark",
+            "image_file": "eating_shark.jpg",
+            "image_width": "1920",
+            "image_height": "1920"
+        },
+        {
+            "image_id": "local_0003",
+            "should_download": false,
+            "image_title": "Flying Hero",
+            "image_file": "super_hero1.jpg",
+            "image_width": "1147",
+            "image_height": "1077"
+        },
+        {
+            "image_id": "local_0004",
+            "should_download": false,
+            "image_title": "Dorry",
+            "image_file": "fish_bubble.jpg",
+            "image_width": "1280",
+            "image_height": "1280"
+        },
+        {
+            "image_id": "local_0005",
+            "should_download": false,
+            "image_title": "Moon Landing",
+            "image_file": "moon_landing.jpg",
+            "image_width": "1359",
+            "image_height": "1359"
+        },
+        {
+            "image_id": "local_0006",
+            "should_download": false,
+            "image_title": "Penguine",
+            "image_file": "linux.jpg",
+            "image_width": "1280",
+            "image_height": "1280"
+        },
+        {
+            "image_id": "local_0007",
+            "should_download": false,
+            "image_title": "Teetch",
+            "image_file": "teeth.jpg",
+            "image_width": "900",
+            "image_height": "900"
+        },
+        {
+            "image_id": "local_0008",
+            "should_download": false,
+            "image_title": "Bunny",
+            "image_file": "bunny.jpg",
+            "image_width": "1280",
+            "image_height": "1280"
+        }
+    ]
+}

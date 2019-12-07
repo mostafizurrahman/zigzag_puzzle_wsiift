@@ -88,12 +88,14 @@ class ImageHandler: NSObject {
         let originY = topLine == .topOut ? length : 0
         let rightX = originX + self.sliceWidth
         let bottomY = originY + self.sliceWidth
+        
         let intLen75 = Int(floatLen * 0.75)
         let intLen25 = Int(floatLen * 0.25)
         let intBox25 = Int(boxWidth * 0.25)
         let intBox55 = Int(boxWidth * 0.55)
         let intBox45 = Int(boxWidth * 0.45)
         let intBox75 = Int(boxWidth * 0.75)
+        
         if topLine == .topOut {
             path.move(to: CGPoint(x: originX, y: length))
             path.addLine(to: CGPoint(x: originX + intBox45, y: length))
