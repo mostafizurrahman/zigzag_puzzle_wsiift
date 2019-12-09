@@ -10,8 +10,8 @@ import UIKit
 
 class PuzzleViewController: UIViewController {
     
+    var puzzleData:[String : AnyObject]?
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var heightLayout: NSLayoutConstraint!
     var squareHandler:ImageSquareHandler!
     var draggingView:ViewSquare?
     var surfaceRect:CGRect?
@@ -21,14 +21,15 @@ class PuzzleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.heightLayout.constant = UIScreen.main.bounds.height * 0.9
-        self.view.layoutIfNeeded()
         self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
-                                                ScreenHeight: Int(UIScreen.main.bounds.height * 0.9),
+                                                ScreenHeight: Int(self.containerView.bounds.width),
                                                 Image: "sample", inView:self.containerView)
+        
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         if !self.gameOver {

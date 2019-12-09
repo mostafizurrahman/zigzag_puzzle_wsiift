@@ -116,8 +116,8 @@ class ImageSquare: NSObject {
     
     func setRandomPosition(initialX leftX:Int, parentWidth _width:Int, parentHeight _height:Int){
         
-        var originX = leftX + Int(arc4random_uniform(UInt32(_width - leftX)))
-        var originY = Int(arc4random_uniform(UInt32(_height)))
+        var originX = Int(arc4random_uniform(UInt32(_width)))
+        var originY = leftX + Int(arc4random_uniform(UInt32(_height - leftX)))
         originY += (originY + 20 > _height ? -20 : (originY < 20 ? 20 : 0))
         originX += (originX + 80 > _width ? -40 : (originX < leftX + 20 ? 20 : 0))
         self.imageSquareView?.center = CGPoint(x: originX, y: originY)

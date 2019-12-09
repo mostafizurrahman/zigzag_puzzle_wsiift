@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RsC-se-ULh">
-    <device id="retina6_1" orientation="landscape">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="RsC-se-ULh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kZi-ZI-NWU">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -24,18 +24,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scN-bw-KjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1432" y="64"/>
+            <point key="canvasLocation" x="-1780" y="64"/>
         </scene>
-        <!--PUZZLE IMAGES-->
+        <!--Photo View Controller-->
         <scene sceneID="QAx-BW-FID">
             <objects>
                 <viewController id="Hli-wH-FhR" customClass="PhotoViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AG6-V5-6EM">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T1d-GO-ynI">
-                                <rect key="frame" x="44" y="44" width="808" height="349"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T1d-GO-ynI" customClass="PhotoCollectionView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f5O-va-p82">
                                     <size key="itemSize" width="182" height="165"/>
@@ -44,21 +44,21 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageViewCell" id="gxe-CI-z2B" customClass="ImageViewCell" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="gxe-CI-z2B" customClass="ImageViewCell" customModule="ZigazagPuzzle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gh-aO-1BX">
+                                                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gh-aO-1BX">
                                                     <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ga-fp-fb7">
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9IU-nK-pPG">
-                                                            <rect key="frame" x="16" y="16" width="30" height="30"/>
+                                                            <rect key="frame" x="16" y="16" width="16" height="16"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,9 +97,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ls1-2E-i5z"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PUZZLE IMAGES" id="d68-r8-Zd6"/>
+                    <navigationItem key="navigationItem" id="d68-r8-Zd6"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="5Cd-Dz-kon"/>
+                        <outlet property="photoCollectionView" destination="T1d-GO-ynI" id="hT2-zR-bIm"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="PuzzleSigue" id="5Cd-Dz-kon"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytH-AI-0sW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -111,74 +112,48 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PuzzleViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nud-Xl-4wj">
-                                <rect key="frame" x="44" y="8" width="758" height="128"/>
+                                <rect key="frame" x="8" y="96" width="398" height="717"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="sXn-Lt-vOa"/>
-                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjJ-DL-8ky">
-                                <rect key="frame" x="802" y="0.0" width="50" height="393"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svp-1F-vpi">
-                                        <rect key="frame" x="0.0" y="24" width="50" height="50"/>
-                                        <state key="normal" image="error"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-PS-fe9">
-                                        <rect key="frame" x="0.0" y="171.5" width="50" height="50"/>
-                                        <state key="normal" image="repeat"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTd-ls-dL5">
-                                        <rect key="frame" x="0.0" y="319" width="50" height="50"/>
-                                        <state key="normal" image="settings"/>
-                                        <connections>
-                                            <segue destination="wl4-MM-4vc" kind="show" id="AMx-iA-BS3"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOj-Xd-2zk">
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="WmR-PS-fe9" firstAttribute="centerY" secondItem="tjJ-DL-8ky" secondAttribute="centerY" id="2cQ-q6-A1p"/>
-                                    <constraint firstItem="MTd-ls-dL5" firstAttribute="centerY" secondItem="tjJ-DL-8ky" secondAttribute="centerY" multiplier="1.75" id="Eyj-N5-A2E"/>
-                                    <constraint firstItem="WmR-PS-fe9" firstAttribute="centerX" secondItem="tjJ-DL-8ky" secondAttribute="centerX" id="KWf-Sk-cDJ"/>
-                                    <constraint firstAttribute="width" constant="50" id="Peg-LH-9w5"/>
-                                    <constraint firstItem="Svp-1F-vpi" firstAttribute="centerY" secondItem="tjJ-DL-8ky" secondAttribute="centerY" multiplier="0.25" id="o1Q-ro-7Gi"/>
-                                    <constraint firstItem="Svp-1F-vpi" firstAttribute="centerX" secondItem="tjJ-DL-8ky" secondAttribute="centerX" id="u0B-Di-Dq4"/>
-                                    <constraint firstItem="MTd-ls-dL5" firstAttribute="centerX" secondItem="tjJ-DL-8ky" secondAttribute="centerX" id="yC7-Om-XMn"/>
-                                </constraints>
-                            </view>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="f32-gd-7B0"/>
+                                    <tabBarItem systemItem="more" id="mTV-CB-0KD"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nud-Xl-4wj" secondAttribute="trailing" constant="50" id="9tK-hQ-kjf"/>
-                            <constraint firstItem="nud-Xl-4wj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FQ3-Rd-d7D"/>
-                            <constraint firstItem="tjJ-DL-8ky" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LtL-2c-iMl"/>
-                            <constraint firstItem="nud-Xl-4wj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="VwM-0G-hTy"/>
-                            <constraint firstItem="tjJ-DL-8ky" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZtF-Xe-EiX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tjJ-DL-8ky" secondAttribute="bottom" id="w8g-j2-ZdY"/>
+                            <constraint firstItem="eOj-Xd-2zk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0pE-1I-TOm"/>
+                            <constraint firstItem="eOj-Xd-2zk" firstAttribute="top" secondItem="nud-Xl-4wj" secondAttribute="bottom" id="8Vn-ou-FDp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nud-Xl-4wj" secondAttribute="trailing" constant="8" id="Knb-PA-Tua"/>
+                            <constraint firstItem="nud-Xl-4wj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="NAV-HS-Iwz"/>
+                            <constraint firstItem="nud-Xl-4wj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="XWV-38-meU"/>
+                            <constraint firstItem="eOj-Xd-2zk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lmp-hf-7lK"/>
+                            <constraint firstItem="eOj-Xd-2zk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="vFb-YL-v6r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="nud-Xl-4wj" id="IoQ-5d-0bG"/>
-                        <outlet property="heightLayout" destination="sXn-Lt-vOa" id="glQ-mt-2p4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="64"/>
+            <point key="canvasLocation" x="137.68115942028987" y="63.616071428571423"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vc6-bH-k4W">
             <objects>
                 <viewController id="wl4-MM-4vc" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PuB-1m-DML">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Moz-1q-bUa"/>
@@ -190,9 +165,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="error" width="50" height="50"/>
         <image name="locked" width="30" height="30"/>
-        <image name="repeat" width="50" height="50"/>
-        <image name="settings" width="50" height="50"/>
     </resources>
 </document>

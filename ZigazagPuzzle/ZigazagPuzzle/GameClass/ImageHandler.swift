@@ -19,16 +19,8 @@ class ImageHandler: NSObject {
     //    fileprivate var sliceRect:CGRect = .zero
     init(WithDimension dimension:Int, imagePath:String){
         super.init()
-        if imagePath.contains("/") && FileManager.default.fileExists(atPath: imagePath){
-            self.contentImage = UIImage.init(contentsOfFile: imagePath)
-        } else {
-            if let imageFile = Bundle.main.path(forResource: imagePath, ofType: ".jpg") {
-                self.contentImage = UIImage.init(contentsOfFile: imageFile)
-            } else {
-                self.contentImage = UIImage(named: imagePath)
-            }
-        }
-        assert(self.contentImage != nil, "Sourec image is nil")
+        self.contentImage = AppConstants.getImage(fromPath: imagePath)
+        assert(self.contentImage != nil, "Content Image is Nil")
         self.dimension = dimension
     }
     

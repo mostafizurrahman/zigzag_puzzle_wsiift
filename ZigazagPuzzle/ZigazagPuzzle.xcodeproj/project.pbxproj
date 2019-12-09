@@ -29,12 +29,14 @@
 		BE0376D4239C27C700F75CC1 /* eating_shark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D3239C27C700F75CC1 /* eating_shark.jpg */; };
 		BE0376D6239C2A0A00F75CC1 /* linux.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D5239C2A0900F75CC1 /* linux.jpg */; };
 		BE0376D8239C2A1300F75CC1 /* moon_landing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D7239C2A1300F75CC1 /* moon_landing.jpg */; };
-		BE0376DA239C2AAA00F75CC1 /* teetch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D9239C2AAA00F75CC1 /* teetch.jpg */; };
+		BE0376DA239C2AAA00F75CC1 /* teeth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D9239C2AAA00F75CC1 /* teeth.jpg */; };
 		BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DB239C2B1F00F75CC1 /* bunny.jpg */; };
 		BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */; };
 		BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE5ADD23966049000E567F /* AppConstants.swift */; };
 		BEFE63CF239B85AF004831BB /* GameMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE63CE239B85AF004831BB /* GameMusic.swift */; };
 		BEFE63D1239B8709004831BB /* ting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEFE63D0239B8709004831BB /* ting.mp3 */; };
+		BEFEAE1A239D4A7700BBEB65 /* PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEAE19239D4A7700BBEB65 /* PhotoCollectionView.swift */; };
+		BEFEAE1C239D516F00BBEB65 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEAE1B239D516F00BBEB65 /* PhotoDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,12 +85,14 @@
 		BE0376D3239C27C700F75CC1 /* eating_shark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eating_shark.jpg; sourceTree = "<group>"; };
 		BE0376D5239C2A0900F75CC1 /* linux.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = linux.jpg; sourceTree = "<group>"; };
 		BE0376D7239C2A1300F75CC1 /* moon_landing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moon_landing.jpg; sourceTree = "<group>"; };
-		BE0376D9239C2AAA00F75CC1 /* teetch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teetch.jpg; sourceTree = "<group>"; };
+		BE0376D9239C2AAA00F75CC1 /* teeth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teeth.jpg; sourceTree = "<group>"; };
 		BE0376DB239C2B1F00F75CC1 /* bunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bunny.jpg; sourceTree = "<group>"; };
 		BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = puzzle_images_data.json; sourceTree = "<group>"; };
 		BEFE5ADD23966049000E567F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		BEFE63CE239B85AF004831BB /* GameMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMusic.swift; sourceTree = "<group>"; };
 		BEFE63D0239B8709004831BB /* ting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ting.mp3; sourceTree = "<group>"; };
+		BEFEAE19239D4A7700BBEB65 /* PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
+		BEFEAE1B239D516F00BBEB65 /* PhotoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				BE0376C6239C1DAE00F75CC1 /* ImageViewCell.swift */,
+				BEFEAE19239D4A7700BBEB65 /* PhotoCollectionView.swift */,
+				BEFEAE1B239D516F00BBEB65 /* PhotoDataSource.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -181,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				BE0376DB239C2B1F00F75CC1 /* bunny.jpg */,
-				BE0376D9239C2AAA00F75CC1 /* teetch.jpg */,
+				BE0376D9239C2AAA00F75CC1 /* teeth.jpg */,
 				BE0376D3239C27C700F75CC1 /* eating_shark.jpg */,
 				BE0376D5239C2A0900F75CC1 /* linux.jpg */,
 				BE0376D1239C27B100F75CC1 /* fish_bubble.jpg */,
@@ -345,7 +351,7 @@
 				BE0376D8239C2A1300F75CC1 /* moon_landing.jpg in Resources */,
 				BE0182BC2381972E0075E20E /* Main.storyboard in Resources */,
 				BE0182EA238197600075E20E /* sample.jpg in Resources */,
-				BE0376DA239C2AAA00F75CC1 /* teetch.jpg in Resources */,
+				BE0376DA239C2AAA00F75CC1 /* teeth.jpg in Resources */,
 				BE0376D4239C27C700F75CC1 /* eating_shark.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,11 +382,13 @@
 				BE0182ED238197600075E20E /* ImageSquare.swift in Sources */,
 				BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */,
 				BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */,
+				BEFEAE1A239D4A7700BBEB65 /* PhotoCollectionView.swift in Sources */,
 				BE0182EF238198460075E20E /* SquareType.swift in Sources */,
 				BE0182EB238197600075E20E /* ImageHandler.swift in Sources */,
 				BEFE63CF239B85AF004831BB /* GameMusic.swift in Sources */,
 				BE0376C7239C1DAE00F75CC1 /* ImageViewCell.swift in Sources */,
 				BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */,
+				BEFEAE1C239D516F00BBEB65 /* PhotoDataSource.swift in Sources */,
 				BE0376C9239C222B00F75CC1 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
