@@ -21,15 +21,26 @@ class PuzzleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let imageNamed = self.puzzleData?["image_file"] as? String ?? "sample"
         self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
-                                                ScreenHeight: Int(self.containerView.bounds.width),
-                                                Image: "sample", inView:self.containerView)
-        
+                                                ScreenHeight: Int(UIScreen.main.bounds.width - 16),
+                                                Image: imageNamed, inView:self.containerView)
+        self.setControls()
         // Do any additional setup after loading the view.
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
+    @objc func openSettings(){
+        print("__image___")
+    }
+    
+    @objc func openPreview(){
+        print("__image___")
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         if !self.gameOver {
@@ -73,6 +84,27 @@ class PuzzleViewController: UIViewController {
         }
     }
     
+    func setControls(){
+        if let _title = self.puzzleData?["image_title"] as? String {
+            self.title = _title
+        }
+        let button = UIButton.init(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 40)))
+        button.addTarget(self, action: #selector(openSettings), for: UIControl.Event.touchUpInside)
+        button.setImage(AppConstants.getImage(fromPath: "settings"), for: UIControl.State.normal)
+        let barButton = UIBarButtonItem()
+        barButton.width = 40
+        barButton.customView = button
+        
+        
+        let preview = UIButton.init(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 40)))
+        preview.addTarget(self, action: #selector(openPreview), for: UIControl.Event.touchUpInside)
+        let image = AppConstants.getImage(fromPath: "eye-prev")
+        preview.setImage(image, for: UIControl.State.normal)
+        let previewButton = UIBarButtonItem()
+        previewButton.width = 40
+        previewButton.customView = preview
+        self.navigationItem.rightBarButtonItems = [barButton, previewButton]
+    }
 }
 
 extension CGPoint {
