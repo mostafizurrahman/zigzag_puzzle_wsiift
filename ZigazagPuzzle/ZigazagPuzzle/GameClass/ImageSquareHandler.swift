@@ -117,7 +117,8 @@ class ImageSquareHandler: NSObject {
     
     func getView(FromPoint point:CGPoint)->(ViewSquare?, CGRect?){
         for _square in self.squareArray {
-            if let _view = _square.getSurceView(forPoint: point) {
+            if let _view = _square.getSurceView(forPoint: point),
+                !_view.hasCorrectPosition  {
                 return (_view, _square.getSurfaceView()?.frame)
             }
         }

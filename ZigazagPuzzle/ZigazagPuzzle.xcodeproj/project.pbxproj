@@ -32,6 +32,9 @@
 		BE0376DA239C2AAA00F75CC1 /* teeth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D9239C2AAA00F75CC1 /* teeth.jpg */; };
 		BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DB239C2B1F00F75CC1 /* bunny.jpg */; };
 		BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */; };
+		BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */; };
+		BEF0576723B5F41C00A658C1 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF0576623B5F41C00A658C1 /* CategoryCollectionView.swift */; };
+		BEF0576923B5FB3B00A658C1 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEF0576823B5FB3B00A658C1 /* icon.jpg */; };
 		BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE5ADD23966049000E567F /* AppConstants.swift */; };
 		BEFE63CF239B85AF004831BB /* GameMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE63CE239B85AF004831BB /* GameMusic.swift */; };
 		BEFE63D1239B8709004831BB /* ting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEFE63D0239B8709004831BB /* ting.mp3 */; };
@@ -88,6 +91,9 @@
 		BE0376D9239C2AAA00F75CC1 /* teeth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teeth.jpg; sourceTree = "<group>"; };
 		BE0376DB239C2B1F00F75CC1 /* bunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bunny.jpg; sourceTree = "<group>"; };
 		BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = puzzle_images_data.json; sourceTree = "<group>"; };
+		BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		BEF0576623B5F41C00A658C1 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
+		BEF0576823B5FB3B00A658C1 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		BEFE5ADD23966049000E567F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		BEFE63CE239B85AF004831BB /* GameMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMusic.swift; sourceTree = "<group>"; };
 		BEFE63D0239B8709004831BB /* ting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ting.mp3; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 		BE0182B52381972E0075E20E /* ZigazagPuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				BEF0576823B5FB3B00A658C1 /* icon.jpg */,
 				BE0376CA239C246000F75CC1 /* images */,
 				BE0376C5239C1D6400F75CC1 /* data */,
 				BEFE63CD239B859A004831BB /* sounds */,
@@ -151,6 +158,7 @@
 				BE0A9CA62397B6B600594598 /* GameClass */,
 				BE0182B82381972E0075E20E /* PuzzleViewController.swift */,
 				BE0376C8239C222B00F75CC1 /* PhotoViewController.swift */,
+				BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */,
 			);
 			path = ZigazagPuzzle;
 			sourceTree = "<group>";
@@ -176,9 +184,10 @@
 		BE0376C5239C1D6400F75CC1 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				BEFEAE1B239D516F00BBEB65 /* PhotoDataSource.swift */,
 				BE0376C6239C1DAE00F75CC1 /* ImageViewCell.swift */,
 				BEFEAE19239D4A7700BBEB65 /* PhotoCollectionView.swift */,
-				BEFEAE1B239D516F00BBEB65 /* PhotoDataSource.swift */,
+				BEF0576623B5F41C00A658C1 /* CategoryCollectionView.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -338,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEF0576923B5FB3B00A658C1 /* icon.jpg in Resources */,
 				BE0182C1238197310075E20E /* LaunchScreen.storyboard in Resources */,
 				BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */,
 				BE0376CE239C25C200F75CC1 /* angry_pumpking.jpg in Resources */,
@@ -379,8 +389,10 @@
 			files = (
 				BE0182B92381972E0075E20E /* PuzzleViewController.swift in Sources */,
 				BE0182E9238197600075E20E /* ViewSquare.swift in Sources */,
+				BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */,
 				BE0182ED238197600075E20E /* ImageSquare.swift in Sources */,
 				BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */,
+				BEF0576723B5F41C00A658C1 /* CategoryCollectionView.swift in Sources */,
 				BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */,
 				BEFEAE1A239D4A7700BBEB65 /* PhotoCollectionView.swift in Sources */,
 				BE0182EF238198460075E20E /* SquareType.swift in Sources */,

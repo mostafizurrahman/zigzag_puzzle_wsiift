@@ -10,7 +10,7 @@ import UIKit
 
 class PuzzleViewController: UIViewController {
     
-    var puzzleData:[String : AnyObject]?
+    var puzzleData:ImageItem?
     @IBOutlet weak var containerView: UIView!
     var squareHandler:ImageSquareHandler!
     var draggingView:ViewSquare?
@@ -21,7 +21,7 @@ class PuzzleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageNamed = self.puzzleData?["image_file"] as? String ?? "sample"
+        let imageNamed = self.puzzleData?.imageFile ?? "sample"
         self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
                                                 ScreenHeight: Int(UIScreen.main.bounds.width - 16),
                                                 Image: imageNamed, inView:self.containerView)
@@ -46,7 +46,7 @@ class PuzzleViewController: UIViewController {
         if !self.gameOver {
             if let point = touches.first?.location(in: self.containerView) {
                 let (_sourceView, _rect) = self.squareHandler.getView(FromPoint: point)
-                if let _view = _sourceView {
+                if let _view = _sourceView{
                     self.surfaceRect = _rect
                     self.draggingView = _view
                     self.containerView.bringSubviewToFront(_view)
@@ -73,6 +73,7 @@ class PuzzleViewController: UIViewController {
                     if _rect.contains(point) {
                         music.play(Sound: "ting")
                         _view.frame = _rect
+                        _view.hasCorrectPosition = true
                         self.gameOver = self.squareHandler.isGameOver()
                         if self.gameOver {
                             print("++++++++GAME OVER++++++++")
@@ -85,7 +86,7 @@ class PuzzleViewController: UIViewController {
     }
     
     func setControls(){
-        if let _title = self.puzzleData?["image_title"] as? String {
+        if let _title = self.puzzleData?.imageTitle {
             self.title = _title
         }
         let button = UIButton.init(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 40)))

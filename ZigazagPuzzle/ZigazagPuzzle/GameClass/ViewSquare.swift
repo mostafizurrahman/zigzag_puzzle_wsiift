@@ -13,6 +13,7 @@ class ViewSquare: UIView {
     
     fileprivate let drawingPath:UIBezierPath
     fileprivate var imageView:UIImageView!
+    var hasCorrectPosition = false
     
     var sliceImage:UIImage? {
         didSet{

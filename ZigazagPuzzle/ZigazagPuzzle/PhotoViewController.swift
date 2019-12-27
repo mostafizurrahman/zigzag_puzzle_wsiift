@@ -8,14 +8,30 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
-
+class PhotoViewController: UIViewController,UICollectionViewDelegate {
+    
+    var sharedSource: PhotoDataSource?
+    var categoryData:CategoryData?
+    
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var photoCollectionView: PhotoCollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.photoCollectionView.configureCollectionView(forWidth: Int(self.view.bounds.width))
-        self.photoCollectionView.delegate = self
+        self.photoCollectionView.configureCollectionView(forWidth: Int(AppConstants.SCR_WIDTH))
+        if let catData = self.categoryData {
+            self.photoCollectionView.set(Data: catData.imageItemArray as AnyObject)
+        } else {
+            DispatchQueue.global().async {
+                self.sharedSource = PhotoDataSource.shared
+                DispatchQueue.main.async {
+                    self.photoCollectionView.set(Data: nil)
+                    self.photoCollectionView.delegate = self
+                    if self.visualEffectView != nil {
+                        self.visualEffectView.removeFromSuperview()
+                    }
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -32,17 +48,13 @@ class PhotoViewController: UIViewController {
         if let idf = segue.identifier {
             if idf.elementsEqual("PuzzleSigue"),
                 let dest = segue.destination as? PuzzleViewController {
-                dest.puzzleData = sender as? [String : AnyObject]
+                dest.puzzleData = sender as? ImageItem
             }
         }
     }
-    
-
-}
-
-extension PhotoViewController : UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data = PhotoDataSource.shared.dataArray[indexPath.row]
+        let data = self.categoryData?.imageItemArray[indexPath.row]
         self.performSegue(withIdentifier: "PuzzleSigue", sender: data)
     }
+
 }
