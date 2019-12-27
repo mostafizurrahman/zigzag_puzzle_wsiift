@@ -22,10 +22,15 @@ class PuzzleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageNamed = self.puzzleData?.imageFile ?? "sample"
-        self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
-                                                ScreenHeight: Int(UIScreen.main.bounds.width - 16),
-                                                Image: imageNamed, inView:self.containerView)
-        self.setControls()
+        self.containerView.layoutIfNeeded()
+        DispatchQueue.global().async {
+            DispatchQueue.main.async {
+                self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
+                                                        ScreenHeight: Int(UIScreen.main.bounds.width - 16),
+                                                        Image: imageNamed, inView:self.containerView)
+                self.setControls()
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
