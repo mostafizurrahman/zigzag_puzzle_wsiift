@@ -81,6 +81,7 @@ class PuzzleViewController: UIViewController {
                         _view.hasCorrectPosition = true
                         self.gameOver = self.squareHandler.isGameOver()
                         if self.gameOver {
+                            SweetAlert().showAlert("WELL DONE!", subTitle: "PUZZLE COMPLETED", style: AlertStyle.success)
                             print("++++++++GAME OVER++++++++")
                         }
                     }
