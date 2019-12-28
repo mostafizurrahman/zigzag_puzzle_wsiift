@@ -234,6 +234,10 @@ class ImageHandler: NSObject {
         
     }
     
+    func getImage()->UIImage {
+        return self.contentImage
+    }
+    
 }
 
 

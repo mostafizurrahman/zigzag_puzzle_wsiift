@@ -29,7 +29,33 @@ class AppConstants: NSObject {
                 return UIImage(named: imagePath)
             }
         }
-        return nil
     }
     
+    
+    static func animateDeletion(toView _view:UIView, completion:((Bool) -> Void)? = nil) {
+        _view.alpha = 1.0
+        UIView.animate(withDuration: 0.4, animations: {
+            _view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+            _view.alpha = 0
+        }) { (finished) in
+            if let completion = completion {
+                completion(finished)
+            }
+        }
+    }
+    
+    static func animateVisible(toView _view:UIView, completion:((Bool) -> Void)? = nil) {
+        _view.alpha = 0.0
+        
+        _view.transform = CGAffineTransform(scaleX: 1.75, y: 1.75)
+        _view.isHidden = false
+        UIView.animate(withDuration: 0.4, animations: {
+            _view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            _view.alpha = 1
+        }) { (finished) in
+            if let completion = completion {
+                completion(finished)
+            }
+        }
+    }
 }

@@ -42,12 +42,40 @@ class PuzzleViewController: UIViewController {
         print("__image___")
     }
     
+    var previewImage:ImagePreview?
+    
     @objc func openPreview(){
         print("__image___")
+        if self.previewImage == nil {
+            self.previewImage = ImagePreview(frame: self.view.bounds)
+            self.previewImage?.alpha = 0
+            self.previewImage?.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+            if let _view = self.previewImage {
+                let image = self.squareHandler.getImage()
+                _view.imageView.image = image
+                self.view.addSubview(_view)
+                AppConstants.animateVisible(toView: _view)
+            }
+        } else {
+            if let _view = self.previewImage {
+                AppConstants.animateDeletion(toView: _view, completion: {finish in
+                    _view.removeFromSuperview()
+                    self.previewImage = nil
+                })
+            }
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        if let _view = self.previewImage {
+            AppConstants.animateDeletion(toView: _view, completion: {finish in
+                _view.removeFromSuperview()
+                self.previewImage = nil
+            })
+            return
+        }
         if !self.gameOver {
             if let point = touches.first?.location(in: self.containerView) {
                 let (_sourceView, _rect) = self.squareHandler.getView(FromPoint: point)
@@ -81,7 +109,7 @@ class PuzzleViewController: UIViewController {
                         _view.hasCorrectPosition = true
                         self.gameOver = self.squareHandler.isGameOver()
                         if self.gameOver {
-                            SweetAlert().showAlert("WELL DONE!", subTitle: "PUZZLE COMPLETED", style: AlertStyle.success)
+                            _ = SweetAlert().showAlert("WELL DONE!", subTitle: "PUZZLE COMPLETED", style: AlertStyle.success)
                             print("++++++++GAME OVER++++++++")
                         }
                     }

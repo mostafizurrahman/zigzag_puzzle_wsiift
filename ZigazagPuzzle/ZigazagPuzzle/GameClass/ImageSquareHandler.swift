@@ -145,6 +145,10 @@ class ImageSquareHandler: NSObject {
         return true
     }
     
+    func getImage()->UIImage{
+        return self.imageHandler.getImage()
+    }
+    
 }
 
 

@@ -257,6 +257,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FWH-pY-KTy">
                                 <rect key="frame" x="314" y="0.0" width="80" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="45" minY="5" maxX="0.0" maxY="5"/>
                                 <state key="normal" image="settings"/>
                             </button>
                         </barButtonItem>

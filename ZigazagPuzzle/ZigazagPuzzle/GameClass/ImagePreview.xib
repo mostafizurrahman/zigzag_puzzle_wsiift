@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImagePreview" customModule="ZigazagPuzzle" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="8RB-pv-lhu" id="bEL-9O-ABj"/>
+                <outlet property="shadowView" destination="pNN-4h-ieJ" id="IUj-Cc-RhQ"/>
+                <outletCollection property="layouts" destination="kVG-p2-glq" collectionClass="NSMutableArray" id="1Cb-ml-6Ap"/>
+                <outletCollection property="layouts" destination="ybi-3l-wxC" collectionClass="NSMutableArray" id="yvx-cn-eES"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnR-sa-Sgb">
+                    <rect key="frame" x="0.0" y="-38" width="414" height="982"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2fm-mj-9Cg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="982"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8l-hw-6Fn">
+                                <rect key="frame" x="0.0" y="0.0" width="174" height="854"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="JcV-AN-gHm">
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="854"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="dark"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                    </view>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNN-4h-ieJ" customClass="ShadowView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                    <rect key="frame" x="47" y="293" width="320" height="320"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8RB-pv-lhu">
+                    <rect key="frame" x="47" y="293" width="320" height="320"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="kVG-p2-glq"/>
+                        <constraint firstAttribute="height" constant="320" id="ybi-3l-wxC"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ORIGINAL IMAGE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riC-nz-08Y">
+                    <rect key="frame" x="113.5" y="645" width="187.5" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="8RB-pv-lhu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="3Ls-e7-7EN"/>
+                <constraint firstItem="pNN-4h-ieJ" firstAttribute="centerX" secondItem="8RB-pv-lhu" secondAttribute="centerX" id="51D-2q-2c5"/>
+                <constraint firstItem="JnR-sa-Sgb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="9sd-Su-cAF"/>
+                <constraint firstItem="pNN-4h-ieJ" firstAttribute="centerY" secondItem="8RB-pv-lhu" secondAttribute="centerY" id="AXK-qi-P6a"/>
+                <constraint firstItem="JnR-sa-Sgb" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="JDw-fV-Jt9"/>
+                <constraint firstItem="pNN-4h-ieJ" firstAttribute="height" secondItem="8RB-pv-lhu" secondAttribute="height" id="LZO-Np-zDb"/>
+                <constraint firstItem="8RB-pv-lhu" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="TzE-uP-fdF"/>
+                <constraint firstItem="riC-nz-08Y" firstAttribute="top" secondItem="pNN-4h-ieJ" secondAttribute="bottom" constant="32" id="iUu-mQ-bGJ"/>
+                <constraint firstItem="JnR-sa-Sgb" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="1.2" id="tPS-kP-khB"/>
+                <constraint firstItem="pNN-4h-ieJ" firstAttribute="width" secondItem="8RB-pv-lhu" secondAttribute="width" id="ucj-xW-N5d"/>
+                <constraint firstItem="JnR-sa-Sgb" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" id="yGN-Cw-RrR"/>
+                <constraint firstItem="riC-nz-08Y" firstAttribute="centerX" secondItem="pNN-4h-ieJ" secondAttribute="centerX" id="zRx-aD-ak7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
+        </view>
+    </objects>
+</document>

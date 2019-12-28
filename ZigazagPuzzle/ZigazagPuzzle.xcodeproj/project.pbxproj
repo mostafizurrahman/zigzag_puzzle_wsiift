@@ -32,6 +32,9 @@
 		BE0376DA239C2AAA00F75CC1 /* teeth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D9239C2AAA00F75CC1 /* teeth.jpg */; };
 		BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DB239C2B1F00F75CC1 /* bunny.jpg */; };
 		BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */; };
+		BE5DA3AB23B8097200833354 /* ImagePreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5DA3A923B8097100833354 /* ImagePreview.xib */; };
+		BE5DA3AC23B8097200833354 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5DA3AA23B8097100833354 /* ImagePreview.swift */; };
+		BE5DA3AE23B80A0600833354 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5DA3AD23B80A0600833354 /* ShadowView.swift */; };
 		BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */; };
 		BEF0576723B5F41C00A658C1 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF0576623B5F41C00A658C1 /* CategoryCollectionView.swift */; };
 		BEF0576923B5FB3B00A658C1 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEF0576823B5FB3B00A658C1 /* icon.jpg */; };
@@ -92,6 +95,9 @@
 		BE0376D9239C2AAA00F75CC1 /* teeth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teeth.jpg; sourceTree = "<group>"; };
 		BE0376DB239C2B1F00F75CC1 /* bunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bunny.jpg; sourceTree = "<group>"; };
 		BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = puzzle_images_data.json; sourceTree = "<group>"; };
+		BE5DA3A923B8097100833354 /* ImagePreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePreview.xib; sourceTree = "<group>"; };
+		BE5DA3AA23B8097100833354 /* ImagePreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
+		BE5DA3AD23B80A0600833354 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		BEF0576623B5F41C00A658C1 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		BEF0576823B5FB3B00A658C1 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
@@ -233,6 +239,9 @@
 				BE0182E7238197600075E20E /* ImageSquareHandler.swift */,
 				BE0182EE238198450075E20E /* SquareType.swift */,
 				BE0182E4238197600075E20E /* ViewSquare.swift */,
+				BE5DA3A923B8097100833354 /* ImagePreview.xib */,
+				BE5DA3AD23B80A0600833354 /* ShadowView.swift */,
+				BE5DA3AA23B8097100833354 /* ImagePreview.swift */,
 			);
 			path = GameClass;
 			sourceTree = "<group>";
@@ -351,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF0576923B5FB3B00A658C1 /* icon.jpg in Resources */,
+				BE5DA3AB23B8097200833354 /* ImagePreview.xib in Resources */,
 				BE0182C1238197310075E20E /* LaunchScreen.storyboard in Resources */,
 				BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */,
 				BE0376CE239C25C200F75CC1 /* angry_pumpking.jpg in Resources */,
@@ -390,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5DA3AE23B80A0600833354 /* ShadowView.swift in Sources */,
 				BE0182B92381972E0075E20E /* PuzzleViewController.swift in Sources */,
 				BE0182E9238197600075E20E /* ViewSquare.swift in Sources */,
 				BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */,
@@ -402,6 +413,7 @@
 				BE0182EB238197600075E20E /* ImageHandler.swift in Sources */,
 				BEFE63CF239B85AF004831BB /* GameMusic.swift in Sources */,
 				BEF0576F23B67A1200A658C1 /* SweetAlert.swift in Sources */,
+				BE5DA3AC23B8097200833354 /* ImagePreview.swift in Sources */,
 				BE0376C7239C1DAE00F75CC1 /* ImageViewCell.swift in Sources */,
 				BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */,
 				BEFEAE1C239D516F00BBEB65 /* PhotoDataSource.swift in Sources */,
