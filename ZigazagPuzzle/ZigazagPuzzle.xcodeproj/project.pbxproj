@@ -32,9 +32,13 @@
 		BE0376DA239C2AAA00F75CC1 /* teeth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376D9239C2AAA00F75CC1 /* teeth.jpg */; };
 		BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DB239C2B1F00F75CC1 /* bunny.jpg */; };
 		BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */; };
+		BE276F3023B8495000C6314B /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */; };
 		BE5DA3AB23B8097200833354 /* ImagePreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5DA3A923B8097100833354 /* ImagePreview.xib */; };
 		BE5DA3AC23B8097200833354 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5DA3AA23B8097100833354 /* ImagePreview.swift */; };
 		BE5DA3AE23B80A0600833354 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5DA3AD23B80A0600833354 /* ShadowView.swift */; };
+		BE784CA623B9CFE700B6423D /* banner_subs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE784CA523B9CFE600B6423D /* banner_subs.jpg */; };
+		BE8B8A4923BE01AD0003CD57 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8B8A4823BE01AD0003CD57 /* BorderButton.swift */; };
+		BE8B8A4B23C1C52A0003CD57 /* BackgroundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8B8A4A23C1C52A0003CD57 /* BackgroundShadowView.swift */; };
 		BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */; };
 		BEF0576723B5F41C00A658C1 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF0576623B5F41C00A658C1 /* CategoryCollectionView.swift */; };
 		BEF0576923B5FB3B00A658C1 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEF0576823B5FB3B00A658C1 /* icon.jpg */; };
@@ -95,9 +99,13 @@
 		BE0376D9239C2AAA00F75CC1 /* teeth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teeth.jpg; sourceTree = "<group>"; };
 		BE0376DB239C2B1F00F75CC1 /* bunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bunny.jpg; sourceTree = "<group>"; };
 		BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = puzzle_images_data.json; sourceTree = "<group>"; };
+		BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		BE5DA3A923B8097100833354 /* ImagePreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePreview.xib; sourceTree = "<group>"; };
 		BE5DA3AA23B8097100833354 /* ImagePreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 		BE5DA3AD23B80A0600833354 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		BE784CA523B9CFE600B6423D /* banner_subs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner_subs.jpg; sourceTree = "<group>"; };
+		BE8B8A4823BE01AD0003CD57 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
+		BE8B8A4A23C1C52A0003CD57 /* BackgroundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundShadowView.swift; sourceTree = "<group>"; };
 		BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		BEF0576623B5F41C00A658C1 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		BEF0576823B5FB3B00A658C1 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				BEF0576823B5FB3B00A658C1 /* icon.jpg */,
+				BE784CA523B9CFE600B6423D /* banner_subs.jpg */,
 				BE0376CA239C246000F75CC1 /* images */,
 				BE0376C5239C1D6400F75CC1 /* data */,
 				BEFE63CD239B859A004831BB /* sounds */,
@@ -167,6 +176,7 @@
 				BE0182B82381972E0075E20E /* PuzzleViewController.swift */,
 				BE0376C8239C222B00F75CC1 /* PhotoViewController.swift */,
 				BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */,
+				BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */,
 			);
 			path = ZigazagPuzzle;
 			sourceTree = "<group>";
@@ -197,6 +207,8 @@
 				BEFEAE19239D4A7700BBEB65 /* PhotoCollectionView.swift */,
 				BEF0576623B5F41C00A658C1 /* CategoryCollectionView.swift */,
 				BEF0576E23B67A1200A658C1 /* SweetAlert.swift */,
+				BE8B8A4823BE01AD0003CD57 /* BorderButton.swift */,
+				BE8B8A4A23C1C52A0003CD57 /* BackgroundShadowView.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -359,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE784CA623B9CFE700B6423D /* banner_subs.jpg in Resources */,
 				BEF0576923B5FB3B00A658C1 /* icon.jpg in Resources */,
 				BE5DA3AB23B8097200833354 /* ImagePreview.xib in Resources */,
 				BE0182C1238197310075E20E /* LaunchScreen.storyboard in Resources */,
@@ -403,12 +416,15 @@
 				BE5DA3AE23B80A0600833354 /* ShadowView.swift in Sources */,
 				BE0182B92381972E0075E20E /* PuzzleViewController.swift in Sources */,
 				BE0182E9238197600075E20E /* ViewSquare.swift in Sources */,
+				BE8B8A4923BE01AD0003CD57 /* BorderButton.swift in Sources */,
 				BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */,
 				BE0182ED238197600075E20E /* ImageSquare.swift in Sources */,
 				BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */,
 				BEF0576723B5F41C00A658C1 /* CategoryCollectionView.swift in Sources */,
+				BE8B8A4B23C1C52A0003CD57 /* BackgroundShadowView.swift in Sources */,
 				BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */,
 				BEFEAE1A239D4A7700BBEB65 /* PhotoCollectionView.swift in Sources */,
+				BE276F3023B8495000C6314B /* SubscriptionViewController.swift in Sources */,
 				BE0182EF238198460075E20E /* SquareType.swift in Sources */,
 				BE0182EB238197600075E20E /* ImageHandler.swift in Sources */,
 				BEFE63CF239B85AF004831BB /* GameMusic.swift in Sources */,

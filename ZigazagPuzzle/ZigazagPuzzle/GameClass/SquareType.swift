@@ -22,3 +22,29 @@ enum NeighbourType:Int {
     case bottom = 1002
     case left = 1003
 }
+extension CGPoint {
+    static func +(left:CGPoint, right:CGPoint)->CGPoint{
+        
+        return  CGPoint(x: left.x + right.x, y: left.y + right.y)
+    }
+    
+    static func -(left:CGPoint, right:CGPoint)->CGPoint{
+        return  CGPoint(x: left.x - right.x, y: left.y - right.y)
+    }
+}
+
+extension CGRect {
+    static func -(left:CGRect, right:CGFloat)->CGRect{
+        return  CGRect (x: left.origin.x + right + 4,
+                        y: left.origin.y + right + 4,
+                        width: left.width - right * 2 - 8,
+                        height: left.height - right * 2 - 8)
+    }
+    
+    static func +(left:CGRect, right:CGFloat)->CGRect{
+        return  CGRect (x: left.origin.x - right,
+                        y: left.origin.y - right,
+                        width: left.width + right * 2,
+                        height: left.height + right  * 2)
+    }
+}
