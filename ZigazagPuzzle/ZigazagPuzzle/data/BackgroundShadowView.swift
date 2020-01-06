@@ -104,7 +104,8 @@ import UIKit
             context.clip()
             context.translateBy(x: 0, y: drawRect.height)
             context.scaleBy(x: 1, y: -1)
-            context.draw(_image, in: drawRect)
+            let ratio = CGFloat(_image.width / _image.height)
+            context.draw(_image, in: CGRect(origin: drawRect.origin, size: CGSize(width: drawRect.width / ratio, height: drawRect.height )))
             
         } else {
             context.addPath(path.cgPath)

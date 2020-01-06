@@ -11,12 +11,15 @@ import UIKit
 
 class SubscriptionViewController: UITableViewController {
 
+    @IBOutlet weak var bannerView: BackgroundShadowView!
     @IBOutlet weak var iconView: BackgroundShadowView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         iconView.isCircle = true
         iconView.hasBorder = true
+        bannerView.hasBorder = false
+        bannerView.hasInnerShadow = false
     }
 
     
