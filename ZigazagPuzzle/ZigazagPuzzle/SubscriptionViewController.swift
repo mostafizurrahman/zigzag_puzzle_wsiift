@@ -20,10 +20,29 @@ class SubscriptionViewController: UITableViewController {
         iconView.hasBorder = true
         bannerView.hasBorder = false
         bannerView.hasInnerShadow = false
+        bannerView.bottomRound = true
     }
 
+    @IBAction func skipSubs(_ sender: Any) {
+        self.dismiss(animated: true) {
+            
+        }
+    }
     
+    @IBAction func restore(_ sender: Any) {
+    }
     
+    @IBAction func details(_ sender: Any) {
+    }
+    
+    @IBAction func terms(_ sender: Any) {
+    }
+    
+    @IBAction func privacy(_ sender: Any) {
+    }
+    
+    @IBAction func subscribe(_ sender: Any) {
+    }
     
     /*
     // Only override draw() if you perform custom drawing.

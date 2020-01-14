@@ -77,6 +77,12 @@ import UIKit
         }
     }
     
+    @IBInspectable @objc public var bottomRound = false {
+        didSet{
+            self.setNeedsDisplay()
+        }
+    }
+    
     @IBInspectable @objc  public var image:UIImage? {
         didSet{
             self.setNeedsDisplay()
@@ -97,7 +103,7 @@ import UIKit
         let drawRect = self.hasInnerShadow && !self.isCircle ? rect - self.shadowRadius : rect
         let path = self.isCircle ? UIBezierPath(arcCenter: CGPoint(x: drawRect.midX, y: drawRect.midY),
                                                 radius: drawRect.midX, startAngle: CGFloat(-Double.pi * 2),
-                                                endAngle: 0, clockwise: true) :
+                                                endAngle: 0, clockwise: true) : self.bottomRound ? self.getPath(forRect:drawRect) :
             UIBezierPath(roundedRect: drawRect, cornerRadius: self.cornerRadius)
         if let _image = self.image?.cgImage {
             context.addPath(path.cgPath)
@@ -127,5 +133,20 @@ import UIKit
         
     }
     
+    
+    fileprivate func getPath(forRect rect:CGRect) -> UIBezierPath {
+        
+        
+        let path = UIBezierPath()
+        path.move(to: .zero)
+        path.addLine(to: CGPoint(x: rect.width, y: 0))
+        path.addLine(to: CGPoint(x: rect.width, y: rect.height * 0.85))
+        path.addCurve(to: CGPoint(x: 0, y: rect.height * 0.85),
+                      controlPoint1: CGPoint(x: rect.width * 0.5, y: rect.height * 1.025),
+                      controlPoint2: CGPoint(x: rect.width * 0.5, y: rect.height * 1.025))
+        path.addLine(to: .zero)
+        path.close()
+        return path
+    }
 
 }
