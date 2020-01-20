@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>0</key>
+	<dict>
+		<key>segue</key>
+		<string></string>
+		<key>button_idf</key>
+		<string></string>
+		<key>switch</key>
+		<true/>
+		<key>icon</key>
+		<string>game_sound</string>
+		<key>title</key>
+		<string>Game sound</string>
+	</dict>
+	<key>1</key>
+	<dict>
+		<key>title</key>
+		<string>Privacy Policy</string>
+		<key>switch</key>
+		<false/>
+		<key>icon</key>
+		<string>privacy</string>
+		<key>segue</key>
+		<string>PrivacySegue</string>
+		<key>button_idf</key>
+		<string></string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>title</key>
+		<string>Terms &amp; Conditions</string>
+		<key>switch</key>
+		<false/>
+		<key>icon</key>
+		<string>terms</string>
+		<key>segue</key>
+		<string>TermsSegue</string>
+		<key>button_idf</key>
+		<string></string>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>title</key>
+		<string>Notificaiton</string>
+		<key>switch</key>
+		<false/>
+		<key>icon</key>
+		<string>sound</string>
+		<key>segue</key>
+		<string></string>
+		<key>button_idf</key>
+		<string>notification</string>
+	</dict>
+	<key>4</key>
+	<dict>
+		<key>title</key>
+		<string>Privacy Policy</string>
+		<key>switch</key>
+		<false/>
+		<key>icon</key>
+		<string>privacy</string>
+		<key>segue</key>
+		<string>TermsSegue</string>
+		<key>button_idf</key>
+		<string></string>
+	</dict>
+	<key>1 - 5</key>
+	<dict>
+		<key>title</key>
+		<string>Privacy Policy</string>
+		<key>switch</key>
+		<false/>
+		<key>icon</key>
+		<string>privacy</string>
+		<key>segue</key>
+		<string>TermsSegue</string>
+		<key>button_idf</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>

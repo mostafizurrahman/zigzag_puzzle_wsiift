@@ -33,6 +33,9 @@
 		BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DB239C2B1F00F75CC1 /* bunny.jpg */; };
 		BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */; };
 		BE276F3023B8495000C6314B /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */; };
+		BE494BCA23D2C5CB00C5FBDF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE494BC923D2C5CB00C5FBDF /* SettingsViewController.swift */; };
+		BE494BCC23D2F28C00C5FBDF /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE494BCB23D2F28C00C5FBDF /* SettingTableCell.swift */; };
+		BE494BD023D35CA200C5FBDF /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE494BCF23D35CA200C5FBDF /* settings.plist */; };
 		BE5DA3AB23B8097200833354 /* ImagePreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5DA3A923B8097100833354 /* ImagePreview.xib */; };
 		BE5DA3AC23B8097200833354 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5DA3AA23B8097100833354 /* ImagePreview.swift */; };
 		BE5DA3AE23B80A0600833354 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5DA3AD23B80A0600833354 /* ShadowView.swift */; };
@@ -118,6 +121,9 @@
 		BE0376DB239C2B1F00F75CC1 /* bunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bunny.jpg; sourceTree = "<group>"; };
 		BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = puzzle_images_data.json; sourceTree = "<group>"; };
 		BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		BE494BC923D2C5CB00C5FBDF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BE494BCB23D2F28C00C5FBDF /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
+		BE494BCF23D35CA200C5FBDF /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		BE5DA3A923B8097100833354 /* ImagePreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePreview.xib; sourceTree = "<group>"; };
 		BE5DA3AA23B8097100833354 /* ImagePreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 		BE5DA3AD23B80A0600833354 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 				BE0376C8239C222B00F75CC1 /* PhotoViewController.swift */,
 				BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */,
 				BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */,
+				BE494BC923D2C5CB00C5FBDF /* SettingsViewController.swift */,
 			);
 			path = ZigazagPuzzle;
 			sourceTree = "<group>";
@@ -245,6 +252,7 @@
 				BEF0576E23B67A1200A658C1 /* SweetAlert.swift */,
 				BE8B8A4823BE01AD0003CD57 /* BorderButton.swift */,
 				BE8B8A4A23C1C52A0003CD57 /* BackgroundShadowView.swift */,
+				BE494BCB23D2F28C00C5FBDF /* SettingTableCell.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 				BE0182BA2381972E0075E20E /* Main.storyboard */,
 				BE0182BD238197310075E20E /* Assets.xcassets */,
 				BE0182BF238197310075E20E /* LaunchScreen.storyboard */,
+				BE494BCF23D35CA200C5FBDF /* settings.plist */,
 			);
 			path = AppConfig;
 			sourceTree = "<group>";
@@ -478,6 +487,7 @@
 				BE5E20AE23C324640059E7EB /* fl1.jpg in Resources */,
 				BE5E20AC23C324460059E7EB /* fl0.jpg in Resources */,
 				BE0376D8239C2A1300F75CC1 /* moon_landing.jpg in Resources */,
+				BE494BD023D35CA200C5FBDF /* settings.plist in Resources */,
 				BE5E20B423C5EF3F0059E7EB /* category_1.png in Resources */,
 				BE0182BC2381972E0075E20E /* Main.storyboard in Resources */,
 				BE0182EA238197600075E20E /* sample.jpg in Resources */,
@@ -522,6 +532,8 @@
 				BEFEAE1A239D4A7700BBEB65 /* PhotoCollectionView.swift in Sources */,
 				BE276F3023B8495000C6314B /* SubscriptionViewController.swift in Sources */,
 				BE0182EF238198460075E20E /* SquareType.swift in Sources */,
+				BE494BCC23D2F28C00C5FBDF /* SettingTableCell.swift in Sources */,
+				BE494BCA23D2C5CB00C5FBDF /* SettingsViewController.swift in Sources */,
 				BE0182EB238197600075E20E /* ImageHandler.swift in Sources */,
 				BEFE63CF239B85AF004831BB /* GameMusic.swift in Sources */,
 				BEF0576F23B67A1200A658C1 /* SweetAlert.swift in Sources */,
