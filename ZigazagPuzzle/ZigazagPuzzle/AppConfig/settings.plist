@@ -4,16 +4,12 @@
 <dict>
 	<key>0</key>
 	<dict>
-		<key>segue</key>
-		<string></string>
-		<key>button_idf</key>
-		<string></string>
 		<key>switch</key>
 		<true/>
 		<key>icon</key>
-		<string>game_sound</string>
+		<string>game_music</string>
 		<key>title</key>
-		<string>Game sound</string>
+		<string>Game Sound</string>
 	</dict>
 	<key>1</key>
 	<dict>
@@ -23,10 +19,8 @@
 		<false/>
 		<key>icon</key>
 		<string>privacy</string>
-		<key>segue</key>
-		<string>PrivacySegue</string>
-		<key>button_idf</key>
-		<string></string>
+		<key>action</key>
+		<string>privacy</string>
 	</dict>
 	<key>2</key>
 	<dict>
@@ -36,10 +30,8 @@
 		<false/>
 		<key>icon</key>
 		<string>terms</string>
-		<key>segue</key>
-		<string>TermsSegue</string>
-		<key>button_idf</key>
-		<string></string>
+		<key>action</key>
+		<string>term</string>
 	</dict>
 	<key>3</key>
 	<dict>
@@ -49,36 +41,19 @@
 		<false/>
 		<key>icon</key>
 		<string>sound</string>
-		<key>segue</key>
-		<string></string>
-		<key>button_idf</key>
+		<key>action</key>
 		<string>notification</string>
 	</dict>
 	<key>4</key>
 	<dict>
 		<key>title</key>
-		<string>Privacy Policy</string>
+		<string>Subscription</string>
 		<key>switch</key>
 		<false/>
 		<key>icon</key>
-		<string>privacy</string>
-		<key>segue</key>
-		<string>TermsSegue</string>
-		<key>button_idf</key>
-		<string></string>
-	</dict>
-	<key>1 - 5</key>
-	<dict>
-		<key>title</key>
-		<string>Privacy Policy</string>
-		<key>switch</key>
-		<false/>
-		<key>icon</key>
-		<string>privacy</string>
-		<key>segue</key>
-		<string>TermsSegue</string>
-		<key>button_idf</key>
-		<string></string>
+		<string>gold</string>
+		<key>action</key>
+		<string>subscription</string>
 	</dict>
 </dict>
 </plist>

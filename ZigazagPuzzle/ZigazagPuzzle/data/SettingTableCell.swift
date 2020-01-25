@@ -13,7 +13,8 @@ class SettingTableCell: UITableViewCell {
     @IBOutlet weak var cellTitle:UILabel!
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var lockImageView: UIImageView!
-    
+    @IBOutlet weak var optionSwitch: UISwitch!
+    @IBOutlet weak var settingsButton:UIButton!
     
     @IBAction func onSwitchTap(_ sender:UISwitch){
         print("switch tap")
