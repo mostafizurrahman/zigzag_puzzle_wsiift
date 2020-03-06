@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F80AB48061456818793ECCE /* Pods_ZigazagPuzzleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF2A4F0A3D3EFA07D84D61E /* Pods_ZigazagPuzzleTests.framework */; };
+		51349A0982FC87A34EC9D2E4 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F45B5AD83AA97AA2A8CA28 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework */; };
+		AEC6B571F4B60A5EEFF90028 /* Pods_ZigazagPuzzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA340AAD9B6CC8FB04701C86 /* Pods_ZigazagPuzzle.framework */; };
 		BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B62381972E0075E20E /* AppDelegate.swift */; };
 		BE0182B92381972E0075E20E /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B82381972E0075E20E /* PuzzleViewController.swift */; };
 		BE0182BC2381972E0075E20E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0182BA2381972E0075E20E /* Main.storyboard */; };
@@ -93,6 +96,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00982F7420CD2207A84ED225 /* Pods-ZigazagPuzzle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigazagPuzzle.release.xcconfig"; path = "Target Support Files/Pods-ZigazagPuzzle/Pods-ZigazagPuzzle.release.xcconfig"; sourceTree = "<group>"; };
+		2FDCEA749C64D7035D661EA0 /* Pods-ZigazagPuzzle-ZigazagPuzzleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigazagPuzzle-ZigazagPuzzleUITests.debug.xcconfig"; path = "Target Support Files/Pods-ZigazagPuzzle-ZigazagPuzzleUITests/Pods-ZigazagPuzzle-ZigazagPuzzleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3EF2A4F0A3D3EFA07D84D61E /* Pods_ZigazagPuzzleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigazagPuzzleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6481CC002412197C63C668FC /* Pods-ZigazagPuzzle-ZigazagPuzzleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigazagPuzzle-ZigazagPuzzleUITests.release.xcconfig"; path = "Target Support Files/Pods-ZigazagPuzzle-ZigazagPuzzleUITests/Pods-ZigazagPuzzle-ZigazagPuzzleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		74388CCE3667C3B8653E6EBF /* Pods-ZigazagPuzzleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigazagPuzzleTests.debug.xcconfig"; path = "Target Support Files/Pods-ZigazagPuzzleTests/Pods-ZigazagPuzzleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		82F45B5AD83AA97AA2A8CA28 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0182B32381972E0075E20E /* ZigazagPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigazagPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0182B62381972E0075E20E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE0182B82381972E0075E20E /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +174,9 @@
 		BEFE63D0239B8709004831BB /* ting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ting.mp3; sourceTree = "<group>"; };
 		BEFEAE19239D4A7700BBEB65 /* PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
 		BEFEAE1B239D516F00BBEB65 /* PhotoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
+		D642C773F0FF74BD58561523 /* Pods-ZigazagPuzzleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigazagPuzzleTests.release.xcconfig"; path = "Target Support Files/Pods-ZigazagPuzzleTests/Pods-ZigazagPuzzleTests.release.xcconfig"; sourceTree = "<group>"; };
+		DDF89DCEE3274BD7337C8CA2 /* Pods-ZigazagPuzzle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigazagPuzzle.debug.xcconfig"; path = "Target Support Files/Pods-ZigazagPuzzle/Pods-ZigazagPuzzle.debug.xcconfig"; sourceTree = "<group>"; };
+		EA340AAD9B6CC8FB04701C86 /* Pods_ZigazagPuzzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigazagPuzzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC6B571F4B60A5EEFF90028 /* Pods_ZigazagPuzzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F80AB48061456818793ECCE /* Pods_ZigazagPuzzleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,12 +200,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51349A0982FC87A34EC9D2E4 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA161BFC56DE7D5CE373E1E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDF89DCEE3274BD7337C8CA2 /* Pods-ZigazagPuzzle.debug.xcconfig */,
+				00982F7420CD2207A84ED225 /* Pods-ZigazagPuzzle.release.xcconfig */,
+				2FDCEA749C64D7035D661EA0 /* Pods-ZigazagPuzzle-ZigazagPuzzleUITests.debug.xcconfig */,
+				6481CC002412197C63C668FC /* Pods-ZigazagPuzzle-ZigazagPuzzleUITests.release.xcconfig */,
+				74388CCE3667C3B8653E6EBF /* Pods-ZigazagPuzzleTests.debug.xcconfig */,
+				D642C773F0FF74BD58561523 /* Pods-ZigazagPuzzleTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BE0182AA2381972D0075E20E = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +228,8 @@
 				BE0182CA238197310075E20E /* ZigazagPuzzleTests */,
 				BE0182D5238197310075E20E /* ZigazagPuzzleUITests */,
 				BE0182B42381972E0075E20E /* Products */,
+				BA161BFC56DE7D5CE373E1E2 /* Pods */,
+				FCFF1647ED6654A81DB249E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -366,6 +397,16 @@
 			path = sounds;
 			sourceTree = "<group>";
 		};
+		FCFF1647ED6654A81DB249E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA340AAD9B6CC8FB04701C86 /* Pods_ZigazagPuzzle.framework */,
+				82F45B5AD83AA97AA2A8CA28 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework */,
+				3EF2A4F0A3D3EFA07D84D61E /* Pods_ZigazagPuzzleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,9 +414,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE0182DB238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzle" */;
 			buildPhases = (
+				5A2C11B88F12382F2D95E631 /* [CP] Check Pods Manifest.lock */,
 				BE0182AF2381972E0075E20E /* Sources */,
 				BE0182B02381972E0075E20E /* Frameworks */,
 				BE0182B12381972E0075E20E /* Resources */,
+				00D16474F4E0988EA47710B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,6 +433,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE0182DE238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzleTests" */;
 			buildPhases = (
+				A265A080C3A3F10E3960627F /* [CP] Check Pods Manifest.lock */,
 				BE0182C3238197310075E20E /* Sources */,
 				BE0182C4238197310075E20E /* Frameworks */,
 				BE0182C5238197310075E20E /* Resources */,
@@ -408,9 +452,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE0182E1238197310075E20E /* Build configuration list for PBXNativeTarget "ZigazagPuzzleUITests" */;
 			buildPhases = (
+				3529A2D7B0FD72D738E05CD4 /* [CP] Check Pods Manifest.lock */,
 				BE0182CE238197310075E20E /* Sources */,
 				BE0182CF238197310075E20E /* Frameworks */,
 				BE0182D0238197310075E20E /* Resources */,
+				F6D9E195F38ACF49A2E38423 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -528,6 +574,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00D16474F4E0988EA47710B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZigazagPuzzle/Pods-ZigazagPuzzle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZigazagPuzzle/Pods-ZigazagPuzzle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZigazagPuzzle/Pods-ZigazagPuzzle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3529A2D7B0FD72D738E05CD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZigazagPuzzle-ZigazagPuzzleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A2C11B88F12382F2D95E631 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZigazagPuzzle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A265A080C3A3F10E3960627F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZigazagPuzzleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6D9E195F38ACF49A2E38423 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZigazagPuzzle-ZigazagPuzzleUITests/Pods-ZigazagPuzzle-ZigazagPuzzleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZigazagPuzzle-ZigazagPuzzleUITests/Pods-ZigazagPuzzle-ZigazagPuzzleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZigazagPuzzle-ZigazagPuzzleUITests/Pods-ZigazagPuzzle-ZigazagPuzzleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE0182AF2381972E0075E20E /* Sources */ = {
@@ -730,6 +879,7 @@
 		};
 		BE0182DC238197310075E20E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDF89DCEE3274BD7337C8CA2 /* Pods-ZigazagPuzzle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -748,6 +898,7 @@
 		};
 		BE0182DD238197310075E20E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00982F7420CD2207A84ED225 /* Pods-ZigazagPuzzle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -766,6 +917,7 @@
 		};
 		BE0182DF238197310075E20E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74388CCE3667C3B8653E6EBF /* Pods-ZigazagPuzzleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -787,6 +939,7 @@
 		};
 		BE0182E0238197310075E20E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D642C773F0FF74BD58561523 /* Pods-ZigazagPuzzleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -808,6 +961,7 @@
 		};
 		BE0182E2238197310075E20E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FDCEA749C64D7035D661EA0 /* Pods-ZigazagPuzzle-ZigazagPuzzleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -828,6 +982,7 @@
 		};
 		BE0182E3238197310075E20E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6481CC002412197C63C668FC /* Pods-ZigazagPuzzle-ZigazagPuzzleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

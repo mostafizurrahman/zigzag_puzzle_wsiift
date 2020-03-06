@@ -121,7 +121,31 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
     
     
     fileprivate func openNotification(){
-        
+        DispatchQueue.main.async {
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)") // Prints true
+                    })
+                } else {
+                    UIApplication.shared.openURL(settingsUrl as URL)
+                }
+            }
+        }
+//        let center = UNUserNotificationCenter.current()
+//        center.getNotificationSettings { settings in
+//            guard settings.authorizationStatus == .authorized else { return }
+//
+//            if settings.alertSetting == .enabled {
+//                // Schedule an alert-only notification.
+//            } else {
+//                // Schedule a notification with a badge and sound.
+//            }
+//        }
     }
     
     
