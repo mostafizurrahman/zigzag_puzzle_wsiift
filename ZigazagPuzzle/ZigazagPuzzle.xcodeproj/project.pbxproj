@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,6 +36,7 @@
 		BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DB239C2B1F00F75CC1 /* bunny.jpg */; };
 		BE0376DE239C2B6600F75CC1 /* puzzle_images_data.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */; };
 		BE276F3023B8495000C6314B /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */; };
+		BE4259D22412412A001FF89B /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4259D12412412A001FF89B /* SubscriptionManager.swift */; };
 		BE494BCA23D2C5CB00C5FBDF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE494BC923D2C5CB00C5FBDF /* SettingsViewController.swift */; };
 		BE494BCC23D2F28C00C5FBDF /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE494BCB23D2F28C00C5FBDF /* SettingTableCell.swift */; };
 		BE494BD023D35CA200C5FBDF /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE494BCF23D35CA200C5FBDF /* settings.plist */; };
@@ -134,6 +135,7 @@
 		BE0376DB239C2B1F00F75CC1 /* bunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bunny.jpg; sourceTree = "<group>"; };
 		BE0376DD239C2B6600F75CC1 /* puzzle_images_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = puzzle_images_data.json; sourceTree = "<group>"; };
 		BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		BE4259D12412412A001FF89B /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		BE494BC923D2C5CB00C5FBDF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BE494BCB23D2F28C00C5FBDF /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
 		BE494BCF23D35CA200C5FBDF /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
@@ -217,7 +219,6 @@
 				74388CCE3667C3B8653E6EBF /* Pods-ZigazagPuzzleTests.debug.xcconfig */,
 				D642C773F0FF74BD58561523 /* Pods-ZigazagPuzzleTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -260,6 +261,7 @@
 				BE276F2F23B8495000C6314B /* SubscriptionViewController.swift */,
 				BE494BC923D2C5CB00C5FBDF /* SettingsViewController.swift */,
 				BEF0F1E823DC2E2B007F7A54 /* TermsViewController.swift */,
+				BE4259D12412412A001FF89B /* SubscriptionManager.swift */,
 			);
 			path = ZigazagPuzzle;
 			sourceTree = "<group>";
@@ -684,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE5DA3AE23B80A0600833354 /* ShadowView.swift in Sources */,
+				BE4259D22412412A001FF89B /* SubscriptionManager.swift in Sources */,
 				BE0182B92381972E0075E20E /* PuzzleViewController.swift in Sources */,
 				BE0182E9238197600075E20E /* ViewSquare.swift in Sources */,
 				BE8B8A4923BE01AD0003CD57 /* BorderButton.swift in Sources */,
@@ -889,7 +892,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = imageapp.ZigazagPuzzle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imageapp.zigzagimage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -908,7 +911,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = imageapp.ZigazagPuzzle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imageapp.zigzagimage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

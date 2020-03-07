@@ -314,7 +314,7 @@
                                                     <rect key="frame" x="52" y="146.5" width="310.5" height="75"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID3-kW-rOj" customClass="BorderButton" customModule="ZigazagPuzzle" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="310.5" height="75"/>
+                                                            <rect key="frame" x="0.0" y="-3.5" width="310.5" height="75"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Heavy" family="SF Pro Display" pointSize="22"/>
                                                             <state key="normal" title="SUBSCRIBE">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -344,23 +344,23 @@
                                                                 <action selector="subscribe:" destination="jO4-Iq-c8P" eventType="touchUpInside" id="rYp-KE-WDD"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="monthly --$/month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfk-nH-GFF">
-                                                            <rect key="frame" x="0.0" y="52" width="310.5" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="monthly --$/month" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfk-nH-GFF">
+                                                            <rect key="frame" x="0.0" y="48.5" width="310.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                            <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="lfk-nH-GFF" secondAttribute="bottom" constant="7" id="7Qk-ox-UMY"/>
+                                                        <constraint firstAttribute="bottom" secondItem="lfk-nH-GFF" secondAttribute="bottom" constant="12" id="7Qk-ox-UMY"/>
                                                         <constraint firstAttribute="height" constant="75" id="CVT-Zt-LZe"/>
                                                         <constraint firstItem="ID3-kW-rOj" firstAttribute="width" secondItem="nBN-cf-3qB" secondAttribute="width" id="Fcp-7n-Ps1"/>
                                                         <constraint firstItem="lfk-nH-GFF" firstAttribute="centerX" secondItem="nBN-cf-3qB" secondAttribute="centerX" id="HMZ-jf-3Dz"/>
                                                         <constraint firstItem="ID3-kW-rOj" firstAttribute="height" secondItem="nBN-cf-3qB" secondAttribute="height" id="YrS-Z7-385"/>
                                                         <constraint firstItem="ID3-kW-rOj" firstAttribute="centerX" secondItem="nBN-cf-3qB" secondAttribute="centerX" id="fWQ-XE-f6E"/>
                                                         <constraint firstItem="lfk-nH-GFF" firstAttribute="width" secondItem="nBN-cf-3qB" secondAttribute="width" id="gdv-B9-K87"/>
-                                                        <constraint firstItem="ID3-kW-rOj" firstAttribute="centerY" secondItem="nBN-cf-3qB" secondAttribute="centerY" id="zqR-nE-EwC"/>
+                                                        <constraint firstItem="ID3-kW-rOj" firstAttribute="centerY" secondItem="nBN-cf-3qB" secondAttribute="centerY" multiplier="0.9" id="zqR-nE-EwC"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFK-rT-HIl">
@@ -448,9 +448,12 @@
                             <outlet property="delegate" destination="jO4-Iq-c8P" id="gHq-xM-huN"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="WGM-8m-IVp"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="bannerView" destination="1kL-XR-DMq" id="gDU-NA-PBC"/>
                         <outlet property="iconView" destination="EJh-Ln-6rR" id="C55-Fb-zGN"/>
+                        <outlet property="priceLabel" destination="lfk-nH-GFF" id="C69-dQ-IIE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xlu-KO-9f2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -652,6 +655,7 @@
                     <connections>
                         <outlet property="photoCollectionView" destination="T1d-GO-ynI" id="hT2-zR-bIm"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="PuzzleSigue" id="5Cd-Dz-kon"/>
+                        <segue destination="jO4-Iq-c8P" kind="show" identifier="subscription_segue" id="EzZ-mF-A4x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytH-AI-0sW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -684,6 +688,7 @@
                     <connections>
                         <outlet property="containerView" destination="nud-Xl-4wj" id="IoQ-5d-0bG"/>
                         <segue destination="tdg-TK-Y77" kind="show" identifier="SettingsSegue" id="1xu-ap-BTu"/>
+                        <segue destination="jO4-Iq-c8P" kind="show" identifier="subscription_segue" id="BCO-6a-2fL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -803,6 +808,7 @@
                         <outlet property="photoCollectionView" destination="oyv-8y-p6q" id="8iA-9N-N1d"/>
                         <outlet property="visualEffectView" destination="TGp-A5-tRN" id="bhq-aG-XPR"/>
                         <segue destination="Hli-wH-FhR" kind="show" identifier="Photos" id="kGa-w8-Kdi"/>
+                        <segue destination="jO4-Iq-c8P" kind="show" identifier="subscription_segue" id="cPH-tK-Qs3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXA-Pf-UPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -822,5 +828,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="91W-Yf-sAo"/>
+        <segue reference="cPH-tK-Qs3"/>
     </inferredMetricsTieBreakers>
 </document>

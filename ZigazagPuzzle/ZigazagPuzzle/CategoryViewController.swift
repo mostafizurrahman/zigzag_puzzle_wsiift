@@ -19,10 +19,14 @@ class CategoryViewController: PhotoViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if !(UserDefaults.standard.bool(forKey: "notification_set")) {
+        if(!SubscriptionManager.shared.isSubscribed){
+            self.performSegue(withIdentifier: "subscription_segue", sender: self)
+        }
+        else if !(UserDefaults.standard.bool(forKey: "notification_set")) {
             let alert = UIAlertController(title: "NOTIFICATION", message: "'Image Puzzle' would like to send you some notificaitons. So that you can get premium image puzzles and latest puzzle updates.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "ALLOW", style: UIAlertAction.Style.default, handler: { (_action) in
                 let center = UNUserNotificationCenter.current()

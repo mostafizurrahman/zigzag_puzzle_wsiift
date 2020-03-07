@@ -11,6 +11,8 @@ import UIKit
 
 class SubscriptionViewController: UITableViewController {
 
+    typealias SM = SubscriptionManager
+    @IBOutlet weak var priceLabel:UILabel!
     @IBOutlet weak var bannerView: BackgroundShadowView!
     @IBOutlet weak var iconView: BackgroundShadowView!
     
@@ -21,6 +23,21 @@ class SubscriptionViewController: UITableViewController {
         bannerView.hasBorder = false
         bannerView.hasInnerShadow = false
         bannerView.bottomRound = true
+        if (SM.shared.product?.price) != nil {
+            self.onDidReceiveData(Notification(name: SM.shared.notificationNameSubscription))
+        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)),
+                                                   name: SM.shared.notificationNameSubscription, object: nil)
+        }
+    }
+    
+    @objc func onDidReceiveData(_ notification: Notification) {
+        DispatchQueue.main.async {
+            if let _product = SM.shared.product{
+                let _price = _product.localizedPrice ?? "\(_product.price)$";
+                self.priceLabel.text = "\nmonthly \(_price)/month"
+            }
+        }
     }
 
     @IBAction func skipSubs(_ sender: Any) {

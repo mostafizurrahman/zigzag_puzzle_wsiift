@@ -8,22 +8,22 @@ target 'ZigazagPuzzle' do
   # Pods for ZigazagPuzzle
 
 
-pod 'Firebase/Core'
-pod 'Firebase/Database'
-pod 'Firebase/Storage'
-pod 'Firebase/Messaging'
-pod 'FBAudienceNetwork'
-pod 'SwiftyStoreKit'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Messaging'
+  pod 'FBAudienceNetwork'
+  pod 'SwiftyStoreKit'
 
 
-  target 'ZigazagPuzzleTests' do
-    inherit! :search_paths
-    # Pods for testing
+    target 'ZigazagPuzzleTests' do
+      inherit! :search_paths
+      # Pods for testing
+    end
+
+    target 'ZigazagPuzzleUITests' do
+      # Pods for testing
+    end
+
   end
-
-  target 'ZigazagPuzzleUITests' do
-    # Pods for testing
-  end
-
-end
 
