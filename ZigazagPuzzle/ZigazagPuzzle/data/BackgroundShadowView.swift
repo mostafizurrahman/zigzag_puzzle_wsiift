@@ -110,15 +110,18 @@ import UIKit
             context.clip()
             context.translateBy(x: 0, y: drawRect.height)
             context.scaleBy(x: 1, y: -1)
-            let ratio = CGFloat(_image.width / _image.height)
-            context.draw(_image, in: CGRect(origin: drawRect.origin, size: CGSize(width: drawRect.width / ratio, height: drawRect.height )))
+            let _width = CGFloat(_image.width)
+            let _height = CGFloat(_image.height)
+            let ratio =  _width / _height
+            context.draw(_image, in: CGRect(origin: drawRect.origin,
+                                            size: CGSize(width: drawRect.width,
+                                                         height: drawRect.height * CGFloat(ratio))))
             
         } else {
             context.addPath(path.cgPath)
             context.setFillColor(self.innerColor.cgColor)
             context.fillPath()
         }
-//        context.setShadow(offset: CGSize(width: 16, height: 16), blur: 0.4, color: UIColor.black.cgColor)
         if self.hasBorder  {
             path.lineWidth = self.borderWidth
             context.addPath(path.cgPath)

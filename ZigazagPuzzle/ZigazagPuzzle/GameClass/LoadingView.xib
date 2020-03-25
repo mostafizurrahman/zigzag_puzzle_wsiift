@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="ZigazagPuzzle" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KP-r9-9dM">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2Ft-MQ-Ams">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EL4-Fv-kY9">
+                    <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROCESSING..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBN-7x-qti">
+                    <rect key="frame" x="145.5" y="490" width="123.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="EL4-Fv-kY9" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="6VY-Lr-gDG"/>
+                <constraint firstItem="9KP-r9-9dM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9PG-CW-h3x"/>
+                <constraint firstItem="WBN-7x-qti" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Myk-Fb-HUO"/>
+                <constraint firstItem="9KP-r9-9dM" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="34" id="Pmg-2h-QZK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="9KP-r9-9dM" secondAttribute="top" constant="44" id="fnp-wN-k8I"/>
+                <constraint firstItem="EL4-Fv-kY9" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="is5-KC-v22"/>
+                <constraint firstItem="WBN-7x-qti" firstAttribute="top" secondItem="EL4-Fv-kY9" secondAttribute="bottom" constant="18.5" id="rQA-rx-kr5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9KP-r9-9dM" secondAttribute="trailing" id="vEq-kc-ms9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </view>
+    </objects>
+</document>

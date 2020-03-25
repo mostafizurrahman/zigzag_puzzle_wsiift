@@ -10,6 +10,8 @@
 		4F80AB48061456818793ECCE /* Pods_ZigazagPuzzleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF2A4F0A3D3EFA07D84D61E /* Pods_ZigazagPuzzleTests.framework */; };
 		51349A0982FC87A34EC9D2E4 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F45B5AD83AA97AA2A8CA28 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework */; };
 		AEC6B571F4B60A5EEFF90028 /* Pods_ZigazagPuzzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA340AAD9B6CC8FB04701C86 /* Pods_ZigazagPuzzle.framework */; };
+		BE0156C3242B99690041938C /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE0156C2242B99690041938C /* LoadingView.xib */; };
+		BE0156C5242B99FE0041938C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0156C4242B99FE0041938C /* LoadingView.swift */; };
 		BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B62381972E0075E20E /* AppDelegate.swift */; };
 		BE0182B92381972E0075E20E /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0182B82381972E0075E20E /* PuzzleViewController.swift */; };
 		BE0182BC2381972E0075E20E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0182BA2381972E0075E20E /* Main.storyboard */; };
@@ -103,6 +105,8 @@
 		6481CC002412197C63C668FC /* Pods-ZigazagPuzzle-ZigazagPuzzleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigazagPuzzle-ZigazagPuzzleUITests.release.xcconfig"; path = "Target Support Files/Pods-ZigazagPuzzle-ZigazagPuzzleUITests/Pods-ZigazagPuzzle-ZigazagPuzzleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		74388CCE3667C3B8653E6EBF /* Pods-ZigazagPuzzleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigazagPuzzleTests.debug.xcconfig"; path = "Target Support Files/Pods-ZigazagPuzzleTests/Pods-ZigazagPuzzleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82F45B5AD83AA97AA2A8CA28 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0156C2242B99690041938C /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		BE0156C4242B99FE0041938C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BE0182B32381972E0075E20E /* ZigazagPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigazagPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0182B62381972E0075E20E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE0182B82381972E0075E20E /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
@@ -347,6 +351,8 @@
 				BE5DA3A923B8097100833354 /* ImagePreview.xib */,
 				BE5DA3AD23B80A0600833354 /* ShadowView.swift */,
 				BE5DA3AA23B8097100833354 /* ImagePreview.swift */,
+				BE0156C2242B99690041938C /* LoadingView.xib */,
+				BE0156C4242B99FE0041938C /* LoadingView.swift */,
 			);
 			path = GameClass;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 				BE0376D6239C2A0A00F75CC1 /* linux.jpg in Resources */,
 				BE0376DC239C2B1F00F75CC1 /* bunny.jpg in Resources */,
 				BE5E20AE23C324640059E7EB /* fl1.jpg in Resources */,
+				BE0156C3242B99690041938C /* LoadingView.xib in Resources */,
 				BE5E20AC23C324460059E7EB /* fl0.jpg in Resources */,
 				BE0376D8239C2A1300F75CC1 /* moon_landing.jpg in Resources */,
 				BE494BD023D35CA200C5FBDF /* settings.plist in Resources */,
@@ -696,6 +703,7 @@
 				BEF0576723B5F41C00A658C1 /* CategoryCollectionView.swift in Sources */,
 				BE8B8A4B23C1C52A0003CD57 /* BackgroundShadowView.swift in Sources */,
 				BE0182EC238197600075E20E /* ImageSquareHandler.swift in Sources */,
+				BE0156C5242B99FE0041938C /* LoadingView.swift in Sources */,
 				BEFEAE1A239D4A7700BBEB65 /* PhotoCollectionView.swift in Sources */,
 				BE276F3023B8495000C6314B /* SubscriptionViewController.swift in Sources */,
 				BE0182EF238198460075E20E /* SquareType.swift in Sources */,

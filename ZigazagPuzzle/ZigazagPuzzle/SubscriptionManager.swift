@@ -11,18 +11,27 @@ import StoreKit
 import SwiftyStoreKit
 
 
+enum PurchaseResult{
+    case success
+    case notPurchased
+    case fail
+    case uknown
+}
+
 class SubscriptionManager: NSObject {
     
     
     typealias SM = SubscriptionManager
-
-    let notificationNameSubscription = Notification.Name(rawValue: "subscription_notification")
-    let notificationNamePurchase = Notification.Name(rawValue: "subscription_purchase")
+    var completionHandler :(()->(PurchaseResult))? = nil
+    let subNotification = Notification.Name(rawValue: "subscription_notification")
+//    let notificationNamePurchase = Notification.Name(rawValue: "subscription_purchase")
+//    let notificationNameFail = Notification.Name(rawValue: "subscription_purchase")
 //    let subscriptionNotification:Notification
 //    let purchaseNotification:Notification
     static let shared = SubscriptionManager()
     private(set) var isSubscribed:Bool = false
     private let productId:String = "com.imageapp.puzzle"
+    private let secret = "0238079beabf42619ecef061635476f0"
     private(set) var product:SKProduct?
     fileprivate var request: SKProductsRequest!
     
@@ -33,7 +42,7 @@ class SubscriptionManager: NSObject {
         
     }
     
-    fileprivate func readProductDetails(){
+    func readProductDetails(){
         let productIdentifiers = Set([productId])
         request = SKProductsRequest(productIdentifiers: productIdentifiers)
         request.delegate = self
@@ -66,18 +75,20 @@ class SubscriptionManager: NSObject {
                 print("Fetch receipt success:\n\(encryptedReceipt)")
                 UserDefaults.standard.set(encryptedReceipt, forKey: "subscription_receipt")
             case .error(let error):
+            self.subscribe(Status: SM.FAIL)
                 print("Fetch receipt failed: \(error)")
             }
         }
     }
     
     fileprivate func verifyReceipt(){
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "your-shared-secret")
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.secret)
         SwiftyStoreKit.verifyReceipt(using: appleValidator, forceRefresh: false) { result in
             switch result {
             case .success(let receipt):
                 print("Verify receipt success: \(receipt)")
             case .error(let error):
+            self.subscribe(Status: SM.FAIL)
                 print("Verify receipt failed: \(error)")
             }
         }
@@ -87,7 +98,7 @@ class SubscriptionManager: NSObject {
     ///
     /// VERIFYING PURCHASE MADE
    fileprivate func verifyPurchase(){
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "your-shared-secret")
+    let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.secret)
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             switch result {
             case .success(let receipt):
@@ -98,13 +109,19 @@ class SubscriptionManager: NSObject {
                     
                 switch purchaseResult {
                 case .purchased(let receiptItem):
-                    self.verifySubscriptions()
+                    self.isSubscribed = true
+                self.subscribe(Status: SM.SUCCESS)
                     print("\(self.productId) is purchased: \(receiptItem)")
                 case .notPurchased:
+                    
+                    self.subscribe(Status: SM.CANCEL)
                     print("The user has never purchased \(self.productId)")
                 }
             case .error(let error):
+                
+                self.subscribe(Status: SM.CANCEL)
                 print("Receipt verification failed: \(error)")
+                
             }
         }
     }
@@ -116,11 +133,11 @@ class SubscriptionManager: NSObject {
     /// Unlock any content under subscription conditions.
     
     fileprivate func verifySubscriptions(){
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "your-shared-secret")
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.secret)
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             switch result {
             case .success(let receipt):
-                let productId = "com.musevisions.SwiftyStoreKit.Subscription"
+                let productId = self.productId
                 // Verify the purchase of a Subscription
                 let purchaseResult = SwiftyStoreKit.verifySubscription(
                     ofType: .autoRenewable, // or .nonRenewing (see below)
@@ -130,15 +147,19 @@ class SubscriptionManager: NSObject {
                 switch purchaseResult {
                 case .purchased(let expiryDate, let items):
                     print("\(productId) is valid until \(expiryDate)\n\(items)\n")
-                    self.subscribeSuccess()
+                    self.isSubscribed = true
+                    self.subscribe(Status: SM.SUCCESS)
                 case .expired(let expiryDate, let items):
                     
+                    self.subscribe(Status: SM.FAIL)
                     print("\(productId) is expired since \(expiryDate)\n\(items)\n")
                 case .notPurchased:
+                    self.subscribe(Status: SM.CANCEL)
                     print("The user has never purchased \(productId)")
                 }
 
             case .error(let error):
+                self.subscribe(Status: SM.CANCEL)
                 print("Receipt verification failed: \(error)")
             }
         }
@@ -162,12 +183,50 @@ class SubscriptionManager: NSObject {
     }
     
     
-    fileprivate func subscribeSuccess(){
-        self.isSubscribed = true
-        let purchaseNotification = Notification.init(name: notificationNamePurchase)
-        NotificationCenter.default.post(purchaseNotification )
+    fileprivate func subscribe(Status status:String){
+        
+        
+        NotificationCenter.default.post(name:subNotification,
+                                        object: nil,
+                                        userInfo: ["notification_type" : status] )
     }
     
+    
+    static var type_key : String {
+        get {
+            return "notification_type"
+        }
+    }
+    
+    static var price_key : String {
+        get {
+            return "price"
+        }
+    }
+    
+    static var SUCCESS: String {
+        get{
+            return "success"
+        }
+    }
+    
+    static var FAIL: String {
+        get{
+            return "fail"
+        }
+    }
+    
+static var CANCEL: String {
+        get{
+            return "cancel"
+        }
+    }
+    
+    static var READ:String {
+        get {
+            return "product_read"
+        }
+    }
     
     /// If there are any pending transactions at this point, these will be reported by the completion block so that the app state and UI can be updated.
     /// by calling NotificationCenter.post(self.subscriptionNotification)
@@ -179,13 +238,17 @@ class SubscriptionManager: NSObject {
             for purchase in purchases {
                 switch purchase.transaction.transactionState {
                 case .purchased, .restored:
-                    self.subscribeSuccess()
+                    self.isSubscribed = true
+                    self.subscribe(Status: SM.SUCCESS)
+                    
                     break
                 case .failed, .purchasing, .deferred:
                 self.isSubscribed = false
+                self.subscribe(Status: SM.FAIL)
                     debugPrint("Uknown Error in subscriptions______________")
                     break
                 @unknown default:
+                    self.subscribe(Status: SM.CANCEL)
                 self.isSubscribed = false
                     debugPrint("Uknown Error in subscriptions______________")
                     break // do nothing
@@ -193,15 +256,16 @@ class SubscriptionManager: NSObject {
             }
         }
     }
+    
+    
+    
 }
 
 extension SubscriptionManager:SKProductsRequestDelegate{
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if !response.products.isEmpty {
             self.product = response.products.first
-
-            let subscriptionNotification = Notification.init(name: notificationNameSubscription)
-            NotificationCenter.default.post(subscriptionNotification)
+            self.subscribe(Status: SM.READ)
         }
     }
 }

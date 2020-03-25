@@ -14,6 +14,7 @@ class ImagePreview: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var layouts: [NSLayoutConstraint]!
     @IBOutlet weak var shadowView: ShadowView!
+    @IBOutlet weak var indicator:UIActivityIndicatorView!
     var nibName: String {
         return String(describing: type(of: self))
     }
