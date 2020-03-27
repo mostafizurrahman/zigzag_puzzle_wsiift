@@ -11,7 +11,7 @@ target 'ZigazagPuzzle' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  pod 'Firebase/Messaging'
+#  pod 'Firebase/Messaging'
   pod 'FBAudienceNetwork'
   pod 'SwiftyStoreKit'
 

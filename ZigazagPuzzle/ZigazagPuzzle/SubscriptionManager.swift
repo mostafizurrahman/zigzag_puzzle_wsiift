@@ -243,8 +243,8 @@ static var CANCEL: String {
                     
                     break
                 case .failed, .purchasing, .deferred:
-                self.isSubscribed = false
-                self.subscribe(Status: SM.FAIL)
+                    self.isSubscribed = false
+                    self.subscribe(Status: SM.FAIL)
                     debugPrint("Uknown Error in subscriptions______________")
                     break
                 @unknown default:

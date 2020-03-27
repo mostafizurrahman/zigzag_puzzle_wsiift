@@ -61,8 +61,11 @@ class PhotoCollectionView: UICollectionView,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let _cellView = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageViewCell{
             let itemData = self.imageItemArray[indexPath.row]
+            if indexPath.row == 4 {
+                print("why")
+            }
             _cellView.lockImageView.isHidden = !itemData.premium
-            _cellView.thumbImageView.image = AppConstants.getImage(fromPath: itemData.imageFile)
+            _cellView.thumbImageView.image = AppConstants.getImage(fromPath: itemData.imageIcon)
             if _cellView.parentView.layer.cornerRadius == 0 {
                 _cellView.parentView.layer.cornerRadius = 12
                 _cellView.parentView.layer.masksToBounds = true

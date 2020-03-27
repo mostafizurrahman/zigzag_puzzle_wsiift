@@ -24,9 +24,9 @@ class CategoryCollectionView: PhotoCollectionView {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let _cellView = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageViewCell{
-//            let categoryData = self.shared.categoryDataArray[indexPath.row]
+            let categoryData = self.shared.categoryDataArray[indexPath.row]
             _cellView.lockImageView.isHidden = true
-            _cellView.thumbImageView.image = UIImage(named: "icon.jpg")// AppConstants.getImage(fromPath: categoryData.iconImage)
+            _cellView.thumbImageView.image =  AppConstants.getImage(fromPath: categoryData.iconImage)
             if _cellView.parentView.layer.cornerRadius == 0 {
                 _cellView.parentView.layer.cornerRadius = 12
                 _cellView.parentView.layer.masksToBounds = true

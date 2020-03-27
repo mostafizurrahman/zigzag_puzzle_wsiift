@@ -11,21 +11,21 @@ import UIKit
 
 class ImageItem{
     let imageID:String
-    let shouldDownload:Bool
+    let onDemand:Bool
     let premium:Bool
     let imageTitle:String
     let imageFile:String
-    let imageWidth:Int
-    let imageHeight:Int
-    init(_id:String, _title:String, _file:String,
-         _width:Int, _height:Int,
+    let imageIcon:String
+    let imageDimension:Int
+    init(_id:String, _title:String, _file:String, _icon:String,
+         _dimension:Int,
          _download:Bool, _premium:Bool){
         imageID = _id
         imageTitle = _title
         imageFile = _file
-        imageWidth = _width
-        imageHeight = _height
-        shouldDownload = _download
+        imageIcon = _icon
+        imageDimension = _dimension
+        onDemand = _download
         premium = _premium
     }
 }
@@ -45,14 +45,20 @@ class CategoryData{
         self.iconImage = _icon
         
         
-        
+//        "image_id" : "ct_3",
+//        "image_title" : "Cartoon",
+//        "image_file" : "ct3.jpg",
+//        "image_icon" : "ct3_icon.jpg",
+//        "dimension" : "1440.0",
+//        "premium" : true,
+//        "ondemand" : true
         for data in _data {
             let imageItem = ImageItem(_id: data["image_id"] as? String ?? "",
                                       _title: data["image_title"] as? String ?? "",
                                       _file: data["image_file"] as? String ?? "",
-                                      _width: Int(data["image_width"] as? String ?? "") ?? 0,
-                                      _height: Int(data["image_height"] as? String ?? "") ?? 0,
-                                      _download: data["should_download"] as? Bool ?? false,
+                                      _icon: data["image_icon"] as? String ?? "",
+                                      _dimension: Int(data["dimension"] as? String ?? "") ?? 0,
+                                      _download: data["ondemand"] as? Bool ?? false,
                                       _premium: data["premium"] as? Bool ?? false)
             self.imageItemArray.append(imageItem)
             
@@ -66,7 +72,7 @@ class PhotoDataSource: NSObject {
 
     static let shared = PhotoDataSource()
     let dataMap:[String :[AnyObject]] = [:]
-    var categoryDataArray : [CategoryData] = []
+var categoryDataArray : [CategoryData] = []
 
     var dataArray:[ImageItem] = []
     

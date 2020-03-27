@@ -21,10 +21,16 @@ class AppConstants: NSObject {
         if imagePath.contains("/") && FileManager.default.fileExists(atPath: imagePath){
             return UIImage.init(contentsOfFile: imagePath)
         } else {
-            if let imageFile = Bundle.main.path(forResource: imagePath, ofType: ".jpg") ??
+            
+            if let imageFile = Bundle.main.path(forResource: imagePath.replacingOccurrences(of: ".jpg", with: ""), ofType: ".jpg") ??
                 Bundle.main.path(forResource: imagePath, ofType: ".png") {
                 return UIImage.init(contentsOfFile: imageFile)
             } else {
+                if imagePath.contains("_icon"){
+                    if let _imageNamed = imagePath.split(separator: ".").first {
+                        return UIImage(named: String(_imageNamed))
+                    }
+                }
                 return UIImage(named: imagePath)
             }
         }
