@@ -23,10 +23,15 @@ class CategoryViewController: PhotoViewController {
     var isFirst = true
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        if(!SubscriptionManager.shared.isSubscribed && self.isFirst){
-//            self.performSegue(withIdentifier: "subscription_segue", sender: self)
-//            self.isFirst = false;
-//        }
+        if(!SubscriptionManager.shared.isSubscribed && self.isFirst){
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            if let newViewController =
+                storyBoard.instantiateViewController(withIdentifier: "subscription")
+                as? SubscriptionViewController {
+                self.present(newViewController, animated: true, completion: nil)
+            }
+            self.isFirst = false;
+        }
         
         
         

@@ -62,6 +62,7 @@ class SubscriptionViewController: UITableViewController {
                         self.priceLabel.text = "\nmonthly \(_price)/month"
                     }
                 } else if key.elementsEqual(SM.SUCCESS){
+                    UserDefaults.standard.set(true, forKey: "subscribed")
                    let _ = SweetAlert().showAlert("PURCHASED!",
                                                      subTitle: "New puzzle images unlokced. Enjoy image puzzle!",
                                                      

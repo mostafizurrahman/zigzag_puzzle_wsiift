@@ -39,7 +39,7 @@ class SubscriptionManager: NSObject {
         
         super.init()
         self.readProductDetails()
-        
+        self.isSubscribed = UserDefaults.standard.bool(forKey: "subscribed")
     }
     
     func readProductDetails(){
@@ -132,9 +132,10 @@ class SubscriptionManager: NSObject {
     /// VERIFYING SUBSCRIPTIONS
     /// Unlock any content under subscription conditions.
     
-    fileprivate func verifySubscriptions(){
+    func verifySubscriptions(){
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.secret)
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+            debugPrint("\n\n\ndone")
             switch result {
             case .success(let receipt):
                 let productId = self.productId
@@ -150,7 +151,8 @@ class SubscriptionManager: NSObject {
                     self.isSubscribed = true
                     self.subscribe(Status: SM.SUCCESS)
                 case .expired(let expiryDate, let items):
-                    
+                    UserDefaults.standard.set(false, forKey: "subscribed")
+                    self.isSubscribed = false
                     self.subscribe(Status: SM.FAIL)
                     print("\(productId) is expired since \(expiryDate)\n\(items)\n")
                 case .notPurchased:
@@ -234,7 +236,7 @@ static var CANCEL: String {
     /// Note that completeTransactions() should only be called once in your code, in application(:didFinishLaunchingWithOptions:).
 
     func checkSubscription(){
-        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+        SwiftyStoreKit.completeTransactions(atomically: false) { purchases in
             for purchase in purchases {
                 switch purchase.transaction.transactionState {
                 case .purchased, .restored:

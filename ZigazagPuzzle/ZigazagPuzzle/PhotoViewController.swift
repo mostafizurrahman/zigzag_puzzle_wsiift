@@ -9,7 +9,7 @@
 import UIKit
 
 class PhotoViewController: UIViewController,UICollectionViewDelegate {
-    
+    typealias SM = SubscriptionManager
     var sharedSource: PhotoDataSource?
     var categoryData:CategoryData?
     
@@ -53,8 +53,22 @@ class PhotoViewController: UIViewController,UICollectionViewDelegate {
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data = self.categoryData?.imageItemArray[indexPath.row]
-        self.performSegue(withIdentifier: "PuzzleSigue", sender: data)
+        if let data = self.categoryData?.imageItemArray[indexPath.row] {
+            if data.premium {
+                if SM.shared.isSubscribed {
+                    self.performSegue(withIdentifier: "PuzzleSigue", sender: data)
+                } else {
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    if let newViewController =
+                        storyBoard.instantiateViewController(withIdentifier: "subscription")
+                        as? SubscriptionViewController {
+                        self.present(newViewController, animated: true, completion: nil)
+                    }
+                }
+            } else {
+                self.performSegue(withIdentifier: "PuzzleSigue", sender: data)
+            }
+        }
     }
 
 }

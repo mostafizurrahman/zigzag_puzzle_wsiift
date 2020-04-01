@@ -19,24 +19,66 @@ class PuzzleViewController: UIViewController {
     var gameOver:Bool = false
     let music = GameMusic()
     
+    @IBOutlet weak var loadingView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageNamed = self.puzzleData?.imageFile ?? "sample"
         self.containerView.layoutIfNeeded()
-        DispatchQueue.global().async {
-            DispatchQueue.main.async {
-                self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
-                                                        ScreenHeight: Int(UIScreen.main.bounds.width - 16),
-                                                        Image: imageNamed, inView:self.containerView)
-                self.setControls()
-            }
-        }
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.downloadImage()
     }
+    
+    
+    fileprivate func downloadImage(){
+        if self.loadingView != nil {
+
+            DispatchQueue.global().async {
+                if let _data = self.puzzleData, _data.onDemand {
+                    let tags = NSSet(array: [_data.imageTitle])
+                       let resourceRequest:NSBundleResourceRequest = NSBundleResourceRequest(tags: tags as! Set)
+                    resourceRequest.beginAccessingResources { (_error) in
+                        if let  _path = resourceRequest.bundle.path(forResource: _data.imageFile, ofType: "") {
+                            DispatchQueue.main.async {
+                                self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
+                                                                        ScreenHeight: Int(UIScreen.main.bounds.width - 16),
+                                                                        Image: _path, inView:self.containerView)
+                                
+                                self.setControls()
+                                self.view.bringSubviewToFront(self.loadingView)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.40) { // Change `2.0` to the desired number of seconds.
+                                   
+                                   self.loadingView.removeFromSuperview()
+                                }
+                            }
+                        }
+                    }
+
+                } else {
+                    let imageNamed = self.puzzleData?.imageFile ?? "sample"
+                    self.loadingView.removeFromSuperview()
+                    
+                    
+                    DispatchQueue.main.async {
+                        self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
+                                                                ScreenHeight: Int(UIScreen.main.bounds.width - 16),
+                                                                Image: imageNamed, inView:self.containerView)
+                        self.setControls()
+                        
+                        
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
+    
     
     @objc func openSettings(){
         print("__image___")

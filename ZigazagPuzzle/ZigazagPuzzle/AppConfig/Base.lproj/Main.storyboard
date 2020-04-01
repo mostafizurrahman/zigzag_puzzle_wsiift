@@ -35,7 +35,7 @@
         <!--Subscription View Controller-->
         <scene sceneID="WKJ-ee-Osi">
             <objects>
-                <tableViewController id="jO4-Iq-c8P" customClass="SubscriptionViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="subscription" id="jO4-Iq-c8P" customClass="SubscriptionViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9bW-uj-Nn7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -611,17 +611,17 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9IU-nK-pPG">
-                                                            <rect key="frame" x="16" y="16" width="30" height="30"/>
+                                                            <rect key="frame" x="146" y="129" width="32" height="32"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="7ga-fp-fb7" firstAttribute="centerX" secondItem="2gh-aO-1BX" secondAttribute="centerX" id="5J1-gj-MVS"/>
                                                         <constraint firstItem="7ga-fp-fb7" firstAttribute="centerY" secondItem="2gh-aO-1BX" secondAttribute="centerY" id="Agn-aV-uSM"/>
-                                                        <constraint firstItem="9IU-nK-pPG" firstAttribute="leading" secondItem="2gh-aO-1BX" secondAttribute="leading" constant="16" id="Jkg-OV-9KS"/>
+                                                        <constraint firstAttribute="bottom" secondItem="9IU-nK-pPG" secondAttribute="bottom" constant="4" id="AoX-dF-q7y"/>
                                                         <constraint firstItem="7ga-fp-fb7" firstAttribute="height" secondItem="2gh-aO-1BX" secondAttribute="height" id="Pkd-9Y-BV9"/>
                                                         <constraint firstItem="7ga-fp-fb7" firstAttribute="width" secondItem="2gh-aO-1BX" secondAttribute="width" id="QXg-Sn-FOQ"/>
-                                                        <constraint firstItem="9IU-nK-pPG" firstAttribute="top" secondItem="2gh-aO-1BX" secondAttribute="top" constant="16" id="d5f-Fi-XVc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9IU-nK-pPG" secondAttribute="trailing" constant="4" id="VRQ-HR-bby"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -657,7 +657,6 @@
                     <connections>
                         <outlet property="photoCollectionView" destination="T1d-GO-ynI" id="hT2-zR-bIm"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="PuzzleSigue" id="5Cd-Dz-kon"/>
-                        <segue destination="jO4-Iq-c8P" kind="presentation" identifier="subscription_segue" id="V30-Z3-JaF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytH-AI-0sW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -676,26 +675,64 @@
                                 <rect key="frame" x="8" y="96" width="398" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzZ-Q3-xaS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReI-u8-PSF">
+                                        <rect key="frame" x="0.0" y="48" width="414" height="800"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ufz-no-zhx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                    </visualEffectView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOWNLOADING..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmu-1z-U89">
+                                        <rect key="frame" x="127.5" y="476.5" width="159" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="oev-WK-jUn">
+                                        <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                        <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gmu-1z-U89" firstAttribute="centerX" secondItem="oev-WK-jUn" secondAttribute="centerX" id="CfU-te-qQ9"/>
+                                    <constraint firstItem="ReI-u8-PSF" firstAttribute="height" secondItem="dzZ-Q3-xaS" secondAttribute="height" multiplier="0.892857" id="Lcd-ow-Czc"/>
+                                    <constraint firstItem="oev-WK-jUn" firstAttribute="centerY" secondItem="dzZ-Q3-xaS" secondAttribute="centerY" id="Rwi-dE-uCi"/>
+                                    <constraint firstItem="ReI-u8-PSF" firstAttribute="width" secondItem="dzZ-Q3-xaS" secondAttribute="width" id="SO2-Fo-l1f"/>
+                                    <constraint firstItem="ReI-u8-PSF" firstAttribute="centerX" secondItem="dzZ-Q3-xaS" secondAttribute="centerX" id="W0a-wa-Q1S"/>
+                                    <constraint firstItem="ReI-u8-PSF" firstAttribute="centerY" secondItem="dzZ-Q3-xaS" secondAttribute="centerY" id="cEA-iY-vSb"/>
+                                    <constraint firstItem="gmu-1z-U89" firstAttribute="top" secondItem="oev-WK-jUn" secondAttribute="bottom" constant="10" id="j2J-XY-Sus"/>
+                                    <constraint firstItem="oev-WK-jUn" firstAttribute="centerX" secondItem="dzZ-Q3-xaS" secondAttribute="centerX" id="x2R-W2-Vp7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dzZ-Q3-xaS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="HfE-IJ-8la"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nud-Xl-4wj" secondAttribute="trailing" constant="8" id="Knb-PA-Tua"/>
                             <constraint firstItem="nud-Xl-4wj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="NAV-HS-Iwz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nud-Xl-4wj" secondAttribute="bottom" constant="44" id="Q1c-03-ltW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dzZ-Q3-xaS" secondAttribute="trailing" id="Ukr-g7-VVL"/>
                             <constraint firstItem="nud-Xl-4wj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="XWV-38-meU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="dzZ-Q3-xaS" secondAttribute="top" constant="88" id="rLh-01-ftB"/>
+                            <constraint firstItem="dzZ-Q3-xaS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="thL-Ah-ZTL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="PZc-Ll-MJV"/>
                     <connections>
                         <outlet property="containerView" destination="nud-Xl-4wj" id="IoQ-5d-0bG"/>
+                        <outlet property="loadingView" destination="dzZ-Q3-xaS" id="DiB-Qr-KEW"/>
                         <segue destination="tdg-TK-Y77" kind="show" identifier="SettingsSegue" id="1xu-ap-BTu"/>
-                        <segue destination="jO4-Iq-c8P" kind="presentation" identifier="subscription_segue" id="0uH-8U-ldT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="64"/>
+            <point key="canvasLocation" x="363.768115942029" y="63.616071428571423"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="kV9-Rm-rmA">
@@ -729,7 +766,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9YX-yZ-dIy">
-                                                            <rect key="frame" x="16" y="16" width="30" height="30"/>
+                                                            <rect key="frame" x="16" y="16" width="32" height="32"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -810,7 +847,6 @@
                         <outlet property="photoCollectionView" destination="oyv-8y-p6q" id="8iA-9N-N1d"/>
                         <outlet property="visualEffectView" destination="TGp-A5-tRN" id="bhq-aG-XPR"/>
                         <segue destination="Hli-wH-FhR" kind="show" identifier="Photos" id="kGa-w8-Kdi"/>
-                        <segue destination="jO4-Iq-c8P" kind="show" identifier="subscription_segue" id="6WO-Rx-l65"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXA-Pf-UPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -824,13 +860,12 @@
         <image name="category_1.png" width="84" height="84"/>
         <image name="category_2.png" width="82.55999755859375" height="82.55999755859375"/>
         <image name="category_3.png" width="82.55999755859375" height="82.55999755859375"/>
-        <image name="locked" width="30" height="30"/>
+        <image name="locked" width="32" height="32"/>
         <image name="logo_small" width="125" height="125"/>
         <image name="settings" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pBI-TO-eKu"/>
-        <segue reference="91W-Yf-sAo"/>
-        <segue reference="6WO-Rx-l65"/>
+        <segue reference="ZYs-D6-fBW"/>
+        <segue reference="1xu-ap-BTu"/>
     </inferredMetricsTieBreakers>
 </document>
