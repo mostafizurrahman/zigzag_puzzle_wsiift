@@ -28,11 +28,14 @@ extension TrendCell:DownloaderDelegate {
     }
     
     func onDownloaded(image: UIImage) {
-        
+        self.iconImageView.image  = image
     }
     
     func didCompleted(data: Data?, withError error: Error?) {
-                                                    
+        if let _data = data {
+            let image = UIImage(data: _data)
+            self.iconImageView.image = image
+        }
     }
     
     func onCanceled() {

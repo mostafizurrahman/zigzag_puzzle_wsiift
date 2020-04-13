@@ -70,6 +70,7 @@ class DataDownloader: BaseDownloader {
         DispatchQueue.main.async {
             for delegate in dataTask.downloadDelegates {
                 if let _delegate = delegate {
+                    debugPrint("\(percent)")
                     _delegate.onUpdated(percent: percent)
                 }
             }

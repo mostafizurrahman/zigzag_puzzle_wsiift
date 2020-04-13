@@ -59,6 +59,8 @@ class BaseDownloader: NSObject {
             } catch {
                 print(error.localizedDescription);
             }
+        } else {
+            self.storageUrl = dataPath
         }
         
     }
@@ -83,9 +85,10 @@ class BaseDownloader: NSObject {
     func saveImage(data:Data, name imageName:String)->Bool {
         if let _directory = self.storageUrl {
             let _imageUrl = _directory.appendingPathComponent(imageName)
-            if !FileManager.default.fileExists(atPath: _imageUrl.path){
+            let _pathUrl = URL(fileURLWithPath: _imageUrl.path)
+            if !FileManager.default.fileExists(atPath: _pathUrl.path){
                 do {
-                    try data.write(to: _imageUrl)
+                    try data.write(to: _pathUrl)
                     print("file saved")
                     return true
                 } catch {
