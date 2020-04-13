@@ -23,7 +23,9 @@ class PuzzleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.containerView.layoutIfNeeded()
-        
+        if let _title = self.puzzleData?.imageTitle {
+            self.title = _title
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -35,6 +37,10 @@ class PuzzleViewController: UIViewController {
     
     
     fileprivate func downloadImage(){
+        
+        
+        
+        
         if self.loadingView != nil {
 
             DispatchQueue.global().async {
@@ -44,7 +50,15 @@ class PuzzleViewController: UIViewController {
                     resourceRequest.beginAccessingResources { (_error) in
                         if let  _path = resourceRequest.bundle.path(forResource: _data.imageFile, ofType: "") {
                             DispatchQueue.main.async {
-                                self.squareHandler = ImageSquareHandler(WithRow: 4, Column: 4,
+                                
+                                
+                                var count = UserDefaults.standard.integer(forKey: "squares")
+                                if count == 0 {
+                                    count = 4
+                                }
+                                
+                                
+                                self.squareHandler = ImageSquareHandler(WithRow: count, Column: count,
                                                                         ScreenHeight: Int(UIScreen.main.bounds.width - 16),
                                                                         Image: _path, inView:self.containerView)
                                 
@@ -53,6 +67,7 @@ class PuzzleViewController: UIViewController {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.40) { // Change `2.0` to the desired number of seconds.
                                    
                                    self.loadingView.removeFromSuperview()
+                                
                                 }
                             }
                         }
@@ -82,6 +97,7 @@ class PuzzleViewController: UIViewController {
     
     @objc func openSettings(){
         print("__image___")
+        self.performSegue(withIdentifier: "SettingsSegue", sender: nil)
     }
     
     var previewImage:ImagePreview?
@@ -162,9 +178,7 @@ class PuzzleViewController: UIViewController {
     }
     
     func setControls(){
-        if let _title = self.puzzleData?.imageTitle {
-            self.title = _title
-        }
+        
         let button = UIButton.init(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 40)))
         button.addTarget(self, action: #selector(openSettings), for: UIControl.Event.touchUpInside)
         button.setImage(AppConstants.getImage(fromPath: "settings"), for: UIControl.State.normal)

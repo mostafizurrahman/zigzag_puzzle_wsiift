@@ -135,7 +135,7 @@ class SubscriptionManager: NSObject {
     func verifySubscriptions(){
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.secret)
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
-            debugPrint("\n\n\ndone")
+            
             switch result {
             case .success(let receipt):
                 let productId = self.productId

@@ -55,5 +55,16 @@
 		<key>action</key>
 		<string>subscription</string>
 	</dict>
+	<key>5</key>
+	<dict>
+		<key>title</key>
+		<string>Puzzle Squares</string>
+		<key>switch</key>
+		<false/>
+		<key>icon</key>
+		<string>squars</string>
+		<key>action</key>
+		<string>alert</string>
+	</dict>
 </dict>
 </plist>

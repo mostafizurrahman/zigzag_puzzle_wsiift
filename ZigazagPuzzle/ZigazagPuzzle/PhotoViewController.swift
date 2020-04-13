@@ -17,6 +17,7 @@ class PhotoViewController: UIViewController,UICollectionViewDelegate {
     @IBOutlet weak var photoCollectionView: PhotoCollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = categoryData?.categoryTitle
         self.photoCollectionView.configureCollectionView(forWidth: Int(AppConstants.SCR_WIDTH))
         if let catData = self.categoryData {
             self.photoCollectionView.set(Data: catData.imageItemArray as AnyObject)

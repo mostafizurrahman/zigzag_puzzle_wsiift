@@ -29,6 +29,7 @@ class SettingsViewController: UIViewController {
 
     
     
+    var previewBox:SquareBoxes?
     var dataArray = NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +113,11 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
                 case "subscription":
                     self.performSegue(withIdentifier: "details", sender: _data["title"])
                     break
+                case "alert" :
+                    
+                    self.displaySquareSelector()
+                    
+                    break
                 default:
                     print("janina")
                 }
@@ -119,6 +125,24 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
+    
+    @objc func displaySquareSelector(){
+        print("__image___")
+//        if self.previewBox == nil {
+            self.previewBox = SquareBoxes(frame: self.view.bounds)
+        
+        if let _view = self.previewBox {
+            self.view.addSubview(_view)
+        }
+            self.previewBox?.alpha = 0
+            self.previewBox?.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+            if let _view = self.previewBox {
+                AppConstants.animateVisible(toView: _view)
+            }
+//        }
+        
+    }
     
     fileprivate func openNotification(){
         DispatchQueue.main.async {

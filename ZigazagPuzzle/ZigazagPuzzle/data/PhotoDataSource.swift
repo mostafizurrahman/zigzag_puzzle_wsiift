@@ -30,6 +30,55 @@ class ImageItem{
     }
 }
 
+class TrendItem:ImageItem{
+    let fileSize:Int
+    let iconSize:Int
+    let imageDescription:String
+    let publishDate:String
+    
+//    init(_desc:String, _size:Int, _icon _published:String, _id: String,
+//         _title: String, _file: String, _icon: String,
+//         _dimension: Int, _download: Bool, _premium: Bool) {
+//        fileSize = _size
+//        imageDescription = _desc
+//        publishDate = _published
+//        iconSize =
+//        super.init(_id:_id, _title:_title, _file:_file, _icon:_icon,
+//                   _dimension:_dimension, _download:_download, _premium:_premium)
+//
+//    }
+    
+    
+    init(fromJson json:[String:AnyObject]){
+        fileSize = json["file_size"] as? Int ?? 0
+        iconSize = json["icon_size"] as? Int ?? 0
+        imageDescription = json["description"] as? String ?? ""
+        publishDate = json["publis_date"] as? String ?? ""
+    
+        let onDemand = json["ondemand"] as? Bool ?? false
+        let premium = json["premium"] as? Bool ?? false
+        let imageId = json["image_id"] as? String ?? ""
+        let imageTitle = json["image_title"] as? String ?? ""
+        let imageFile = json["image_file"] as? String ?? ""
+        let imageIcon = json["image_icon"] as? String ?? ""
+        let imageDimension = json["image_size"] as? Int ?? 0
+        
+        super.init(_id: imageId,
+                   _title: imageTitle,
+                   _file: imageFile,
+                   _icon: imageIcon,
+                   _dimension: imageDimension,
+                   _download: onDemand,
+                   _premium: premium)
+        
+        
+    }
+    
+    
+    
+    
+}
+
 class CategoryData{
     
     let categoryTitle:String
