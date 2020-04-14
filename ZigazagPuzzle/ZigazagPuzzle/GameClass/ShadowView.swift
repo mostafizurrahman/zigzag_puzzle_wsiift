@@ -10,7 +10,11 @@ import UIKit
 
 class ShadowView: UIView {
     
-    
+    var shadowColor = UIColor.white {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -30,7 +34,7 @@ class ShadowView: UIView {
         self.layer.masksToBounds = false
         self.layer.cornerRadius = 12
         self.layer.shadowRadius = 12
-        self.layer.shadowColor = UIColor.white.cgColor
+        self.layer.shadowColor = self.shadowColor.cgColor
         self.layer.shadowOpacity = 0.5
     }
     

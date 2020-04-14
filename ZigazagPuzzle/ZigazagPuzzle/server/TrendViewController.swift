@@ -36,6 +36,7 @@ class TrendViewController: UIViewController {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 24
         flowLayout.minimumInteritemSpacing = 24
+//        let spacing = UIDevice.current.userInterfaceIdiom == .pad
         flowLayout.sectionInset = UIEdgeInsets.init(top: 8, left: 24, bottom: 8, right: 24)
         
         self.trendCollectionView.collectionViewLayout = flowLayout
@@ -45,20 +46,21 @@ class TrendViewController: UIViewController {
         ref = Database.database().reference()
         ref?.child("image_puzzle").child("trending")
             .observe(DataEventType.value, with: { (snapshot) in
-                
-            var dataArray = [TrendItem]()
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-            for _snapData in postDict {
-                if let _value = _snapData.value as? [String : AnyObject] {
-                    let _trendData = TrendItem.init(fromJson: _value)
-                   dataArray.append(_trendData)
-//                    self.downloadImage(Named: _trendData.imageFile)
+                var dataArray = [TrendItem]()
+                let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                for _snapData in postDict {
+                    if let _value = _snapData.value as? [String : AnyObject] {
+                        let _trendData = TrendItem.init(fromJson: _value)
+                        dataArray.append(_trendData)
+                    }
                 }
-            }
-            self.trendDataArray = dataArray
-            DispatchQueue.main.async {
-                self.trendCollectionView.reloadData()
-            }
+                self.trendDataArray = dataArray
+                self.trendDataArray.append(contentsOf: dataArray)
+                self.trendDataArray.append(contentsOf: dataArray)
+                self.trendDataArray = DataSorting.sortTrendData(array: self.trendDataArray)
+                DispatchQueue.main.async {
+                    self.trendCollectionView.reloadData()
+                }
             
             
           // ...
@@ -110,6 +112,14 @@ extension TrendViewController:UICollectionViewDelegate, UICollectionViewDataSour
         if let _cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trend", for: indexPath) as? TrendCell {
             let _trendData = self.trendDataArray[indexPath.row - 1]
             self.downloader.download(from: _trendData.imageIcon, delegate: _cell)
+            if _cell.containerView.layer.cornerRadius == 0 {
+                _cell.containerView.layer.cornerRadius = 12
+                _cell.containerView.layer.masksToBounds = true
+                _cell.shadowView.shadowColor = UIColor.black
+            }
+            _cell.dateTimeLabel.text = _trendData.publishDate
+            _cell.descriptionLabel.text = _trendData.imageDescription
+            _cell.premiumImageView.isHidden = !_trendData.premium
 //            self.downloadImage(Named: _trendData.imageFile)
             return _cell
         }
@@ -122,10 +132,10 @@ extension TrendViewController:UICollectionViewDelegate, UICollectionViewDataSour
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {
-            return CGSize(width: self._width - 48, height: 60)
+            return CGSize(width: self._width - 48, height: 45)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
-            let _itemWidth = self._width / 2 - 72
+            let _itemWidth = (self._width  - 72)/2
             return CGSize(width: _itemWidth, height: 200)
         }
         let _itemWidth = self._width - 48
@@ -137,6 +147,7 @@ extension TrendViewController:UICollectionViewDelegate, UICollectionViewDataSour
         return self.trendDataArray.count + 1
     }
     
-    
-    
 }
+
+
+

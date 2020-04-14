@@ -53,7 +53,7 @@ class TrendItem:ImageItem{
         fileSize = json["file_size"] as? Int ?? 0
         iconSize = json["icon_size"] as? Int ?? 0
         imageDescription = json["description"] as? String ?? ""
-        publishDate = json["publis_date"] as? String ?? ""
+        publishDate = json["publish_date"] as? String ?? ""
     
         let onDemand = json["ondemand"] as? Bool ?? false
         let premium = json["premium"] as? Bool ?? false
@@ -168,4 +168,78 @@ var categoryDataArray : [CategoryData] = []
     }
     */
 
+}
+
+
+class DataSorting {
+    
+    static func sortTrendData(array:[TrendItem])->[TrendItem]{
+        
+        if array.count > 1 {
+            
+            var outputArray = [TrendItem]()
+            var _contents = Array.init(array)
+            
+            while _contents.count > 1 {
+                var _big = _contents[0]
+                for index in 1..._contents.count-1{
+                    let _next = _contents[index]
+                    if _next.publishDate > _big.publishDate {
+                        _big = _next
+                    }
+                }
+                outputArray.append(_big)
+                _contents.remove(at: _contents.firstIndex(where: { $0 === _big}) ?? 0)
+            }
+            outputArray.append(_contents[0])
+            return outputArray
+        }
+        return array
+         
+        
+        
+    }
+    
+    
+    
+}
+
+
+extension String {
+    static func >(left:String, right:String)->Bool {
+    
+        
+        let firstArray = left.replacingOccurrences(of: ",", with: "").split(separator: " ")
+        let secondArray = right.replacingOccurrences(of: ",", with: "").split(separator: " ")
+        let yearL = (String(firstArray.last ?? "0") as NSString).intValue
+        let yearR = (String(secondArray.last ?? "0") as NSString).intValue
+        if(yearL < yearR){
+            return false
+        } else if (yearL > yearR){
+            return true
+        }
+        
+        let months = ["january", "february", "march", "april", "may", "june", "july",
+                      "august", "september", "october", "november", "december"]
+        let monthL = String(firstArray[1]).lowercased()
+        let monthR = String(secondArray[1]).lowercased()
+        let indexL = months.lastIndex(of: monthL) ?? 0
+        let indexR = months.lastIndex(of: monthR) ?? 0
+        if indexL < indexR {
+            return false
+        } else if indexR > indexL {
+            return true
+        }
+        
+        let dateL = (String(firstArray.first ?? "0") as NSString).intValue
+        let dateR = (String(secondArray.first ?? "0") as NSString).intValue
+        if(dateL < dateR){
+            return false
+        } else if (dateL > dateR){
+            return true
+        }
+        
+        return false
+        
+    }
 }

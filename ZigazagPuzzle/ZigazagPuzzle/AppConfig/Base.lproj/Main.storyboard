@@ -52,27 +52,27 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="title" id="Yzj-Pe-Agm">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="title" id="Yzj-Pe-Agm">
                                         <rect key="frame" x="15" y="10" width="384" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Vzm-f7-fFi">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Vzm-f7-fFi">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featuring..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dI-D9-FHN">
-                                                    <rect key="frame" x="24" y="8" width="123.5" height="26.5"/>
+                                                    <rect key="frame" x="0.0" y="8" width="123.5" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lovely puzzles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxb-fs-pPN">
-                                                    <rect key="frame" x="266" y="29" width="94" height="18"/>
+                                                    <rect key="frame" x="290" y="29" width="94" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8r-xJ-1Ib">
-                                                    <rect key="frame" x="0.0" y="54" width="384" height="1"/>
+                                                    <rect key="frame" x="-24" y="54" width="432" height="1"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="9Fs-Rg-eiS"/>
@@ -81,34 +81,34 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="uxb-fs-pPN" secondAttribute="bottom" constant="8" id="BvK-Rx-0DH"/>
-                                                <constraint firstItem="8dI-D9-FHN" firstAttribute="leading" secondItem="Vzm-f7-fFi" secondAttribute="leading" constant="24" id="GDg-lV-TZL"/>
-                                                <constraint firstItem="w8r-xJ-1Ib" firstAttribute="leading" secondItem="Vzm-f7-fFi" secondAttribute="leading" id="REm-04-zxq"/>
-                                                <constraint firstAttribute="trailing" secondItem="uxb-fs-pPN" secondAttribute="trailing" constant="24" id="ZTI-Uw-meB"/>
-                                                <constraint firstAttribute="trailing" secondItem="w8r-xJ-1Ib" secondAttribute="trailing" id="hfO-bE-EVR"/>
+                                                <constraint firstItem="8dI-D9-FHN" firstAttribute="leading" secondItem="Vzm-f7-fFi" secondAttribute="leading" id="GDg-lV-TZL"/>
+                                                <constraint firstItem="w8r-xJ-1Ib" firstAttribute="leading" secondItem="Vzm-f7-fFi" secondAttribute="leading" constant="-24" id="REm-04-zxq"/>
+                                                <constraint firstAttribute="trailing" secondItem="uxb-fs-pPN" secondAttribute="trailing" id="ZTI-Uw-meB"/>
+                                                <constraint firstAttribute="trailing" secondItem="w8r-xJ-1Ib" secondAttribute="trailing" constant="-24" id="hfO-bE-EVR"/>
                                                 <constraint firstItem="8dI-D9-FHN" firstAttribute="top" secondItem="Vzm-f7-fFi" secondAttribute="top" constant="8" id="jDl-Vd-yfG"/>
                                                 <constraint firstAttribute="bottom" secondItem="w8r-xJ-1Ib" secondAttribute="bottom" id="lXd-bN-j5M"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="384" height="55"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trend" id="iVg-Hb-F7V" customClass="TrendCell" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trend" id="iVg-Hb-F7V" customClass="TrendCell" customModule="ZigazagPuzzle" customModuleProvider="target">
                                         <rect key="frame" x="10" y="75" width="394" height="238"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tQC-oX-6DB">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tQC-oX-6DB">
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="238"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2h-lm-70Y" customClass="ShadowView" customModule="ZigazagPuzzle" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="394" height="238"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtH-d8-5gh">
                                                     <rect key="frame" x="0.0" y="0.0" width="394" height="238"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBZ-j5-AR3">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBZ-j5-AR3">
                                                             <rect key="frame" x="0.0" y="0.0" width="394" height="238"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7U7-4e-9da" customClass="LinearGradientView" customModule="ZigazagPuzzle" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="188" width="394" height="50"/>
@@ -117,20 +117,20 @@
                                                                     <rect key="frame" x="354" y="9" width="32" height="32"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Descriptions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq8-2V-Xp1">
-                                                                    <rect key="frame" x="8" y="15.5" width="326" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                                    <rect key="frame" x="8" y="25" width="336" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="Fq8-2V-Xp1" secondAttribute="trailing" constant="60" id="FY8-rg-U4W"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Fq8-2V-Xp1" secondAttribute="trailing" constant="50" id="FY8-rg-U4W"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Fl6-ag-Tj5" secondAttribute="trailing" constant="8" id="NFk-bq-GJu"/>
                                                                 <constraint firstItem="Fl6-ag-Tj5" firstAttribute="centerY" secondItem="7U7-4e-9da" secondAttribute="centerY" id="NGg-H3-eKB"/>
                                                                 <constraint firstItem="Fq8-2V-Xp1" firstAttribute="leading" secondItem="7U7-4e-9da" secondAttribute="leading" constant="8" id="VkS-8l-25H"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Fq8-2V-Xp1" secondAttribute="bottom" constant="8" id="mdM-VX-Kr2"/>
                                                                 <constraint firstAttribute="height" constant="50" id="oCN-wJ-E52"/>
-                                                                <constraint firstItem="Fq8-2V-Xp1" firstAttribute="centerY" secondItem="7U7-4e-9da" secondAttribute="centerY" id="ubb-9K-uC8"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE TIME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6K-Cf-Q4c">
@@ -795,7 +795,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9IU-nK-pPG">
-                                                            <rect key="frame" x="114" y="97" width="64" height="64"/>
+                                                            <rect key="frame" x="146" y="129" width="32" height="32"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -950,7 +950,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9YX-yZ-dIy">
-                                                            <rect key="frame" x="16" y="16" width="64" height="64"/>
+                                                            <rect key="frame" x="16" y="16" width="32" height="32"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
