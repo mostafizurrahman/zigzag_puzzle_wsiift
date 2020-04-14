@@ -142,6 +142,7 @@
 		BE940B49242F51DB00147F16 /* pd25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE940B31242F51DB00147F16 /* pd25.jpg */; settings = {ASSET_TAGS = (Paradox, ); }; };
 		BE9789DE2441B37F00D15A57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE9789DD2441B37E00D15A57 /* GoogleService-Info.plist */; };
 		BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */; };
+		BEE323882446571600EE6D8A /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE323872446571600EE6D8A /* CircularProgress.swift */; };
 		BEEF2B342438D93B00C0511F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF2B332438D93B00C0511F /* TrendViewController.swift */; };
 		BEEF2B362438DDE400C0511F /* TrendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF2B352438DDE400C0511F /* TrendCell.swift */; };
 		BEEF2B382438DFCD00C0511F /* LinearGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF2B372438DFCD00C0511F /* LinearGradientView.swift */; };
@@ -321,6 +322,7 @@
 		BE940B31242F51DB00147F16 /* pd25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pd25.jpg; sourceTree = "<group>"; };
 		BE9789DD2441B37E00D15A57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		BEE323872446571600EE6D8A /* CircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
 		BEEF2B332438D93B00C0511F /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
 		BEEF2B352438DDE400C0511F /* TrendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendCell.swift; sourceTree = "<group>"; };
 		BEEF2B372438DFCD00C0511F /* LinearGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientView.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 		BE1D454D2442AD2C00363C93 /* downloader */ = {
 			isa = PBXGroup;
 			children = (
+				BEE323872446571600EE6D8A /* CircularProgress.swift */,
 				BE1D454E2442AD3900363C93 /* BaseDataTask.swift */,
 				BE1D45502442AD3F00363C93 /* DownloadDataTask.swift */,
 				BE1D45522442AD4600363C93 /* BaseDownloader.swift */,
@@ -1053,6 +1056,7 @@
 				BEEF2B342438D93B00C0511F /* TrendViewController.swift in Sources */,
 				BEEF2B382438DFCD00C0511F /* LinearGradientView.swift in Sources */,
 				BE8B8A4923BE01AD0003CD57 /* BorderButton.swift in Sources */,
+				BEE323882446571600EE6D8A /* CircularProgress.swift in Sources */,
 				BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */,
 				BE0182ED238197600075E20E /* ImageSquare.swift in Sources */,
 				BEFE5ADE23966049000E567F /* AppConstants.swift in Sources */,

@@ -116,7 +116,9 @@ extension TrendViewController:UICollectionViewDelegate, UICollectionViewDataSour
                 _cell.containerView.layer.cornerRadius = 12
                 _cell.containerView.layer.masksToBounds = true
                 _cell.shadowView.shadowColor = UIColor.black
+                _cell.progressView.bringSubviewToFront(_cell.progressLabel)
             }
+            _cell.progressView.isHidden = _cell.iconImageView.image != nil
             _cell.dateTimeLabel.text = _trendData.publishDate
             _cell.descriptionLabel.text = _trendData.imageDescription
             _cell.premiumImageView.isHidden = !_trendData.premium

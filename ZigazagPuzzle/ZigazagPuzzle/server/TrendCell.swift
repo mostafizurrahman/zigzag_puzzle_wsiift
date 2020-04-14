@@ -14,7 +14,9 @@ class TrendCell: UICollectionViewCell {
     @IBOutlet weak var premiumImageView:UIImageView!
     @IBOutlet weak var dateTimeLabel:UILabel!
     @IBOutlet weak var iconImageView:UIImageView!
-    @IBOutlet weak var  descriptionLabel:UILabel!
+    @IBOutlet weak var descriptionLabel:UILabel!
+    @IBOutlet weak var progressLabel:UILabel!
+    @IBOutlet weak var progressView:CircularProgress!
 }
 
 
@@ -25,16 +27,20 @@ extension TrendCell:DownloaderDelegate {
     
     func onUpdated(percent: Float) {
         
+        self.progressView.setProgressWithAnimation(duration: 0, value: percent)
+        self.progressLabel.text = "LOADING...\n\(Int(percent*100))"
     }
     
     func onDownloaded(image: UIImage) {
         self.iconImageView.image  = image
+        self.progressView.isHidden = true
     }
     
     func didCompleted(data: Data?, withError error: Error?) {
         if let _data = data {
             let image = UIImage(data: _data)
             self.iconImageView.image = image
+            self.progressView.isHidden = true
         }
     }
     
