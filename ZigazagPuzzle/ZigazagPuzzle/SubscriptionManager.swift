@@ -39,7 +39,8 @@ class SubscriptionManager: NSObject {
         
         super.init()
         self.readProductDetails()
-        self.isSubscribed = UserDefaults.standard.bool(forKey: "subscribed")
+        let sub = UserDefaults.standard.bool(forKey: "subscribed")
+        self.isSubscribed = sub
     }
     
     func readProductDetails(){
@@ -58,10 +59,12 @@ class SubscriptionManager: NSObject {
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
             if results.restoreFailedPurchases.count > 0 {
                 print("Restore Failed: \(results.restoreFailedPurchases)")
+                self.subscribe(Status: SM.FAIL)
             } else if results.restoredPurchases.count > 0 {
                 self.verifyPurchase()
                 print("Restore Success: \(results.restoredPurchases)")
             } else {
+                self.subscribe(Status: SM.FAIL)
                 print("Nothing to Restore")
             }
         }
@@ -251,7 +254,7 @@ static var CANCEL: String {
                     break
                 @unknown default:
                     self.subscribe(Status: SM.CANCEL)
-                self.isSubscribed = false
+                    self.isSubscribed = false
                     debugPrint("Uknown Error in subscriptions______________")
                     break // do nothing
                 }

@@ -7,36 +7,25 @@
 //
 
 import UIKit
-import FirebaseStorage
+
 import Firebase
 
 class TrendViewController: UIViewController {
     
     var trendDataArray:[TrendItem] = []
+    var selectedIndex = 0
     var ref: DatabaseReference?
     let downloader = DataDownloader()
 //    var firebaseStorage:StorageReference?
     let _width = UIScreen.main.bounds.size.width
     @IBOutlet weak var trendCollectionView:UICollectionView!
+    
+    var downloadView:DownloadLoadingView?
     override func viewDidLoad() {
         super.viewDidLoad()
-//        firebaseStorage = Storage.storage().reference()
-        
-//        let pathReference = Storage.storage().reference(withPath: "easy_puzzle/asdf.jpg")
-//        pathReference.getData(maxSize: 50 * 1024 * 1024) { data, error in
-//          if let error = error {
-//            debugPrint("__a")
-//            // Uh-oh, an error occurred!
-//          } else {
-//            // Data for "images/island.jpg" is returned
-//            let image = UIImage(data: data!)
-//            debugPrint("__a")
-//          }
-//        }
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 24
         flowLayout.minimumInteritemSpacing = 24
-//        let spacing = UIDevice.current.userInterfaceIdiom == .pad
         flowLayout.sectionInset = UIEdgeInsets.init(top: 8, left: 24, bottom: 8, right: 24)
         
         self.trendCollectionView.collectionViewLayout = flowLayout
@@ -55,8 +44,6 @@ class TrendViewController: UIViewController {
                     }
                 }
                 self.trendDataArray = dataArray
-                self.trendDataArray.append(contentsOf: dataArray)
-                self.trendDataArray.append(contentsOf: dataArray)
                 self.trendDataArray = DataSorting.sortTrendData(array: self.trendDataArray)
                 DispatchQueue.main.async {
                     self.trendCollectionView.reloadData()
@@ -69,36 +56,26 @@ class TrendViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
+    }
+  
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let _imageItem = sender as? ImageItem,
+            let _dest = segue.destination as? PuzzleViewController {
+            self.tabBarController?.tabBar.isHidden = true
+            _dest.puzzleData = _imageItem
+        }
     }
-    */
-    
-    
-//    fileprivate func downloadImage(Named imageNamed:String){
-//        if let storageRef = self.firebaseStorage {
-//            let islandRef = storageRef.child("/\(imageNamed)")
-//
-//            // Download in memory with a maximum allowed size of 2MB (2 * 1024 * 1024 bytes)
-//            islandRef.getData(maxSize: 2 * 1024 * 1024) { data, error in
-//              if let error = error {
-//                // Uh-oh, an error occurred!
-//                debugPrint(error.localizedDescription)
-//              } else if let _data = data {
-//                // Data for "images/island.jpg" is returned
-//                let image = UIImage(data: _data)
-//                debugPrint("done")
-//              }
-//            }
-//        }
-//
-//    }
 
 }
 
@@ -149,7 +126,71 @@ extension TrendViewController:UICollectionViewDelegate, UICollectionViewDataSour
         return self.trendDataArray.count + 1
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            self.selectedIndex = indexPath.row-1
+            let _trendItem = self.trendDataArray[self.selectedIndex]
+            
+            if _trendItem.premium  {
+                if !SubscriptionManager.shared.isSubscribed {
+                    self.performSegue(withIdentifier: "subscription_segue", sender: nil)
+                    self.tabBarController?.tabBar.isHidden = true
+                    return
+                }
+            }
+            self.downloadView  = DownloadLoadingView(frame: self.view.bounds)
+            if let _view = self.downloadView {
+                self.view.addSubview(_view)
+            }
+            if let _view = self.downloadView {
+                AppConstants.animateVisible(toView: _view) { [weak self](_finished) in
+                    if let _self = self {
+                        _self.downloader.download(from: _trendItem.imageFile, delegate: _self)
+                    }
+                }
+            }
+        }
+    }
 }
 
 
-
+extension TrendViewController : DownloaderDelegate {
+    func willBegin(downloadSize size: Int64) {
+        
+    }
+    
+    func onUpdated(percent: Float) {
+        if let _downloadView = self.downloadView {
+            _downloadView.update(percent:percent)
+        }
+    }
+    
+    func onDownloaded(image: UIImage) {
+        self.openPuzzle()
+    }
+    
+    
+    func didCompleted(data: Data?, withError error: Error?) {
+        if error == nil && data != nil {
+            self.openPuzzle()
+        } else if let _view = self.downloadView {
+            AppConstants.animateDeletion(toView: _view)
+        }
+        
+    }
+    
+    func onCanceled() {
+        
+    }
+    
+    
+    func openPuzzle(){
+        if let _downloadView = self.downloadView {
+            AppConstants.animateDeletion(toView: _downloadView) { (_finished) in
+                let _trendItem = self.trendDataArray[self.selectedIndex]
+                self.performSegue(withIdentifier: "puzzle_segue", sender: _trendItem)
+            }
+        }
+    }
+    
+}

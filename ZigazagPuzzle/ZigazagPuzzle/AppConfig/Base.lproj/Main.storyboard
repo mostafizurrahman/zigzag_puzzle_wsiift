@@ -140,21 +140,21 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hD-4h-x0c" customClass="CircularProgress" customModule="ZigazagPuzzle" customModuleProvider="target">
-                                                            <rect key="frame" x="174.5" y="96.5" width="45" height="45"/>
+                                                            <rect key="frame" x="182" y="104" width="30" height="30"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ric-Co-1wn">
-                                                                    <rect key="frame" x="-10" y="15.5" width="65.5" height="14.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ric-Co-1wn">
+                                                                    <rect key="frame" x="15" y="15" width="0.0" height="0.0"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="ric-Co-1wn" firstAttribute="centerX" secondItem="1hD-4h-x0c" secondAttribute="centerX" id="8Wo-ym-Sup"/>
-                                                                <constraint firstAttribute="height" constant="45" id="C4K-Jy-5VZ"/>
+                                                                <constraint firstAttribute="height" constant="30" id="C4K-Jy-5VZ"/>
                                                                 <constraint firstItem="ric-Co-1wn" firstAttribute="centerY" secondItem="1hD-4h-x0c" secondAttribute="centerY" id="E8A-sd-uK5"/>
-                                                                <constraint firstAttribute="width" constant="45" id="L4P-u7-YvO"/>
+                                                                <constraint firstAttribute="width" constant="30" id="L4P-u7-YvO"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -213,7 +213,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="trendCollectionView" destination="qDj-gP-XDU" id="Q71-mf-gHu"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="bOO-0U-5ZR"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="puzzle_segue" id="bOO-0U-5ZR"/>
+                        <segue destination="jO4-Iq-c8P" kind="show" identifier="subscription_segue" id="h6H-e3-Hbv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dz-7w-dGr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -401,7 +402,7 @@
                                                         <constraint firstAttribute="height" constant="100" id="UDo-KQ-Iwv"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="category_3.png" translatesAutoresizingMaskIntoConstraints="NO" id="nyN-89-SpY">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="category_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nyN-89-SpY">
                                                     <rect key="frame" x="281" y="32" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="skC-sH-YDa"/>
@@ -817,7 +818,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9IU-nK-pPG">
-                                                            <rect key="frame" x="146" y="129" width="32" height="32"/>
+                                                            <rect key="frame" x="114" y="97" width="64" height="64"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -972,7 +973,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9YX-yZ-dIy">
-                                                            <rect key="frame" x="16" y="16" width="32" height="32"/>
+                                                            <rect key="frame" x="16" y="16" width="64" height="64"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1072,14 +1073,14 @@
         <image name="banner_subs.jpg" width="1332" height="850"/>
         <image name="category_1.png" width="84" height="84"/>
         <image name="category_2.png" width="82.55999755859375" height="82.55999755859375"/>
-        <image name="category_3.png" width="82.55999755859375" height="82.55999755859375"/>
+        <image name="category_3.jpg" width="82.55999755859375" height="82.55999755859375"/>
         <image name="locked" width="32" height="32"/>
         <image name="logo_small" width="125" height="125"/>
         <image name="settings" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bOO-0U-5ZR"/>
-        <segue reference="pBI-TO-eKu"/>
+        <segue reference="ZYs-D6-fBW"/>
         <segue reference="NQF-sj-j7X"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,7 +28,7 @@ extension TrendCell:DownloaderDelegate {
     func onUpdated(percent: Float) {
         
         self.progressView.setProgressWithAnimation(duration: 0, value: percent)
-        self.progressLabel.text = "LOADING...\n\(Int(percent*100))"
+        self.progressLabel.text = "\(Int(percent*100))%"
     }
     
     func onDownloaded(image: UIImage) {

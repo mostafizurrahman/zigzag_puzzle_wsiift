@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DownloadLoadingView" customModule="ZigazagPuzzle" customModuleProvider="target">
+            <connections>
+                <outlet property="progressLabel" destination="BcM-0U-Mfc" id="tRk-e8-ZAI"/>
+                <outlet property="progressView" destination="8xa-bR-IvV" id="wGm-DJ-r9T"/>
+                <outlet property="shadowView" destination="RNA-qw-94P" id="uWC-UZ-PQ3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLu-sk-icZ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d5q-bq-zF6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNA-qw-94P" customClass="ShadowView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                <rect key="frame" x="94.5" y="339" width="225" height="225"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xa-bR-IvV" customClass="CircularProgress" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                        <rect key="frame" x="92.5" y="92.5" width="40" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Q2u-de-ZU4"/>
+                                            <constraint firstAttribute="width" constant="40" id="xRU-OF-BfG"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcM-0U-Mfc">
+                                        <rect key="frame" x="80" y="164.5" width="65.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="BcM-0U-Mfc" firstAttribute="centerX" secondItem="RNA-qw-94P" secondAttribute="centerX" id="60f-Xc-ITq"/>
+                                    <constraint firstAttribute="height" constant="225" id="BQB-bP-33G"/>
+                                    <constraint firstItem="8xa-bR-IvV" firstAttribute="centerX" secondItem="RNA-qw-94P" secondAttribute="centerX" id="PZh-pw-k8e"/>
+                                    <constraint firstAttribute="width" constant="225" id="Qm2-fV-fa6"/>
+                                    <constraint firstItem="8xa-bR-IvV" firstAttribute="centerY" secondItem="RNA-qw-94P" secondAttribute="centerY" id="bht-iS-vxF"/>
+                                    <constraint firstItem="BcM-0U-Mfc" firstAttribute="top" secondItem="8xa-bR-IvV" secondAttribute="bottom" constant="32" id="gVe-9G-79O"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="RNA-qw-94P" firstAttribute="centerX" secondItem="d5q-bq-zF6" secondAttribute="centerX" id="IoN-nJ-OpF"/>
+                            <constraint firstItem="RNA-qw-94P" firstAttribute="centerY" secondItem="d5q-bq-zF6" secondAttribute="centerY" id="snt-3F-R58"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="zLu-sk-icZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7Uh-iE-IEL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="zLu-sk-icZ" secondAttribute="top" constant="44" id="UnP-le-4rB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zLu-sk-icZ" secondAttribute="trailing" id="w1u-bd-Wf9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zLu-sk-icZ" secondAttribute="bottom" constant="-41" id="ymV-iJ-lZA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
+        </view>
+    </objects>
+</document>

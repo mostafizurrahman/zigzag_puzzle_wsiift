@@ -64,6 +64,11 @@ class CategoryViewController: PhotoViewController {
 //            }
 //        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     // MARK: - Navigation
 

@@ -16,12 +16,14 @@ class DataDownloader: BaseDownloader {
     
     
     
+    
     //1. first object retured is a download id to track an individual download process
     //this first object will be used to determine finished, cancel particular download process
     //associated with the id. if any error occured to nitiate download, this object will be nil
     //2. sencond parameter is Data that is found in the cache, if ther is no
     //caceched data then it will be nil
     //3. third object retured by this method is a data type of the cached object
+    
     func download(from urlPath:String, delegate: DownloaderDelegate) {
    
         if urlPath.contains("http") {
@@ -51,6 +53,14 @@ class DataDownloader: BaseDownloader {
                     }
                 }
             }
+        }
+    }
+    
+    func set(delegate:DownloaderDelegate, forUrl url:String){
+        let (dataTask,_) = super.get(taskForUrl:url)
+        if let _task = dataTask {
+            _task.downloadDelegates.append(delegate)
+            debugPrint("TASK ADDED")
         }
     }
     

@@ -141,6 +141,8 @@
 		BE940B48242F51DB00147F16 /* pd22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE940B30242F51DB00147F16 /* pd22.jpg */; settings = {ASSET_TAGS = (Paradox, ); }; };
 		BE940B49242F51DB00147F16 /* pd25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE940B31242F51DB00147F16 /* pd25.jpg */; settings = {ASSET_TAGS = (Paradox, ); }; };
 		BE9789DE2441B37F00D15A57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE9789DD2441B37E00D15A57 /* GoogleService-Info.plist */; };
+		BED50BB824497953006F6F17 /* DownloadLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED50BB724497953006F6F17 /* DownloadLoadingView.xib */; };
+		BED50BBA24497960006F6F17 /* DownloadLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED50BB924497960006F6F17 /* DownloadLoadingView.swift */; };
 		BEDED3A023B1F75600ABE84A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */; };
 		BEE323882446571600EE6D8A /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE323872446571600EE6D8A /* CircularProgress.swift */; };
 		BEEF2B342438D93B00C0511F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF2B332438D93B00C0511F /* TrendViewController.swift */; };
@@ -321,6 +323,8 @@
 		BE940B30242F51DB00147F16 /* pd22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pd22.jpg; sourceTree = "<group>"; };
 		BE940B31242F51DB00147F16 /* pd25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pd25.jpg; sourceTree = "<group>"; };
 		BE9789DD2441B37E00D15A57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BED50BB724497953006F6F17 /* DownloadLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadLoadingView.xib; sourceTree = "<group>"; };
+		BED50BB924497960006F6F17 /* DownloadLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadLoadingView.swift; sourceTree = "<group>"; };
 		BEDED39F23B1F75600ABE84A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		BEE323872446571600EE6D8A /* CircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
 		BEEF2B332438D93B00C0511F /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
@@ -510,6 +514,8 @@
 				BEF680F624347FC0004FC714 /* SquareBoxes.xib */,
 				BE0156C4242B99FE0041938C /* LoadingView.swift */,
 				BEF680F824348397004FC714 /* SquareBoxes.swift */,
+				BED50BB724497953006F6F17 /* DownloadLoadingView.xib */,
+				BED50BB924497960006F6F17 /* DownloadLoadingView.swift */,
 			);
 			path = GameClass;
 			sourceTree = "<group>";
@@ -883,6 +889,7 @@
 				BE940AC6242F36CE00147F16 /* an14.jpg in Resources */,
 				BE39FA59242E9528002418D7 /* ct7.jpg in Resources */,
 				BE39FA58242E9528002418D7 /* ct13.jpg in Resources */,
+				BED50BB824497953006F6F17 /* DownloadLoadingView.xib in Resources */,
 				BE940ACF242F36CE00147F16 /* an7.jpg in Resources */,
 				BE39FA61242E9DE6002418D7 /* ct4.jpg in Resources */,
 				BE940ACB242F36CE00147F16 /* an11.jpg in Resources */,
@@ -1082,6 +1089,7 @@
 				BE0376C7239C1DAE00F75CC1 /* ImageViewCell.swift in Sources */,
 				BE0182B72381972E0075E20E /* AppDelegate.swift in Sources */,
 				BEFEAE1C239D516F00BBEB65 /* PhotoDataSource.swift in Sources */,
+				BED50BBA24497960006F6F17 /* DownloadLoadingView.swift in Sources */,
 				BEF0F1E923DC2E2C007F7A54 /* TermsViewController.swift in Sources */,
 				BE1D45532442AD4600363C93 /* BaseDownloader.swift in Sources */,
 				BE0376C9239C222B00F75CC1 /* PhotoViewController.swift in Sources */,

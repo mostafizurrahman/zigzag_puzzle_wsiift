@@ -37,7 +37,10 @@ class PhotoViewController: UIViewController,UICollectionViewDelegate {
     }
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
 
     
     // MARK: - Navigation
@@ -56,7 +59,7 @@ class PhotoViewController: UIViewController,UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let data = self.categoryData?.imageItemArray[indexPath.row] {
             if data.premium {
-                if SM.shared.isSubscribed {
+                if SM.shared.isSubscribed || !data.premium {
                     self.performSegue(withIdentifier: "PuzzleSigue", sender: data)
                 } else {
                     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

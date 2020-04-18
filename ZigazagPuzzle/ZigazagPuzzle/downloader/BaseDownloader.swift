@@ -70,7 +70,7 @@ class BaseDownloader: NSObject {
     }
     
     
-    func getImage(fromName imageName:String)->UIImage? {
+   internal func getImage(fromName imageName:String)->UIImage? {
         if let _directory = self.storageUrl {
             let _imageUrl = _directory.appendingPathComponent(imageName)
             if FileManager.default.fileExists(atPath: _imageUrl.path){
@@ -86,17 +86,15 @@ class BaseDownloader: NSObject {
         if let _directory = self.storageUrl {
             let _imageUrl = _directory.appendingPathComponent(imageName)
             let _pathUrl = URL(fileURLWithPath: _imageUrl.path)
-            if !FileManager.default.fileExists(atPath: _pathUrl.path){
-                do {
-                    try data.write(to: _pathUrl)
-                    print("file saved")
-                    return true
-                } catch {
-                    print("error saving file:", error)
+            do {
+                if FileManager.default.fileExists(atPath: _pathUrl.path) {
+                    try FileManager.default.removeItem(at: _pathUrl)
                 }
-            } else {
-                print("image already exist")
+                try data.write(to: _pathUrl)
+                print("file saved")
                 return true
+            } catch {
+                print("error saving file:", error)
             }
         }
         return false
@@ -107,7 +105,7 @@ class BaseDownloader: NSObject {
     
     
     func cancelAllDownloads(ForUrl remotePath:String)->DownloadDataTask?{
-        let (dataTask,idx) = self.getTask(ForUrl: remotePath)
+        let (dataTask,idx) = self.get(taskForUrl: remotePath)
         if let index=idx {
             return self.downloadTaskArray.remove(at: index)
         }
@@ -120,7 +118,7 @@ class BaseDownloader: NSObject {
     }
     
     func cancel(DownloadPath remotePath:String, DownloadID key:String){
-        let (dataTask,_) = self.getTask(ForUrl: remotePath)
+        let (dataTask,_) = self.get(taskForUrl: remotePath)
         if let task = dataTask {
             task.forcedCacel = task.completionHandlers.count == 1
             self.cancel(dataTask: task)
@@ -138,7 +136,7 @@ class BaseDownloader: NSObject {
         return request
     }
     
-    fileprivate func getTask(ForUrl urlPath:String) -> (DownloadDataTask?, Int?) {
+    func get(taskForUrl urlPath:String) -> (DownloadDataTask?, Int?) {
         
         if let index = self.downloadTaskArray.firstIndex(where: { (downloadTask) -> Bool in
             if let request = downloadTask.dataTask.originalRequest,
