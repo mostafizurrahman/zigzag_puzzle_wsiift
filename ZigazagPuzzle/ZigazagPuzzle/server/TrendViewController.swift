@@ -16,7 +16,6 @@ class TrendViewController: UIViewController {
     var selectedIndex = 0
     var ref: DatabaseReference?
     let downloader = DataDownloader()
-//    var firebaseStorage:StorageReference?
     let _width = UIScreen.main.bounds.size.width
     @IBOutlet weak var trendCollectionView:UICollectionView!
     
@@ -98,13 +97,11 @@ extension TrendViewController:UICollectionViewDelegate, UICollectionViewDataSour
             _cell.progressView.isHidden = _cell.iconImageView.image != nil
             _cell.dateTimeLabel.text = _trendData.publishDate
             _cell.descriptionLabel.text = _trendData.imageDescription
-            _cell.premiumImageView.isHidden = !_trendData.premium
-//            self.downloadImage(Named: _trendData.imageFile)
+            _cell.premiumImageView.isHidden = !_trendData.premium || SubscriptionManager.shared.isSubscribed
             return _cell
         }
         
         return UICollectionViewCell()
-//        let _data = TrendItem
     }
     
     func collectionView(_ collectionView: UICollectionView,

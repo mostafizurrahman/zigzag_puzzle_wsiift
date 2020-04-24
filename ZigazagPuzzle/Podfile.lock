@@ -1,4 +1,7 @@
 PODS:
+  - FBAudienceNetwork (5.7.1):
+    - FBSDKCoreKit/Basics (>= 5.6.0)
+  - FBSDKCoreKit/Basics (6.0.0)
   - Firebase/Core (6.18.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.3.0)
@@ -75,12 +78,15 @@ PODS:
   - SwiftyStoreKit (0.15.0)
 
 DEPENDENCIES:
+  - FBAudienceNetwork
   - Firebase/Core
   - Firebase/Database
   - SwiftyStoreKit
 
 SPEC REPOS:
   trunk:
+    - FBAudienceNetwork
+    - FBSDKCoreKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuthInterop
@@ -99,6 +105,8 @@ SPEC REPOS:
     - SwiftyStoreKit
 
 SPEC CHECKSUMS:
+  FBAudienceNetwork: 33fc8c8c07c1cdbf5279784b73729c6410809daa
+  FBSDKCoreKit: fe738b172590e622c86735b45e20d196848b54df
   Firebase: 0490eca762a72e4f1582319539153897f1508dee
   FirebaseAnalytics: 058d71e714a1a6804d9e0f25e3bb18e377a51579
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
@@ -116,6 +124,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
 
-PODFILE CHECKSUM: dd98c4635602476d93416eb6b5613de73ae17640
+PODFILE CHECKSUM: 7290448fa6a6f07ead85903c7d1aad2ccfd90939
 
 COCOAPODS: 1.8.1

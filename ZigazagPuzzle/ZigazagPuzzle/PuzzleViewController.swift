@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import FBAudienceNetwork
+
+
 
 class PuzzleViewController: UIViewController {
-    
+    typealias SM = SubscriptionManager
     var puzzleData:ImageItem?
     @IBOutlet weak var containerView: UIView!
-    var squareHandler:ImageSquareHandler!
+    var squareHandler:ImageSquareHandler?
     var draggingView:ViewSquare?
     var surfaceRect:CGRect?
     var offset:CGPoint = .zero
     var gameOver:Bool = false
     let music = GameMusic()
+    var interstitialAd:FBInterstitialAd?
     
     @IBOutlet weak var loadingView: UIView!
     override func viewDidLoad() {
@@ -28,12 +32,27 @@ class PuzzleViewController: UIViewController {
             self.title = _title
         }
         // Do any additional setup after loading the view.
+        
+        if !SM.shared.isSubscribed {
+            SM.shared.adCounter += 1
+            if SM.shared.adCounter > 2 {
+                self.createAD()
+            }
+        }
+    }
+    
+    fileprivate func createAD(){
+        self.interstitialAd = FBInterstitialAd(placementID: "700050430761530_700051760761397")
+        self.interstitialAd?.delegate = self
+        self.interstitialAd?.load()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.downloadImage()
+        
     }
     
     
@@ -78,11 +97,8 @@ class PuzzleViewController: UIViewController {
                                                                 ScreenHeight: Int(UIScreen.main.bounds.width - 16),
                                                                 Image: imageNamed, inView:self.containerView)
                         self.setControls()
-                        
-                        
                     }
                 }
-                
             }
         }
     }
@@ -107,7 +123,10 @@ class PuzzleViewController: UIViewController {
                
                self.loadingView.removeFromSuperview()
             
+               
             }
+            
+            
         }
     }
     
@@ -128,7 +147,10 @@ class PuzzleViewController: UIViewController {
             self.previewImage?.alpha = 0
             self.previewImage?.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             if let _view = self.previewImage {
-                let image = self.squareHandler.getImage()
+                guard let _handler = self.squareHandler else {
+                    return
+                }
+                let image = _handler.getImage()
                 _view.imageView.image = image
                 self.view.addSubview(_view)
                 AppConstants.animateVisible(toView: _view)
@@ -155,7 +177,10 @@ class PuzzleViewController: UIViewController {
         }
         if !self.gameOver {
             if let point = touches.first?.location(in: self.containerView) {
-                let (_sourceView, _rect) = self.squareHandler.getView(FromPoint: point)
+                guard let _handler = self.squareHandler else {
+                    return
+                }
+                let (_sourceView, _rect) = _handler.getView(FromPoint: point)
                 if let _view = _sourceView{
                     self.surfaceRect = _rect
                     self.draggingView = _view
@@ -184,7 +209,10 @@ class PuzzleViewController: UIViewController {
                         music.play(Sound: "ting")
                         _view.frame = _rect
                         _view.hasCorrectPosition = true
-                        self.gameOver = self.squareHandler.isGameOver()
+                        guard let _handler = self.squareHandler else {
+                            return
+                        }
+                        self.gameOver = _handler.isGameOver()
                         if self.gameOver {
                             _ = SweetAlert().showAlert("WELL DONE!", subTitle: "PUZZLE COMPLETED", style: AlertStyle.success)
                             print("++++++++GAME OVER++++++++")
@@ -219,3 +247,21 @@ class PuzzleViewController: UIViewController {
 
 
 
+extension PuzzleViewController:FBInterstitialAdDelegate {
+    
+    func interstitialAdDidClose(_ interstitialAd: FBInterstitialAd) {
+        
+    }
+    
+    func interstitialAdDidClick(_ interstitialAd: FBInterstitialAd) {
+        
+    }
+    
+    func interstitialAdDidLoad(_ interstitialAd: FBInterstitialAd) {
+        interstitialAd.show(fromRootViewController: self)
+    }
+    
+    func interstitialAd(_ interstitialAd: FBInterstitialAd, didFailWithError error: Error) {
+        debugPrint(error.localizedDescription )
+    }
+}

@@ -75,7 +75,6 @@ class BaseDownloader: NSObject {
             let _imageUrl = _directory.appendingPathComponent(imageName)
             if FileManager.default.fileExists(atPath: _imageUrl.path){
                 let image = UIImage(contentsOfFile: _imageUrl.path)
-                debugPrint("image found AT :: \(_imageUrl.path)")
                 return image
             }
         }
@@ -91,10 +90,9 @@ class BaseDownloader: NSObject {
                     try FileManager.default.removeItem(at: _pathUrl)
                 }
                 try data.write(to: _pathUrl)
-                print("file saved")
                 return true
             } catch {
-                print("error saving file:", error)
+                
             }
         }
         return false

@@ -59,12 +59,11 @@ class PhotoCollectionView: UICollectionView,UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let _cellView = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageViewCell{
+        if let _cellView = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell",
+                                                              for: indexPath) as? ImageViewCell {
             let itemData = self.imageItemArray[indexPath.row]
-            if indexPath.row == 4 {
-                print("why")
-            }
-            _cellView.lockImageView.isHidden = !itemData.premium
+          
+            _cellView.lockImageView.isHidden = !itemData.premium || SubscriptionManager.shared.isSubscribed
             _cellView.thumbImageView.image = AppConstants.getImage(fromPath: itemData.imageIcon)
             if _cellView.parentView.layer.cornerRadius == 0 {
                 _cellView.parentView.layer.cornerRadius = 12

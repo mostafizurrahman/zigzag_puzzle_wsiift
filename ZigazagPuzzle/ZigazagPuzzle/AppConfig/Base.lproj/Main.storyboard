@@ -21,7 +21,9 @@
         <scene sceneID="bp7-tg-TNZ">
             <objects>
                 <navigationController id="EsG-Jk-Xos" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trending" id="XjK-bo-Aee"/>
+                    <tabBarItem key="tabBarItem" title="Trending" image="hearts_tab" id="XjK-bo-Aee">
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fbz-Y6-UAg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -225,7 +227,9 @@
         <scene sceneID="jSU-yP-hFR">
             <objects>
                 <navigationController id="RsC-se-ULh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" id="FYb-tw-0HQ"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="grid_tab" id="FYb-tw-0HQ">
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kZi-ZI-NWU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -740,7 +744,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Cv-sW-1BW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="lQW-sv-4X2"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings_tab" id="lQW-sv-4X2">
+                        <color key="badgeColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="bbJ-P8-pg9"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -818,7 +824,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9IU-nK-pPG">
-                                                            <rect key="frame" x="114" y="97" width="64" height="64"/>
+                                                            <rect key="frame" x="146" y="129" width="32" height="32"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -973,7 +979,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9YX-yZ-dIy">
-                                                            <rect key="frame" x="16" y="16" width="64" height="64"/>
+                                                            <rect key="frame" x="16" y="16" width="32" height="32"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1074,13 +1080,15 @@
         <image name="category_1.png" width="84" height="84"/>
         <image name="category_2.png" width="82.55999755859375" height="82.55999755859375"/>
         <image name="category_3.jpg" width="82.55999755859375" height="82.55999755859375"/>
+        <image name="grid_tab" width="48" height="32"/>
+        <image name="hearts_tab" width="48" height="32"/>
         <image name="locked" width="32" height="32"/>
         <image name="logo_small" width="125" height="125"/>
-        <image name="settings" width="40" height="40"/>
+        <image name="settings_tab" width="48" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bOO-0U-5ZR"/>
-        <segue reference="ZYs-D6-fBW"/>
+        <segue reference="pBI-TO-eKu"/>
         <segue reference="NQF-sj-j7X"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,6 +27,7 @@ class ImageItem{
         imageDimension = _dimension
         onDemand = _download
         premium = _premium
+        
     }
 }
 
@@ -109,6 +110,7 @@ class CategoryData{
                                       _dimension: Int(data["dimension"] as? String ?? "") ?? 0,
                                       _download: data["ondemand"] as? Bool ?? false,
                                       _premium: data["premium"] as? Bool ?? false)
+            
             self.imageItemArray.append(imageItem)
             
         }
@@ -149,7 +151,7 @@ var categoryDataArray : [CategoryData] = []
                         let category = CategoryData(_id: data["category_id"] as? String ?? "",
                                                     _titile: data["category_title"] as? String ?? "",
                                                     _icon: data["icon_image"] as? String ?? "",
-                                                    _data: data["itmes"] as? [AnyObject] ?? [])
+                                                    _data: data["items"] as? [AnyObject] ?? [])
                         self.categoryDataArray.append(category)
                     }
                     self.dataArray = self.categoryDataArray.first?.imageItemArray ?? []
@@ -167,7 +169,6 @@ var categoryDataArray : [CategoryData] = []
         // Drawing code
     }
     */
-
 }
 
 
