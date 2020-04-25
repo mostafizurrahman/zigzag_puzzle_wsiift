@@ -82,6 +82,9 @@ extension TrendViewController:UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let _cell = collectionView.dequeueReusableCell(withReuseIdentifier: "title", for: indexPath)
+            if let _indicator =  _cell.contentView.viewWithTag(111) as? UIActivityIndicatorView {
+                _indicator.isHidden = self.trendDataArray.count != 0
+            }
             return _cell
         }
         

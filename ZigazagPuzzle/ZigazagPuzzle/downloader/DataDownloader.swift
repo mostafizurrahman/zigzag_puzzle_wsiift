@@ -30,7 +30,6 @@ class DataDownloader: BaseDownloader {
             if let imageNamed = urlPath.split(separator: "/").last {
                 if let _image = super.getImage(fromName: String(imageNamed)) {
                     delegate.onDownloaded(image: _image)
-                    debugPrint("image reading from local storage")
                 } else {
                     if self.downloadTaskArray.contains(where:{ $0.fileName == imageNamed}) {
                         for downloadTask in self.downloadTaskArray {

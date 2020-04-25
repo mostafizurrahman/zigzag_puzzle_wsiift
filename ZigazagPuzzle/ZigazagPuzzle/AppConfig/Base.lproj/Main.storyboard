@@ -80,15 +80,21 @@
                                                         <constraint firstAttribute="height" constant="1" id="9Fs-Rg-eiS"/>
                                                     </constraints>
                                                 </view>
+                                                <activityIndicatorView opaque="NO" tag="111" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tKN-xR-7nl">
+                                                    <rect key="frame" x="173.5" y="9" width="37" height="37"/>
+                                                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="uxb-fs-pPN" secondAttribute="bottom" constant="8" id="BvK-Rx-0DH"/>
                                                 <constraint firstItem="8dI-D9-FHN" firstAttribute="leading" secondItem="Vzm-f7-fFi" secondAttribute="leading" id="GDg-lV-TZL"/>
                                                 <constraint firstItem="w8r-xJ-1Ib" firstAttribute="leading" secondItem="Vzm-f7-fFi" secondAttribute="leading" constant="-24" id="REm-04-zxq"/>
+                                                <constraint firstItem="tKN-xR-7nl" firstAttribute="centerX" secondItem="Vzm-f7-fFi" secondAttribute="centerX" id="Xn2-O0-aUg"/>
                                                 <constraint firstAttribute="trailing" secondItem="uxb-fs-pPN" secondAttribute="trailing" id="ZTI-Uw-meB"/>
                                                 <constraint firstAttribute="trailing" secondItem="w8r-xJ-1Ib" secondAttribute="trailing" constant="-24" id="hfO-bE-EVR"/>
                                                 <constraint firstItem="8dI-D9-FHN" firstAttribute="top" secondItem="Vzm-f7-fFi" secondAttribute="top" constant="8" id="jDl-Vd-yfG"/>
                                                 <constraint firstAttribute="bottom" secondItem="w8r-xJ-1Ib" secondAttribute="bottom" id="lXd-bN-j5M"/>
+                                                <constraint firstItem="tKN-xR-7nl" firstAttribute="centerY" secondItem="Vzm-f7-fFi" secondAttribute="centerY" id="ze5-Fg-6kb"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="384" height="55"/>
