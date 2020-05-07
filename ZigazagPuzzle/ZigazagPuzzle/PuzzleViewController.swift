@@ -71,6 +71,17 @@ class PuzzleViewController: UIViewController {
                         resourceRequest.beginAccessingResources { (_error) in
                             if let  _path = resourceRequest.bundle.path(forResource: _data.imageFile, ofType: "") {
                                 self.setView(forImagePath: _path)
+                                resourceRequest.endAccessingResources()
+                            } else {
+                                resourceRequest.endAccessingResources()
+                                DispatchQueue.main.async {
+                                    let alert = UIAlertController.init(title: "", message: "An error occured! Downloading fial...", preferredStyle: UIAlertController.Style.alert)
+                                    let actio = UIAlertAction.init(title: "DISMISS", style: UIAlertAction.Style.default) { (_action) in
+                                        self.navigationController?.popViewController(animated: true)
+                                    }
+                                    alert.addAction(actio)
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                             }
                         }
                     } else {

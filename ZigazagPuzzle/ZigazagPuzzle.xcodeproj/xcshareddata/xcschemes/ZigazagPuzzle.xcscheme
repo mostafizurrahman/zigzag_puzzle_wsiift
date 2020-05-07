@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE0182B22381972E0075E20E"
-               BuildableName = "ZigazagPuzzle.app"
+               BuildableName = "Jigsaw Puzzle.app"
                BlueprintName = "ZigazagPuzzle"
                ReferencedContainer = "container:ZigazagPuzzle.xcodeproj">
             </BuildableReference>
@@ -27,19 +27,17 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-      </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE0182B22381972E0075E20E"
-            BuildableName = "ZigazagPuzzle.app"
+            BuildableName = "Jigsaw Puzzle.app"
             BlueprintName = "ZigazagPuzzle"
             ReferencedContainer = "container:ZigazagPuzzle.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      <Testables>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -56,13 +54,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE0182B22381972E0075E20E"
-            BuildableName = "ZigazagPuzzle.app"
+            BuildableName = "Jigsaw Puzzle.app"
             BlueprintName = "ZigazagPuzzle"
             ReferencedContainer = "container:ZigazagPuzzle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -75,7 +71,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE0182B22381972E0075E20E"
-            BuildableName = "ZigazagPuzzle.app"
+            BuildableName = "Jigsaw Puzzle.app"
             BlueprintName = "ZigazagPuzzle"
             ReferencedContainer = "container:ZigazagPuzzle.xcodeproj">
          </BuildableReference>

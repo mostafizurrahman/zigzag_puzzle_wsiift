@@ -17,7 +17,12 @@ class GameMusic: NSObject {
         guard let url = Bundle.main.url(forResource: soundFile, withExtension: fileType) else { return }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            if #available(iOS 10.0, *) {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            } else {
+                try AVAudioSession.sharedInstance().setCategory(.playback)
+                // Fallback on earlier versions
+            }
             try AVAudioSession.sharedInstance().setActive(true)
             
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/

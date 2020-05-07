@@ -10,11 +10,11 @@ import UIKit
 
 class SquareBoxes: UIView {
 
-    var contentView: UIView!
 
     @IBOutlet var layouts: [NSLayoutConstraint]!
     
     
+    var contentView: UIView!
     var nibName: String {
         return String(describing: type(of: self))
     }

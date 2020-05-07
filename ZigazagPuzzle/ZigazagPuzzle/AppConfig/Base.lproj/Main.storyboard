@@ -39,7 +39,7 @@
         <!--Trend View Controller-->
         <scene sceneID="vQt-dm-SCx">
             <objects>
-                <viewController id="xPE-cj-4J2" customClass="TrendViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xPE-cj-4J2" customClass="TrendViewController" customModule="Jigsaw_Puzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2nf-FC-tsi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,14 +99,14 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="384" height="55"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trend" id="iVg-Hb-F7V" customClass="TrendCell" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trend" id="iVg-Hb-F7V" customClass="TrendCell" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                         <rect key="frame" x="10" y="75" width="394" height="238"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tQC-oX-6DB">
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="238"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2h-lm-70Y" customClass="ShadowView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2h-lm-70Y" customClass="ShadowView" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="394" height="238"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -118,11 +118,11 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7U7-4e-9da" customClass="LinearGradientView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7U7-4e-9da" customClass="LinearGradientView" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="188" width="394" height="50"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="Fl6-ag-Tj5">
-                                                                    <rect key="frame" x="354" y="9" width="32" height="32"/>
+                                                                    <rect key="frame" x="322" y="-7" width="64" height="64"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Descriptions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq8-2V-Xp1">
                                                                     <rect key="frame" x="8" y="25" width="336" height="17"/>
@@ -147,7 +147,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hD-4h-x0c" customClass="CircularProgress" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hD-4h-x0c" customClass="CircularProgress" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                                             <rect key="frame" x="182" y="104" width="30" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ric-Co-1wn">
@@ -251,7 +251,7 @@
         <!--Subscription View Controller-->
         <scene sceneID="WKJ-ee-Osi">
             <objects>
-                <tableViewController storyboardIdentifier="subscription" id="jO4-Iq-c8P" customClass="SubscriptionViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="subscription" id="jO4-Iq-c8P" customClass="SubscriptionViewController" customModule="Jigsaw_Puzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9bW-uj-Nn7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,10 +267,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kL-XR-DMq" customClass="BackgroundShadowView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kL-XR-DMq" customClass="BackgroundShadowView" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJh-Ln-6rR" customClass="BackgroundShadowView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJh-Ln-6rR" customClass="BackgroundShadowView" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                                             <rect key="frame" x="157" y="40" width="100" height="100"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -389,7 +389,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQc-jc-WXp" customClass="BackgroundShadowView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQc-jc-WXp" customClass="BackgroundShadowView" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
@@ -498,7 +498,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6Z-iu-4xe" customClass="BackgroundShadowView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6Z-iu-4xe" customClass="BackgroundShadowView" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
@@ -529,7 +529,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBN-cf-3qB">
                                                     <rect key="frame" x="52" y="146.5" width="310.5" height="75"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID3-kW-rOj" customClass="BorderButton" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID3-kW-rOj" customClass="BorderButton" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="-3.5" width="310.5" height="75"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Heavy" family="SF Pro Display" pointSize="22"/>
                                                             <state key="normal" title="SUBSCRIBE">
@@ -680,7 +680,7 @@
         <!--Settings-->
         <scene sceneID="Wmf-54-EYs">
             <objects>
-                <viewController id="tdg-TK-Y77" customClass="SettingsViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tdg-TK-Y77" customClass="SettingsViewController" customModule="Jigsaw_Puzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nx8-Ly-G8d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -689,7 +689,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settings" rowHeight="65" id="heD-EB-sc8" customClass="SettingTableCell" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settings" rowHeight="65" id="heD-EB-sc8" customClass="SettingTableCell" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="heD-EB-sc8" id="QlZ-CR-jWK">
@@ -766,33 +766,14 @@
         <!--Terms View Controller-->
         <scene sceneID="yjh-Yk-WXg">
             <objects>
-                <viewController id="lDD-bp-60B" customClass="TermsViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lDD-bp-60B" customClass="TermsViewController" customModule="Jigsaw_Puzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qgq-YA-KZx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKD-sP-yUH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="hKD-sP-yUH" firstAttribute="top" secondItem="Pq6-F1-EPN" secondAttribute="top" id="Fmv-9l-aO1"/>
-                            <constraint firstItem="Pq6-F1-EPN" firstAttribute="trailing" secondItem="hKD-sP-yUH" secondAttribute="trailing" id="rHp-aX-JUg"/>
-                            <constraint firstItem="hKD-sP-yUH" firstAttribute="leading" secondItem="Pq6-F1-EPN" secondAttribute="leading" id="rhE-Bg-ZWp"/>
-                            <constraint firstItem="Pq6-F1-EPN" firstAttribute="bottom" secondItem="hKD-sP-yUH" secondAttribute="bottom" id="uoi-ci-Szk"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Pq6-F1-EPN"/>
                     </view>
                     <navigationItem key="navigationItem" id="nL7-uh-OiR"/>
-                    <connections>
-                        <outlet property="termsWebView" destination="hKD-sP-yUH" id="Zxq-BX-o04"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeB-WB-RDz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -801,12 +782,12 @@
         <!--Photo View Controller-->
         <scene sceneID="QAx-BW-FID">
             <objects>
-                <viewController id="Hli-wH-FhR" customClass="PhotoViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hli-wH-FhR" customClass="PhotoViewController" customModule="Jigsaw_Puzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AG6-V5-6EM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T1d-GO-ynI" customClass="PhotoCollectionView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T1d-GO-ynI" customClass="PhotoCollectionView" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f5O-va-p82">
@@ -816,7 +797,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="gxe-CI-z2B" customClass="ImageViewCell" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="gxe-CI-z2B" customClass="ImageViewCell" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -830,7 +811,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9IU-nK-pPG">
-                                                            <rect key="frame" x="146" y="129" width="32" height="32"/>
+                                                            <rect key="frame" x="114" y="97" width="64" height="64"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -885,7 +866,7 @@
         <!--Puzzle View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PuzzleViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PuzzleViewController" customModule="Jigsaw_Puzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -956,12 +937,12 @@
         <!--Category View Controller-->
         <scene sceneID="kV9-Rm-rmA">
             <objects>
-                <viewController id="rMg-gB-XB7" customClass="CategoryViewController" customModule="ZigazagPuzzle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rMg-gB-XB7" customClass="CategoryViewController" customModule="Jigsaw_Puzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zUs-QF-UAc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oyv-8y-p6q" customClass="CategoryCollectionView" customModule="ZigazagPuzzle" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oyv-8y-p6q" customClass="CategoryCollectionView" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6C2-rO-TWr">
@@ -971,7 +952,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="NsQ-sK-Mop" customClass="ImageViewCell" customModule="ZigazagPuzzle" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="NsQ-sK-Mop" customClass="ImageViewCell" customModule="Jigsaw_Puzzle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -985,7 +966,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="165"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked" translatesAutoresizingMaskIntoConstraints="NO" id="9YX-yZ-dIy">
-                                                            <rect key="frame" x="16" y="16" width="32" height="32"/>
+                                                            <rect key="frame" x="16" y="16" width="64" height="64"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

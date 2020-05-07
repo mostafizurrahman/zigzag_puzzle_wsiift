@@ -298,7 +298,7 @@
 		82F45B5AD83AA97AA2A8CA28 /* Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigazagPuzzle_ZigazagPuzzleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0156C2242B99690041938C /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		BE0156C4242B99FE0041938C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		BE0182B32381972E0075E20E /* ZigazagPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigazagPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0182B32381972E0075E20E /* Jigsaw Puzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jigsaw Puzzle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0182B62381972E0075E20E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE0182B82381972E0075E20E /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		BE0182BB2381972E0075E20E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -623,7 +623,7 @@
 		BE0182B42381972E0075E20E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE0182B32381972E0075E20E /* ZigazagPuzzle.app */,
+				BE0182B32381972E0075E20E /* Jigsaw Puzzle.app */,
 				BE0182C7238197310075E20E /* ZigazagPuzzleTests.xctest */,
 				BE0182D2238197310075E20E /* ZigazagPuzzleUITests.xctest */,
 			);
@@ -1087,7 +1087,7 @@
 			);
 			name = ZigazagPuzzle;
 			productName = ZigazagPuzzle;
-			productReference = BE0182B32381972E0075E20E /* ZigazagPuzzle.app */;
+			productReference = BE0182B32381972E0075E20E /* Jigsaw Puzzle.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BE0182C6238197310075E20E /* ZigazagPuzzleTests */ = {
@@ -1756,12 +1756,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2VZ7V842VP;
 				INFOPLIST_FILE = ZigazagPuzzle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.imageapp.zigzagimage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Jigsaw Puzzle";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1775,12 +1776,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2VZ7V842VP;
 				INFOPLIST_FILE = ZigazagPuzzle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.imageapp.zigzagimage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Jigsaw Puzzle";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

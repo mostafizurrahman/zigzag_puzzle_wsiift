@@ -13,10 +13,12 @@ class TermsViewController: UIViewController {
     
     var termsTitle:String?
     var termsFPath:String?
-    @IBOutlet weak var termsWebView: WKWebView!
+    var termsWebView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        termsWebView = WKWebView(frame: self.view.bounds)
+        self.view.addSubview(termsWebView)
         if let _title = self.termsTitle {
             self.title = _title.uppercased()
         }
